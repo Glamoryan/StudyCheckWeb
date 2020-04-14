@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DYrpp7bviv8duYJ42VKI8CjTeKJM1uVVQMTvCmKKGhKe9bRn/8mZZo57JHOAZuuwMbGjg+zIIdzxF7/F6YJ75w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheckWeb.Entities\\StudyCheckWeb.Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
