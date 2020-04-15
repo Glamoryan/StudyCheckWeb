@@ -28,6 +28,7 @@ namespace StudyCheckWeb.MvcWebUI
             }
 
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
