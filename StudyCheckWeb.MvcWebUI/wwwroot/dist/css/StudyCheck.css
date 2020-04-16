@@ -1,0 +1,45 @@
+﻿/*------------- Login Sayfası ---------------*/
+.login-page,
+.register-page {
+    background: #1b384a;
+}
+
+.login-logo a, /* Login Sayfası Başlık*/
+.register-logo a {
+    color: #ff5311;
+}
+
+.login-card-body, /*Login Box*/
+.register-card-body {
+    color: #1b384a;
+}
+
+    .login-card-body .input-group .input-group-text, .register-card-body .input-group .input-group-text {
+        color: #ff5311;
+    }
+
+.input-group > .custom-select:not(:last-child), .input-group > .form-control:not(:last-child)::placeholder {
+    color: #1b384a;
+}
+
+.btn-primary {
+    color: white;
+    background: #ff5311;
+    border-color: #ff5311;
+}
+
+.btn-primary:hover {
+    background: #1b384a;
+    border-color: #1b384a;
+}
+
+.icheck-primary > input:first-child:checked + input[type=hidden] + label::before, .icheck-primary > input:first-child:checked + label::before {
+    background-color: #ff5311;
+    border-color: #ff5311;
+}
+
+card-body login-card-body .mb-1,a {
+    color: #ff5311;
+}
+
+/*------------- Login Sayfası ---------------END*/
