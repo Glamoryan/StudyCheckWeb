@@ -25,6 +25,15 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "StudyCheck.Core/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/StudyCheck.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StudyCheck.Core.dll": {}
+        }
       }
     }
   },
@@ -171,11 +180,17 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "StudyCheck.Core/1.0.0": {
+      "type": "project",
+      "path": "../StudyCheck.Core/StudyCheck.Core.csproj",
+      "msbuildProject": "../StudyCheck.Core/StudyCheck.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "NETStandard.Library >= 2.0.3"
+      "NETStandard.Library >= 2.0.3",
+      "StudyCheck.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -207,7 +222,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Core\\StudyCheck.Core.csproj": {
+              "projectPath": "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Core\\StudyCheck.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
