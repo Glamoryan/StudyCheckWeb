@@ -1,9 +1,4 @@
 ﻿/*------------- Login Sayfası ---------------*/
-.login-page,
-.register-page {
-    background: #1b384a;
-}
-
 .login-logo a, /* Login Sayfası Başlık*/
 .register-logo a {
     color: #ff5311;
