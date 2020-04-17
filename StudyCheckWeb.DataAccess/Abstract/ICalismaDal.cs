@@ -6,7 +6,7 @@ using System.Text;
 
 namespace StudyCheckWeb.DataAccess.Abstract
 {
-    public interface IUyeDetayDal:IEntityRepository<Uyedetay>
+    public interface ICalismaDal:IEntityRepository<Calisma>
     {
     }
 }
