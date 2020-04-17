@@ -8,8 +8,4 @@
     <ProjectReference Include="..\StudyCheck.Core\StudyCheck.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dtos\" />
-  </ItemGroup>
-
 </Project>
