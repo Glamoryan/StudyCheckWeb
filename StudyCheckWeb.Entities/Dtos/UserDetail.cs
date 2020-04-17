@@ -1,4 +1,4 @@
-﻿using StudyCheck.Core.Entities;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ namespace StudyCheckWeb.Entities.Dtos
     /// <summary>
     /// Uye ve Uyedetay tablosunun birleşimi
     /// </summary>
-    public class UserDetail:IDto
+    public class UserDetail
     {
         public int uye_id { get; set; }
         public int uyedetay_id { get; set; }

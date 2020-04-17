@@ -1,11 +1,11 @@
-﻿using StudyCheck.Core.Entities;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace StudyCheckWeb.Entities.Concrete
 {
-    public class Uyedetay:IEntity
+    public class Uyedetay
     {
         public int id { get; set; }
         public int uye_id { get; set; }

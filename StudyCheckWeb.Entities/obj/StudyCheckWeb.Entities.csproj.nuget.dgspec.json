@@ -4,17 +4,6 @@
     "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheckWeb.Entities\\StudyCheckWeb.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Core\\StudyCheck.Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Core\\StudyCheck.Core.csproj",
-        "projectName": "StudyCheck.Core",
-        "projectPath": "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Core\\StudyCheck.Core.csproj"
-      },
-      "frameworks": {
-        "net461": {}
-      }
-    },
     "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheckWeb.Entities\\StudyCheckWeb.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -40,11 +29,7 @@
         },
         "frameworks": {
           "netstandard2.0": {
-            "projectReferences": {
-              "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Core\\StudyCheck.Core.csproj": {
-                "projectPath": "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Core\\StudyCheck.Core.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

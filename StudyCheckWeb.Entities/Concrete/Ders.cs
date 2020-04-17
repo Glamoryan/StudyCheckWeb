@@ -1,11 +1,10 @@
-﻿using StudyCheck.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace StudyCheckWeb.Entities.Concrete
 {
-    public class Ders:IEntity
+    public class Ders
     {
         public int id { get; set; }
         public int sinav_id { get; set; }
