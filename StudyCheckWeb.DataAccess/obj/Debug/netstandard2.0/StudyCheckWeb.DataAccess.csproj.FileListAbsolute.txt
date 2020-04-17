@@ -1,0 +1,13 @@
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\StudyCheck.Core.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\StudyCheckWeb.Entities.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\EntityFramework.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\FluentValidation.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\PostSharp.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\StudyCheck.Core.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\StudyCheck.Core.dll.config
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\EntityFramework.xml
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\FluentValidation.xml
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\PostSharp.xml
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\obj\Debug\netstandard2.0\StudyCheckWeb.DataAccess.csprojAssemblyReference.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\obj\Debug\netstandard2.0\StudyCheckWeb.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\obj\Debug\netstandard2.0\StudyCheckWeb.DataAccess.AssemblyInfo.cs
