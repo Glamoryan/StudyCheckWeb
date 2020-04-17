@@ -10,6 +10,11 @@ namespace StudyCheckWeb.DataAccess.Concrete.EntityFramework.Contexts
 {
     public class StudyCheckContext:DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;initial catalog=StudyCheck;integrated security=true");
+        }
+
         public DbSet<Uye> Uyeler { get; set; }
         public DbSet<Uyedetay> UyeDetay { get; set; }
         public DbSet<Yetki> Yetkiler { get; set; }
