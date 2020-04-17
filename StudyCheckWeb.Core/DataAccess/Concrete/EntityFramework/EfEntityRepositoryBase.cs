@@ -45,7 +45,7 @@ namespace StudyCheckWeb.Core.DataAccess.Concrete.EntityFramework
         {
             using (TContext context = new TContext())
             {
-                return filter == null ? context.Set<TEntity>().ToList() : context.Set<TEntity>().Where(filter).ToList();
+                return filter == null ? context.Set<TEntity>().ToListAsync().Result : context.Set<TEntity>().Include(filter).ToListAsync().Result;
             }
         }
 
