@@ -1,0 +1,8 @@
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Core\bin\Debug\netstandard2.0\StudyCheckWeb.Core.deps.json
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Core\bin\Debug\netstandard2.0\StudyCheckWeb.Core.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Core\bin\Debug\netstandard2.0\StudyCheckWeb.Core.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Core\obj\Debug\netstandard2.0\StudyCheckWeb.Core.csproj.CoreCompileInputs.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Core\obj\Debug\netstandard2.0\StudyCheckWeb.Core.AssemblyInfoInputs.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Core\obj\Debug\netstandard2.0\StudyCheckWeb.Core.AssemblyInfo.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Core\obj\Debug\netstandard2.0\StudyCheckWeb.Core.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Core\obj\Debug\netstandard2.0\StudyCheckWeb.Core.pdb

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using StudyCheckWeb.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace StudyCheckWeb.Entities.Concrete
 {
-    public class Calisma
+    public class Calisma:IEntity
     {
         public int id { get; set; }
         public int uye_id { get; set; }

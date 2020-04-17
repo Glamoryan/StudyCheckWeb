@@ -10,3 +10,5 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\obj\Debug\net
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\obj\Debug\netstandard2.0\StudyCheckWeb.DataAccess.csproj.CopyComplete
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\obj\Debug\netstandard2.0\StudyCheckWeb.DataAccess.dll
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\obj\Debug\netstandard2.0\StudyCheckWeb.DataAccess.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\StudyCheckWeb.Core.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.DataAccess\bin\Debug\netstandard2.0\StudyCheckWeb.Core.pdb

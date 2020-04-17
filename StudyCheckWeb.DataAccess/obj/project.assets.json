@@ -26,9 +26,22 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "StudyCheckWeb.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/StudyCheckWeb.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StudyCheckWeb.Core.dll": {}
+        }
+      },
       "StudyCheckWeb.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "StudyCheckWeb.Core": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/StudyCheckWeb.Entities.dll": {}
         },
@@ -181,6 +194,11 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "StudyCheckWeb.Core/1.0.0": {
+      "type": "project",
+      "path": "../StudyCheckWeb.Core/StudyCheckWeb.Core.csproj",
+      "msbuildProject": "../StudyCheckWeb.Core/StudyCheckWeb.Core.csproj"
     },
     "StudyCheckWeb.Entities/1.0.0": {
       "type": "project",

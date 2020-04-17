@@ -6,3 +6,7 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Debug\netst
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Debug\netstandard2.0\StudyCheckWeb.Entities.AssemblyInfo.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Debug\netstandard2.0\StudyCheckWeb.Entities.dll
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Debug\netstandard2.0\StudyCheckWeb.Entities.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\bin\Debug\netstandard2.0\StudyCheckWeb.Core.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\bin\Debug\netstandard2.0\StudyCheckWeb.Core.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Debug\netstandard2.0\StudyCheckWeb.Entities.csprojAssemblyReference.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Debug\netstandard2.0\StudyCheckWeb.Entities.csproj.CopyComplete

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using StudyCheckWeb.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace StudyCheckWeb.Entities.Concrete
 {
-    public class Rol
+    public class Rol : IEntity
     {
         public int id { get; set; }
         public string rol_adi { get; set; }

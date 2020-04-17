@@ -1,11 +1,12 @@
 ﻿
+using StudyCheckWeb.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace StudyCheckWeb.Entities.Concrete
 {
-    public class Tema
+    public class Tema : IEntity
     {
         public int id { get; set; }
         public string tema_adi { get; set; }
