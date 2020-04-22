@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 {
+    [Area("Sign")]
     public class RegisterController : Controller
     {
         public IActionResult Index()
