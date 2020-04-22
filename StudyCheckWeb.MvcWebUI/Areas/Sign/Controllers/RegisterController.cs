@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace StudyCheckWeb.MvcWebUI.Controllers
+namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 {
     public class RegisterController : Controller
     {

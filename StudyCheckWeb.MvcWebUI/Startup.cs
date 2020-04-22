@@ -16,6 +16,7 @@ namespace StudyCheckWeb.MvcWebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
             services.AddControllersWithViews();
         }
 
@@ -27,15 +28,23 @@ namespace StudyCheckWeb.MvcWebUI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapAreaControllerRoute(
+                    name:"SiteyeGiriþ",
+                    areaName:"Sign",
+                    pattern:"sign/{controller=Login}/{action=Index}/{id?}"
+                    );
+
                 endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Login}/{action=Index}/{id?}"
-                );
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                    );               
             });
         }
 
