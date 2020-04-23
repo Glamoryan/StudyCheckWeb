@@ -83,8 +83,6 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\bin\Debug\netco
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.csprojAssemblyReference.cache
-C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.csproj.CoreCompileInputs.cache
-C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.RazorAssemblyInfo.cache
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.RazorAssemblyInfo.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.AssemblyInfoInputs.cache
@@ -109,3 +107,10 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netco
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Sign\Views\Register\Index.cshtml.g.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Sign\Views\_ViewImports.cshtml.g.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Sign\Views\Shared\_SignLayout.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Admin\Index.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\_ViewImports.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.csproj.CoreCompileInputs.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Shared\_Footer.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Shared\_Header.cshtml.g.cs

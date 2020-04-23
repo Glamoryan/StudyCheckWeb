@@ -36,6 +36,12 @@ namespace StudyCheckWeb.MvcWebUI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapAreaControllerRoute(
+                    name:"AdminPaneli",
+                    areaName:"Administrator",
+                    pattern:"admin/{controller=Admin}/{action=Index}/{id?}"
+                    );
+
+                endpoints.MapAreaControllerRoute(
                     name:"SiteyeGiriþ",
                     areaName:"Sign",
                     pattern:"sign/{controller=Login}/{action=Index}/{id?}"
