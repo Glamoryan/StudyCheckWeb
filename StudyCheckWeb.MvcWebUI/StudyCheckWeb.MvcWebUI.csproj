@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="Areas\Administrator\Views\" />
     <Folder Include="Areas\Sign\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>

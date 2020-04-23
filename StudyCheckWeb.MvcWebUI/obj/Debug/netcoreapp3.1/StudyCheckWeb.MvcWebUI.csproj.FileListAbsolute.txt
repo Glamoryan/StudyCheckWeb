@@ -108,3 +108,4 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netco
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Sign\Views\Login\Index.cshtml.g.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Sign\Views\Register\Index.cshtml.g.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Sign\Views\_ViewImports.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Sign\Views\Shared\_SignLayout.cshtml.g.cs
