@@ -254,7 +254,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer clearfix">
-                        <button onclick="ekle('deneme','2 ay')" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
+                        <button data-toggle="modal" data-target="#modal-default" onclick="" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
                     </div>
                 </div>
                 <!-- /.card -->
@@ -265,8 +265,47 @@
 </section>
 <!-- /.content -->
 
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Yapılacak İşlem Ekle</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>Başlık</p>
+                        <input type="text" id="mesaj" value="" />
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Süre</p>
+                        <input type="text" id="sure" value="" />
+                    </div>                    
+                </div>                
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                <button onclick="bilgiAl()" type="button" class="btn btn-primary">Ekle</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
 <script>
-    function ekle(mesaj,sure) {        
+    function bilgiAl() {        
+        var msg = document.getElementById("mesaj").value;
+        var tm = document.getElementById("sure").value;
+        ekle(msg, tm);
+    }
+
+    function ekle(mesaj, sure) {
+        var adet = document.getElementById("todoList").getElementsByTagName("li").length+1;
         var li = document.createElement("li");
         li.innerHTML = `
                         <span class="handle">
@@ -274,8 +313,8 @@
                         <i class="fas fa-ellipsis-v"></i>
                         </span>
                         <div class="icheck-primary d-inline ml-2">
-                        <input type="checkbox" value="" name="todo6" id="todoCheck6">
-                        <label for="todoCheck6"></label>
+                        <input type="checkbox" value="" name="todo${adet}" id="todoCheck${adet}">
+                        <label for="todoCheck${adet}"></label>
                         </div>
                         <span class="text">${mesaj}</span>
                         <small class="badge badge-primary"><i class="far fa-clock"></i> ${sure}</small>
