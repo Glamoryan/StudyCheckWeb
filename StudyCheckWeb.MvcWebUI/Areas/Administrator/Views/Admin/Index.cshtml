@@ -148,113 +148,12 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <ul id="todoList" class="todo-list" data-widget="todo-list">
-                            <li>
-                                <!-- drag handle -->
-                                <span class="handle">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </span>
-                                <!-- checkbox -->
-                                <div class="icheck-primary d-inline ml-2">
-                                    <input type="checkbox" value="" name="todo1" id="todoCheck1">
-                                    <label for="todoCheck1"></label>
-                                </div>
-                                <!-- todo text -->
-                                <span class="text">Design a nice theme</span>
-                                <!-- Emphasis label -->
-                                <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
-                                <!-- General tools such as edit or delete-->
-                                <div class="tools">
-                                    <i onclick="cikar(this)" class="fas fa-trash"></i>
-                                    <i class="fas fa-trash-o"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="handle">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </span>
-                                <div class="icheck-primary d-inline ml-2">
-                                    <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
-                                    <label for="todoCheck2"></label>
-                                </div>
-                                <span class="text">Make the theme responsive</span>
-                                <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
-                                <div class="tools">
-                                    <i onclick="cikar(this)" class="fas fa-trash"></i>
-                                    <i class="fas fa-trash-o"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="handle">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </span>
-                                <div class="icheck-primary d-inline ml-2">
-                                    <input type="checkbox" value="" name="todo3" id="todoCheck3">
-                                    <label for="todoCheck3"></label>
-                                </div>
-                                <span class="text">Let theme shine like a star</span>
-                                <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
-                                <div class="tools">
-                                    <i onclick="cikar(this)" class="fas fa-trash"></i>
-                                    <i class="fas fa-trash-o"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="handle">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </span>
-                                <div class="icheck-primary d-inline ml-2">
-                                    <input type="checkbox" value="" name="todo4" id="todoCheck4">
-                                    <label for="todoCheck4"></label>
-                                </div>
-                                <span class="text">Let theme shine like a star</span>
-                                <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
-                                <div class="tools">
-                                    <i onclick="cikar(this)" class="fas fa-trash"></i>
-                                    <i class="fas fa-trash-o"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="handle">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </span>
-                                <div class="icheck-primary d-inline ml-2">
-                                    <input type="checkbox" value="" name="todo5" id="todoCheck5">
-                                    <label for="todoCheck5"></label>
-                                </div>
-                                <span class="text">Check your messages and notifications</span>
-                                <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
-                                <div class="tools">
-                                    <i onclick="cikar(this)" class="fas fa-trash"></i>
-                                    <i class="fas fa-trash-o"></i>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="handle">
-                                    <i class="fas fa-ellipsis-v"></i>
-                                    <i class="fas fa-ellipsis-v"></i>
-                                </span>
-                                <div class="icheck-primary d-inline ml-2">
-                                    <input type="checkbox" value="" name="todo6" id="todoCheck6">
-                                    <label for="todoCheck6"></label>
-                                </div>
-                                <span class="text">Let theme shine like a star</span>
-                                <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
-                                <div class="tools">
-                                    <i onclick="cikar(this)" class="fas fa-trash"></i>
-                                    <i class="fas fa-trash-o"></i>
-                                </div>
-                            </li>
+                        <ul id="todoList" class="todo-list" data-widget="todo-list">                            
                         </ul>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer clearfix">
-                        <button data-toggle="modal" data-target="#modal-default" onclick="" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
+                        <button data-toggle="modal" data-target="#modal-default" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
                     </div>
                 </div>
                 <!-- /.card -->
@@ -274,22 +173,25 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p>Başlık</p>
-                        <input type="text" id="mesaj" value="" />
+            <form id="todo-form" name="form">
+                <div class="modal-body">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <input class="form-control" type="text" id="mesaj" value="" placeholder="Başlık" />
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <p>Süre</p>
-                        <input type="text" id="sure" value="" />
-                    </div>                    
-                </div>                
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
-                <button onclick="bilgiAl()" type="button" class="btn btn-primary">Ekle</button>
-            </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <input class="form-control" type="text" id="sure" value="" placeholder="Süre" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">Ekle</button>
+                </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -297,37 +199,4 @@
 </div>
 <!-- /.modal -->
 
-<script>
-    function bilgiAl() {        
-        var msg = document.getElementById("mesaj").value;
-        var tm = document.getElementById("sure").value;
-        ekle(msg, tm);
-    }
-
-    function ekle(mesaj, sure) {
-        var adet = document.getElementById("todoList").getElementsByTagName("li").length+1;
-        var li = document.createElement("li");
-        li.innerHTML = `
-                        <span class="handle">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                        </span>
-                        <div class="icheck-primary d-inline ml-2">
-                        <input type="checkbox" value="" name="todo${adet}" id="todoCheck${adet}">
-                        <label for="todoCheck${adet}"></label>
-                        </div>
-                        <span class="text">${mesaj}</span>
-                        <small class="badge badge-primary"><i class="far fa-clock"></i> ${sure}</small>
-                        <div class="tools">
-                        <i onclick="cikar(this)" class="fas fa-trash"></i>
-                        <i class="fas fa-trash-o"></i>
-                        </div>`;
-        document.getElementById("todoList").appendChild(li);
-    }
-
-    function cikar(el) {
-        var tools = el.parentElement;
-        var li = tools.parentElement;
-        li.remove();
-    }
-</script>
+<script src="~/scripts/adminPanel/todo.js"></script>
