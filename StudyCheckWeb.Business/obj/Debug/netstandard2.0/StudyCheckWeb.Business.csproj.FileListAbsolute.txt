@@ -7,3 +7,10 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Debug\netst
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Debug\netstandard2.0\StudyCheckWeb.Business.AssemblyInfo.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Debug\netstandard2.0\StudyCheckWeb.Business.dll
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Debug\netstandard2.0\StudyCheckWeb.Business.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Debug\netstandard2.0\StudyCheckWeb.Core.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Debug\netstandard2.0\StudyCheckWeb.DataAccess.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Debug\netstandard2.0\StudyCheckWeb.Entities.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Debug\netstandard2.0\StudyCheckWeb.DataAccess.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Debug\netstandard2.0\StudyCheckWeb.Entities.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Debug\netstandard2.0\StudyCheckWeb.Core.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Debug\netstandard2.0\StudyCheckWeb.Business.csproj.CopyComplete
