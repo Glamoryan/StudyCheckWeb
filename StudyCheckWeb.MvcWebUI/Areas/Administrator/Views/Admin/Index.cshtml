@@ -148,7 +148,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <ul class="todo-list" data-widget="todo-list">
+                        <ul id="todoList" class="todo-list" data-widget="todo-list">
                             <li>
                                 <!-- drag handle -->
                                 <span class="handle">
@@ -254,7 +254,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer clearfix">
-                        <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
+                        <button onclick="ekle()" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
                     </div>
                 </div>
                 <!-- /.card -->
@@ -266,7 +266,27 @@
 <!-- /.content -->
 
 <script>
-    function cikar(el) {        
+    function ekle() {        
+        var li = document.createElement("li");
+        li.innerHTML = `
+                        <span class="handle">
+                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                        </span>
+                        <div class="icheck-primary d-inline ml-2">
+                        <input type="checkbox" value="" name="todo6" id="todoCheck6">
+                        <label for="todoCheck6"></label>
+                        </div>
+                        <span class="text">Let theme shine like a star</span>
+                        <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
+                        <div class="tools">
+                        <i onclick="cikar(this)" class="fas fa-trash"></i>
+                        <i class="fas fa-trash-o"></i>
+                        </div>`;
+        document.getElementById("todoList").appendChild(li);
+    }
+
+    function cikar(el) {
         var tools = el.parentElement;
         var li = tools.parentElement;
         li.remove();
