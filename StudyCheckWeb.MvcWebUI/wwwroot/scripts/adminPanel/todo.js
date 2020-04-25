@@ -16,7 +16,7 @@ function deleteTodoFromStorage(el) {
     let todos = getTodosFromStorage();
     todos.forEach(function (todo, index) {
         if (todo === el) {
-            todos.splice(index, 1);
+            todos.splice(index, 1);            
         }
     });
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -29,7 +29,7 @@ function bilgiAl() {
 }
 
 function addTodo(e) {
-    const newTodo = todoInput.value.trim();
+    const newTodo = [todoInput.value.trim(), todoInputSure.value.trim()];
     const varmi = getTodosFromStorage();
     let mevcut = false;
     varmi.forEach(function (todo) {
@@ -54,7 +54,7 @@ function addTodoToStorage(newTodo) {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function ekle(mesaj) {    
+function ekle(todo) {    
     var adet = document.getElementById("todoList").getElementsByTagName("li").length + 1;
     var li = document.createElement("li");
     li.innerHTML = `
@@ -66,8 +66,8 @@ function ekle(mesaj) {
                     <input type="checkbox" value="" name="todo${adet}" id="todoCheck${adet}">
                     <label for="todoCheck${adet}"></label>
                     </div>
-                    <span class="text">${mesaj}</span>
-                    <small class="badge badge-primary"><i class="far fa-clock"></i>2 saat</small>
+                    <span class="text">${todo[0]}</span>
+                    <small class="badge badge-primary"><i class="far fa-clock"></i>${todo[1]}</small>
                     <div class="tools">
                     <i onclick="cikar(this)" class="fas fa-trash"></i>
                     <i class="fas fa-trash-o"></i>
@@ -80,7 +80,7 @@ function cikar(el) {
     if (el.className === "fas fa-trash") {
         var tools = el.parentElement;
         var li = tools.parentElement;
-        var text = li.getElementsByTagName('span')[1].textContent;
+        var text = li.getElementsByTagName('span')[1].textContent;        
         li.remove();
         deleteTodoFromStorage(text);        
     }        
