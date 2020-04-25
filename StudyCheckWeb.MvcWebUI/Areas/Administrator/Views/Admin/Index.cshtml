@@ -254,7 +254,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer clearfix">
-                        <button onclick="ekle()" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
+                        <button onclick="ekle('deneme','2 ay')" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
                     </div>
                 </div>
                 <!-- /.card -->
@@ -266,7 +266,7 @@
 <!-- /.content -->
 
 <script>
-    function ekle() {        
+    function ekle(mesaj,sure) {        
         var li = document.createElement("li");
         li.innerHTML = `
                         <span class="handle">
@@ -277,8 +277,8 @@
                         <input type="checkbox" value="" name="todo6" id="todoCheck6">
                         <label for="todoCheck6"></label>
                         </div>
-                        <span class="text">Let theme shine like a star</span>
-                        <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
+                        <span class="text">${mesaj}</span>
+                        <small class="badge badge-primary"><i class="far fa-clock"></i> ${sure}</small>
                         <div class="tools">
                         <i onclick="cikar(this)" class="fas fa-trash"></i>
                         <i class="fas fa-trash-o"></i>
