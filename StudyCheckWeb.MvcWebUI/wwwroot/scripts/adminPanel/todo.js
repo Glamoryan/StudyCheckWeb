@@ -33,12 +33,12 @@ function addTodo(e) {
     const varmi = getTodosFromStorage();
     let mevcut = false;
     varmi.forEach(function (todo) {
-        if (todo === newTodo) {
+        if (todo[0] === newTodo[0]) {
             return mevcut = true;
         }
     });
-    if (newTodo === "") {
-        alert("Boş geçilemez");
+    if (newTodo[0] === "") {
+        alert("Başlık boş geçilemez");
     } else if (mevcut) {
         alert("Zaten mevcut");
     } else {
@@ -55,6 +55,9 @@ function addTodoToStorage(newTodo) {
 }
 
 function ekle(todo) {    
+    if (todo[1] === "") {
+        todo[1] = "1 saat";
+    }
     var adet = document.getElementById("todoList").getElementsByTagName("li").length + 1;
     var li = document.createElement("li");
     li.innerHTML = `
@@ -67,13 +70,14 @@ function ekle(todo) {
                     <label for="todoCheck${adet}"></label>
                     </div>
                     <span class="text">${todo[0]}</span>
-                    <small class="badge badge-primary"><i class="far fa-clock"></i>${todo[1]}</small>
+                    <small class="badge badge-primary"><i class="far fa-clock"></i> ${todo[1]}</small>
                     <div class="tools">
                     <i onclick="cikar(this)" class="fas fa-trash"></i>
                     <i class="fas fa-trash-o"></i>
                     </div>`;
     document.getElementById("todoList").appendChild(li);
     todoInput.value = "";
+    todoInputSure.value = "";
 }
 
 function cikar(el) {
