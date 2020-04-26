@@ -15,7 +15,7 @@ function eventListeners() {
 function deleteTodoFromStorage(el) {
     let todos = getTodosFromStorage();
     todos.forEach(function (todo, index) {
-        if (todo === el) {
+        if (todo[0] === el) {
             todos.splice(index, 1);            
         }
     });
