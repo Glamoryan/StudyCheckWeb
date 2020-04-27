@@ -45,5 +45,7 @@ card-body login-card-body .mb-1,a {
     color:#ff5311;
 }
 
-
-/*------------- Admin Sayfası ------------------*/
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+    background-color:#ff5311;
+}
+    /*------------- Admin Sayfası ------------------*/
