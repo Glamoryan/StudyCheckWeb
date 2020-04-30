@@ -4,5 +4,67 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>KullaniciListesi</h1>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kullanıcı Listesi</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Kullanıcı İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Kullanıcı Listesi</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Tüm Kullanıcılar</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Uye Id</th>
+                                <th>Uye Adı</th>
+                                <th>Uye Soyadı</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>E-Mail</th>
+                                <th>Kayıt Tarihi</th>
+                                <th>Rol</th>
+                                <th>Durum</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Adnan</td>
+                                <td>Özdemir</td>
+                                <td>Admin</td>
+                                <td>admin@mail.com</td>
+                                <td>01.05.2020</td>
+                                <td>admin</td>
+                                <td>aktif</td>
+                                <td><i class="fa fa-remove"></i></td>
+                            </tr>                            
+                        </tbody>                        
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</section>
+
+
 
