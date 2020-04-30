@@ -10,7 +10,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a asp-area="administrator" asp-controller="admin" asp-action="Index" class="nav-link">Anasayfa</a>
+            <a asp-area="administrator" asp-controller="dashboard" asp-action="Index" class="nav-link">Anasayfa</a>
         </li>        
     </ul>        
 
@@ -33,7 +33,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a asp-area="administrator" asp-controller="admin" asp-action="Index" class="brand-link">
+    <a asp-area="administrator" asp-controller="dashboard" asp-action="Index" class="brand-link">
         <img src="~/dist/img/study_32px.png" alt="StudyCheck Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span style="color:#ff5311;" class="brand-text font-weight-light">StudyCheck</span>
@@ -57,15 +57,15 @@
                 <!-- Add icons to the links using the .nav-icon class
     with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview menu-open">
-                    <a asp-area="administrator" asp-controller="admin" asp-action="Index" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                    <a asp-area="administrator" asp-controller="dashboard" asp-action="Index" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Action"].ToString() == "KullaniciListesi"  ? "menu-open" : "")">
-                    <a href="#" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString()=="KullaniciListesi" ? "active":"")">
+                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString() == "Kullanici"  ? "menu-open" : "")">
+                    <a href="#" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString()=="Kullanici" ? "active":"")">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Kullanıcı İşlemleri
@@ -74,13 +74,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a asp-area="administrator" asp-controller="admin" asp-action="kullaniciListesi" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "KullaniciListesi" ? "active" : "")">
+                            <a asp-area="administrator" asp-controller="kullanici" asp-action="kullaniciListesi" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "KullaniciListesi" ? "active" : "")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Kullanıcı Listesi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a asp-area="administrator" asp-controller="admin" asp-action="kullaniciEkle" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "KullaniciEkle" ? "active" : "")">
+                            <a asp-area="administrator" asp-controller="kullanici" asp-action="kullaniciEkle" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "KullaniciEkle" ? "active" : "")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Kullanıcı Ekle</p>
                             </a>

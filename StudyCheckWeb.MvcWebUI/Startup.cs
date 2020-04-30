@@ -38,7 +38,7 @@ namespace StudyCheckWeb.MvcWebUI
                 endpoints.MapAreaControllerRoute(
                     name:"AdminPaneli",
                     areaName:"Administrator",
-                    pattern:"panel/{controller=Admin}/{action=Index}/{id?}"
+                    pattern:"panel/{controller=Dashboard}/{action=Index}/{id?}"
                     );
 
                 endpoints.MapAreaControllerRoute(

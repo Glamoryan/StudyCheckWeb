@@ -7,21 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
-    public class AdminController : Controller
+    public class DashboardController : Controller
     {
         public IActionResult Index()
         {
             return View();
         } 
-
-        public IActionResult KullaniciListesi()
-        {
-            return View();
-        }
-
-        public IActionResult KullaniciEkle()
-        {
-            return View();
-        }
     }
 }
