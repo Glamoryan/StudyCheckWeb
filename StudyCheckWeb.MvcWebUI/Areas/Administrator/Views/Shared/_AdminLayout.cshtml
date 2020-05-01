@@ -96,18 +96,30 @@
     <script>
         $(function () {
             $("#example1").DataTable({
+                "language": {
+                    "info": "Toplam: _TOTAL_ veri mevcut",
+                    "infoEmpty": "Gösterilecek veri yok",
+                    "infoFiltered": " - _MAX_ veriden filtrelendi",
+                    "lengthMenu": "Göster _MENU_ veriler",
+                    "search": "Ara:",
+                    "paginate": {
+                        "previous": "Önceki",
+                        "next":"Sonraki"
+                    },
+                },
                 "responsive": true,
-                "autoWidth": false,
-            });
-            $('#example2').DataTable({
+                "autoWidth": false,   
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
             });
+            //$('#example2').DataTable({
+            //    "paging": true,
+            //    "lengthChange": false,
+            //    "searching": false,
+            //    "ordering": true,
+            //    "info": true,
+            //    "autoWidth": false,
+            //    "responsive": true,
+            //});
         });
     </script>
 </body>
