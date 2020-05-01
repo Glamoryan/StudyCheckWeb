@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet" href="~/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
@@ -81,11 +84,9 @@
     <script src="~/plugins/summernote/summernote-bs4.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- DataTables -->
-    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <!-- Kullanıcı işlemleri için scriptler -->
+    @RenderSection("UserScripts", false)    
+    @RenderSection("SelectScripts", false)
     <!-- AdminLTE App -->
     <script src="~/dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -93,35 +94,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="~/dist/js/demo.js"></script>
     <!-- page script -->
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "language": {
-                    "info": "Toplam: _TOTAL_ veri mevcut",
-                    "infoEmpty": "Gösterilecek veri yok",
-                    "infoFiltered": " - _MAX_ veriden filtrelendi",
-                    "lengthMenu": "Göster _MENU_ Veriler",
-                    "search": "Ara:",
-                    "paginate": {
-                        "previous": "Önceki",
-                        "next":"Sonraki"
-                    },
-                },
-                "responsive": true,
-                "autoWidth": false,   
-                "paging": true,
-            });
-            //$('#example2').DataTable({
-            //    "paging": true,
-            //    "lengthChange": false,
-            //    "searching": false,
-            //    "ordering": true,
-            //    "info": true,
-            //    "autoWidth": false,
-            //    "responsive": true,
-            //});
-        });
-    </script>
+
 </body>
 </html>
 

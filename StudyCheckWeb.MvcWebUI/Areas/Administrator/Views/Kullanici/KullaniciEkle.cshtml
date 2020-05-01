@@ -4,5 +4,123 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>KullaniciEkle</h1>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kullanıcı Ekle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Kullanıcı İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Kullanıcı Ekle</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <div class="card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">Kullanıcı Bilgileri</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <form role="form">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Kullanıcı Adı</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kullanıcı adı...">
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="exampleInputPassword1">Şifre</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre...">
+                            </div>
+                            <div class="form-group">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="checkboxPrimary2">
+                                    <label for="checkboxPrimary2">
+                                        Şifreyi Göster
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Kullanıcı Mail</label>
+                                <input type="email" class="form-control" id="" placeholder="Mail...">
+                            </div>
+                            <div class="form-group">
+                                <label>Durum</label>
+                                <select class="form-control select2 select2-success" data-dropdown-css-class="select2-success" style="width: 100%;">
+                                    <option selected="selected">Aktif</option>
+                                    <option>Pasif</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tema</label>
+                                <select class="form-control select2 select2-warning" data-dropdown-css-class="select2-warning" style="width: 100%;">
+                                    <option selected="selected">Default</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Rol</label>
+                                <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;">
+                                    <option selected="selected">Admin</option>
+                                    <option>User</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </form>
+                </div>
+            </div>
+            <!-- right column -->
+            <div class="col-md-6">
+                <div class="card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">Üye Bilgileri</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <form role="form">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Üye Adı</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Üye adı...">
+                            </div>
+                            <div class="form-group mb-2">
+                                <label for="exampleInputPassword1">Üye Soyadı</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Üye soyadı...">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-lg btn-success fa-pull-left" style="width: 7%;"><i class="fas fa-plus"></i> Ekle</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section SelectScripts{
+    <!-- Select2 -->
+    <script src="../../plugins/select2/js/select2.full.min.js"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
+        })
+    </script>
+}
+
 

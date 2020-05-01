@@ -23,17 +23,17 @@
     border-color: #ff5311;
 }
 
-.btn-primary:hover {
-    background: #1b384a;
-    border-color: #1b384a;
-}
+    .btn-primary:hover {
+        background: #1b384a;
+        border-color: #1b384a;
+    }
 
 .icheck-primary > input:first-child:checked + input[type=hidden] + label::before, .icheck-primary > input:first-child:checked + label::before {
     background-color: #ff5311;
     border-color: #ff5311;
 }
 
-card-body login-card-body .mb-1,a {
+card-body login-card-body .mb-1, a {
     color: #ff5311;
 }
 
@@ -41,19 +41,55 @@ card-body login-card-body .mb-1,a {
 
 /*------------- Admin Sayfası ---------------END*/
 
-.navbar-light .navbar-nav .nav-link{
-    color:#ff5311;
+.navbar-light .navbar-nav .nav-link {
+    color: #ff5311;
 }
 
 .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
-    background-color:#ff5311;
+    background-color: #ff5311;
 }
+
 [class*=sidebar-dark-] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*=sidebar-dark-] .nav-sidebar > .nav-item:hover > .nav-link, [class*=sidebar-dark-] .nav-sidebar > .nav-item > .nav-link:focus {
     background-color: rgba(255,255,255,0);
     color: #c2c7d0;
 }
+
 .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
     background-color: #ff5311;
-    color:#fff;
+    color: #fff;
 }
-    /*------------- Admin Sayfası ------------------*/
+
+.card-success:not(.card-outline) > .card-header {
+    background-color: #ff5311;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #ea6633;
+    border-color: #ea6633;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #ff5311;
+    border-color: #ff5311;
+    box-shadow: none;
+}
+
+.btn-success:focus {
+    color: #fff;
+    background-color: #ea6633;
+    border-color: #ea6633;
+    box-shadow: none;
+}
+
+.btn-success:active {
+    color: #fff;
+    background-color: #ea6633;
+    border-color: #ea6633;
+    box-shadow: none;
+}
+
+
+/*------------- Admin Sayfası ------------------*/
+
