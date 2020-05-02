@@ -122,3 +122,5 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netco
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Yetki\YetkiEkle.cshtml.g.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Sinav\SinavListesi.cshtml.g.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Sinav\SinavEkle.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Ders\DersListesi.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Ders\DersEkle.cshtml.g.cs

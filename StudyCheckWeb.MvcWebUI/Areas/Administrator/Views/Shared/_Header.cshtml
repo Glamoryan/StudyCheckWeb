@@ -160,8 +160,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString()=="Ders"?"menu-open":"")">
+                    <a href="#" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString()=="Ders"?"active":"")">
                         <i class="nav-icon fas fa-paste"></i>
                         <p>
                             Ders İşlemleri
@@ -170,13 +170,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-area="administrator" asp-controller="ders" asp-action="dersListesi" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString()=="DersListesi"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Ders Listesi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-area="administrator" asp-controller="ders" asp-action="dersEkle" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString()=="DersEkle"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Ders Ekle</p>
                             </a>
