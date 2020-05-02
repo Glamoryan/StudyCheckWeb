@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Rol Ekle";
+    ViewData["Title"] = "Sınav Ekle";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -8,12 +8,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Rol Ekle</h1>
+                <h1>Sınav Ekle</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Rol İşlemleri</a></li>
-                    <li class="breadcrumb-item active">Rol Ekle</li>
+                    <li class="breadcrumb-item"><a href="#">Sınav İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Sınav Ekle</li>
                 </ol>
             </div>
         </div>
@@ -27,14 +27,14 @@
             <div class="col-md-6">
                 <div class="card card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Rol Bilgileri</h3>
+                        <h3 class="card-title">Sınav Bilgileri</h3>
                     </div>
                     <!-- /.card-header -->
                     <form role="form">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Rol Adı</label>
-                                <input type="text" class="form-control" id="" placeholder="Rol adı...">
+                                <label for="exampleInputEmail1">Sınav Adı</label>
+                                <input type="text" class="form-control" id="" placeholder="Sınav adı...">
                             </div>
                             <div class="form-group">
                                 <label>Durum</label>
@@ -44,11 +44,15 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Rol Yetkisi</label>
-                                <select class="form-control select2 select2-warning" data-dropdown-css-class="select2-warning" style="width: 100%;">
-                                    <option selected="selected">User</option>
-                                    <option>Full</option>
-                                </select>
+                                <label>Sınav Tarihi</label>
+                                <!-- buraya-->
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                </div>
+                                <!-- /.input group -->
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -58,13 +62,19 @@
                     </form>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </section>
 
-@section Scripts{
+@section Scripts{   
     <!-- Select2 -->
     <script src="~/plugins/select2/js/select2.full.min.js"></script>
+   
+    <!-- InputMask -->
+    <script src="~/plugins/moment/moment.min.js"></script>
+    <script src="~/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>    
+    
+    <!-- Page script -->
     <script>
         $(function () {
             //Initialize Select2 Elements
@@ -73,7 +83,15 @@
             //Initialize Select2 Elements
             $('.select2bs4').select2({
                 theme: 'bootstrap4'
-            });
+            })
+
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })            
+            //Money Euro
+            $('[data-mask]').inputmask()//input mask için gerekli
+
         })
     </script>
 }
+
+

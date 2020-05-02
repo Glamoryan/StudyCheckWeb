@@ -136,8 +136,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString()=="Sinav"?"menu-open":"")">
+                    <a href="#" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString()=="Sinav"?"active":"")">
                         <i class="nav-icon fas fa-sticky-note"></i>
                         <p>
                             Sınav İşlemleri
@@ -146,13 +146,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-area="administrator" asp-controller="sinav" asp-action="sinavListesi" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString()=="SinavListesi"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Sınav Listesi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-area="administrator" asp-controller="sinav" asp-action="sinavEkle" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString()=="SinavEkle"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Sınav Ekle</p>
                             </a>

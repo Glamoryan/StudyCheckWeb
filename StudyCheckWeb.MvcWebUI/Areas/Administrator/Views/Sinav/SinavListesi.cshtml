@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Rol Listesi";
+    ViewData["Title"] = "Sınav Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -8,12 +8,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Rol Listesi</h1>
+                <h1>Sınav Listesi</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Rol İşlemleri</a></li>
-                    <li class="breadcrumb-item active">Rol Listesi</li>
+                    <li class="breadcrumb-item"><a href="#">Sınav İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Sınav Listesi</li>
                 </ol>
             </div>
         </div>
@@ -32,11 +32,11 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rol Id</th>
-                                <th>Rol Adı</th>
+                                <th>Sınav Id</th>
+                                <th>Sınav Adı</th>
+                                <th>Sınav Tarihi</th>
                                 <th>Kayıt Tarihi</th>
-                                <th>Rolü Ekleyen</th>
-                                <th>Rol Yetkisi</th>
+                                <th>Sınavı Ekleyen</th>
                                 <th>Durum</th>
                                 <th>İşlem</th>
                             </tr>
@@ -44,10 +44,10 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Admin</td>
+                                <td>test</td>
+                                <td>01.05.2022</td>
                                 <td>01.05.2020</td>
                                 <td>admin</td>
-                                <td>Full</td>
                                 <td>aktif</td>
                                 <td><i class="fas fa-cog"></i></td>
                             </tr>
@@ -75,7 +75,7 @@
                     "info": "Toplam: _TOTAL_ veri mevcut",
                     "infoEmpty": "Gösterilecek veri yok",
                     "infoFiltered": " - _MAX_ veriden filtrelendi",
-                    "lengthMenu": "Göster _MENU_ Roller",
+                    "lengthMenu": "Göster _MENU_ Sınavlar",
                     "search": "Ara:",
                     "zeroRecords": "Kayıt bulunamadı",
                     "paginate": {
@@ -90,4 +90,5 @@
         });
     </script>
 }
+
 
