@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;        
+    Layout = null;
 }
 
 <!-- Navbar -->
@@ -11,12 +11,12 @@
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a asp-area="administrator" asp-controller="dashboard" asp-action="Index" class="nav-link">Anasayfa</a>
-        </li>        
-    </ul>        
+        </li>
+    </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">                
-        <!--Dropdown Menu --> 
+    <ul class="navbar-nav ml-auto">
+        <!--Dropdown Menu -->
         <li class="nav-item">
             <a class="nav-link" role="button" href="#">
                 <i class="fas fa-sign-out-alt"></i>
@@ -55,7 +55,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview menu-open">
                     <a asp-area="administrator" asp-controller="dashboard" asp-action="Index" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -88,8 +88,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString() == "Rol" ? "menu-open" : "")">
+                    <a href="#" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString()=="Rol"?"active":"")">
                         <i class="nav-icon fas fa-user-tag"></i>
                         <p>
                             Rol İşlemleri
@@ -98,13 +98,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-area="administrator" asp-controller="rol" asp-action="rolListesi" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "RolListesi" ? "active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Rol Listesi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-area="administrator" asp-controller="rol" asp-action="rolEkle" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "RolEkle" ? "active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Rol Ekle</p>
                             </a>
@@ -112,8 +112,8 @@
                     </ul>
                 </li>
 
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString() == "Yetki" ? "menu-open":"")">
+                    <a href="#" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Yetki" ? "active":"")">
                         <i class="nav-icon fas fa-sliders-h"></i>
                         <p>
                             Yetki İşlemleri
@@ -122,13 +122,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-area="administrator" asp-controller="yetki" asp-action="yetkiListesi" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "YetkiListesi"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Yetki Listesi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-area="administrator" asp-controller="yetki" asp-action="yetkiEkle" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "YetkiEkle"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Yetki Ekle</p>
                             </a>

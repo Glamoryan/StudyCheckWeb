@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Kullanıcı Listesi";
+    ViewData["Title"] = "Yetki Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -8,12 +8,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Kullanıcı Listesi</h1>
+                <h1>Yetki Listesi</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Kullanıcı İşlemleri</a></li>
-                    <li class="breadcrumb-item active">Kullanıcı Listesi</li>
+                    <li class="breadcrumb-item"><a href="#">Yetki İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Yetki Listesi</li>
                 </ol>
             </div>
         </div>
@@ -25,20 +25,17 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Tüm Kullanıcılar</h3>
+                    <h3 class="card-title">Tüm Yetkiler</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Uye Id</th>
-                                <th>Uye Adı</th>
-                                <th>Uye Soyadı</th>
-                                <th>Kullanıcı Adı</th>
-                                <th>E-Mail</th>
+                                <th>Yetki Id</th>
+                                <th>Yetki Adı</th>
                                 <th>Kayıt Tarihi</th>
-                                <th>Rol</th>
+                                <th>Yetkiyi Ekleyen</th>
                                 <th>Durum</th>
                                 <th>İşlem</th>
                             </tr>
@@ -46,10 +43,7 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Adnan</td>
-                                <td>Özdemir</td>
-                                <td>Admin</td>
-                                <td>admin@mail.com</td>
+                                <td>Full</td>
                                 <td>01.05.2020</td>
                                 <td>admin</td>
                                 <td>aktif</td>
@@ -79,7 +73,7 @@
                     "info": "Toplam: _TOTAL_ veri mevcut",
                     "infoEmpty": "Gösterilecek veri yok",
                     "infoFiltered": " - _MAX_ veriden filtrelendi",
-                    "lengthMenu": "Göster _MENU_ Kullanıcılar",
+                    "lengthMenu": "Göster _MENU_ Yetkiler",
                     "search": "Ara:",
                     "zeroRecords": "Kayıt bulunamadı",
                     "paginate": {
@@ -90,9 +84,7 @@
                 "responsive": true,
                 "autoWidth": false,
                 "paging": true,
-            });       
+            });
         });
     </script>
 }
-
-
