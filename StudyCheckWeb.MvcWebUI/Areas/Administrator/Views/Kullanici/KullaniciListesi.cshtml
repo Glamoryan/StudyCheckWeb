@@ -1,4 +1,5 @@
-﻿
+﻿@using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
+@model EntityListModel;
 @{
     ViewData["Title"] = "Kullanıcı Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
@@ -44,17 +45,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Adnan</td>
-                                <td>Özdemir</td>
-                                <td>Admin</td>
-                                <td>admin@mail.com</td>
-                                <td>01.05.2020</td>
-                                <td>admin</td>
-                                <td>aktif</td>
-                                <td><i class="fas fa-cog"></i></td>
-                            </tr>
+                            @foreach (var item in Model.UserDetails)
+                            {
+                                <tr>
+                                    <td>@item.uye_id</td>
+                                    <td>@item.uye_ad</td>
+                                    <td>@item.uye_soyad</td>
+                                    <td>@item.kullanici_adi</td>
+                                    <td>@item.kullanici_mail</td>
+                                    <td>@item.kayit_tarihi</td>
+                                    <td>@item.rol_id</td>
+                                    <td>@item.sil_id</td>
+                                    <td><i class="fas fa-cog"></i></td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

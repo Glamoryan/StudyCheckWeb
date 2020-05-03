@@ -20,6 +20,8 @@ namespace StudyCheckWeb.MvcWebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IUyeService, UyeManager>();
+            services.AddSingleton<IUyeDal, EfUyeDal>();
             services.AddSingleton<IUyedetayService, UyedetayManager>();
             services.AddSingleton<IUyeDetayDal, EfUyeDetayDal>();
             services.AddSingleton<ISinavService, SinavManager>();

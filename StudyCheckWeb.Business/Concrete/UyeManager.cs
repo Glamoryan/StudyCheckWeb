@@ -1,8 +1,10 @@
 ﻿using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.DataAccess.Abstract;
 using StudyCheckWeb.Entities.Concrete;
+using StudyCheckWeb.Entities.Dtos;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace StudyCheckWeb.Business.Concrete
@@ -37,6 +39,16 @@ namespace StudyCheckWeb.Business.Concrete
         public void UpdateUser(Uye uye)
         {
             _uyeDal.Update(uye);
+        }
+
+        public UserDetail GetUserDetailByUyeId(int uyeId)
+        {
+            return _uyeDal.GetUserDetails().Where(x => x.uye_id == uyeId).SingleOrDefault();
+        }
+
+        public List<UserDetail> GetAllUserDetail()
+        {
+            return _uyeDal.GetUserDetails();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using StudyCheckWeb.Entities.Concrete;
+using StudyCheckWeb.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -13,5 +14,7 @@ namespace StudyCheckWeb.Business.Abstract
         void AddUser(Uye uye);
         void UpdateUser(Uye uye);
         void DeleteUser(Uye uye);
+        List<UserDetail> GetAllUserDetail();
+        UserDetail GetUserDetailByUyeId(int id);
     }
 }

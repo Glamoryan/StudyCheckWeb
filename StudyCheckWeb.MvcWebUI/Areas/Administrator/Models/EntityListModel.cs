@@ -1,4 +1,5 @@
 ﻿using StudyCheckWeb.Entities.Concrete;
+using StudyCheckWeb.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Models
         public List<Ders> dersler { get; set; }
         public List<Rol> roller { get; set; }
         public List<Yetki> yetkiler { get; set; }
+
+        //Complex Type
+        public List<UserDetail> UserDetails { get; set; }
     }
 }

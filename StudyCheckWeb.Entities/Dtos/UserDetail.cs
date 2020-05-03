@@ -1,5 +1,4 @@
-﻿
-using StudyCheckWeb.Core.Entities;
+﻿using StudyCheckWeb.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
