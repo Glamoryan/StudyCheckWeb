@@ -34,11 +34,11 @@ namespace StudyCheckWeb.DataAccess.Concrete.EntityFramework.Contexts
             modelBuilder.ApplyConfiguration(new RolMap());
             modelBuilder.ApplyConfiguration(new DersMap());
             modelBuilder.ApplyConfiguration(new CalismaMap());
-            modelBuilder.Entity<Ders>().Property(typeof(DateTime), "datetime2");
-            modelBuilder.Entity<Rol>().Property(typeof(DateTime), "datetime2");
-            modelBuilder.Entity<Sinav>().Property(typeof(DateTime), "datetime2");
-            modelBuilder.Entity<Uyedetay>().Property(typeof(DateTime), "datetime2");
-            modelBuilder.Entity<Yetki>().Property(typeof(DateTime), "datetime2");
+            //modelBuilder.Entity<Ders>().Property(typeof(DateTime), "datetime2");
+            //modelBuilder.Entity<Rol>().Property(typeof(DateTime), "datetime2");
+            //modelBuilder.Entity<Sinav>().Property(typeof(DateTime), "datetime2");
+            //modelBuilder.Entity<Uyedetay>().Property(typeof(DateTime), "datetime2");
+            //modelBuilder.Entity<Yetki>().Property(typeof(DateTime), "datetime2");
         }
     }
 }

@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StudyCheckWeb.Business.Abstract;
+using StudyCheckWeb.Business.Concrete;
+using StudyCheckWeb.DataAccess.Abstract;
+using StudyCheckWeb.DataAccess.Concrete.EntityFramework;
 
 namespace StudyCheckWeb.MvcWebUI
 {
@@ -16,6 +20,19 @@ namespace StudyCheckWeb.MvcWebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IUyedetayService, UyedetayManager>();
+            services.AddSingleton<IUyeDetayDal, EfUyeDetayDal>();
+            services.AddSingleton<ISinavService, SinavManager>();
+            services.AddSingleton<ISinavDal, EfSinavDal>();
+            services.AddSingleton<ITemaService, TemaManager>();
+            services.AddSingleton<ITemaDal, EfTemaDal>();
+            services.AddSingleton<IDersService, DersManager>();
+            services.AddSingleton<IDersDal, EfDersDal>();
+            services.AddSingleton<IRolService, RolManager>();
+            services.AddSingleton<IRolDal, EfRolDal>();
+            services.AddSingleton<IYetkiService, YetkiManager>();
+            services.AddSingleton<IYetkiDal, EfYetkiDal>();
+
             services.AddSession();
             services.AddControllersWithViews();
         }
@@ -53,9 +70,5 @@ namespace StudyCheckWeb.MvcWebUI
                     );               
             });
         }
-
-
-
-
     }
 }

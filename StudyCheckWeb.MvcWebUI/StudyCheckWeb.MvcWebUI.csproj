@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Administrator\Models\" />
     <Folder Include="Areas\Sign\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
@@ -16,6 +15,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StudyCheckWeb.Business\StudyCheckWeb.Business.csproj" />
+    <ProjectReference Include="..\StudyCheckWeb.DataAccess\StudyCheckWeb.DataAccess.csproj" />
+    <ProjectReference Include="..\StudyCheckWeb.Entities\StudyCheckWeb.Entities.csproj" />
   </ItemGroup>
 
 </Project>
