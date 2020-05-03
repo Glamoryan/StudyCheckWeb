@@ -17,7 +17,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         IDersService _dersService;
         IRolService _rolService;
         IYetkiService _yetkiService;
-        DashboardModel _dashboardModel;    
+        EntityListModel _entityListModel;    
 
         public DashboardController(IUyedetayService uyedetayService, ISinavService sinavService, ITemaService temaService, IDersService dersService, IRolService rolService, IYetkiService yetkiService)
         {
@@ -31,7 +31,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 
         public IActionResult Index()
         {
-            _dashboardModel = new DashboardModel 
+            _entityListModel = new EntityListModel 
             {
                 kullanicilar = _uyedetayService.GetAll(),
                 dersler = _dersService.GetAll(),
@@ -40,7 +40,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                 temalar = _temaService.GetAll(),
                 yetkiler = _yetkiService.GetAll()
             };
-            return View(_dashboardModel);
+            return View(_entityListModel);
         } 
     }
 }

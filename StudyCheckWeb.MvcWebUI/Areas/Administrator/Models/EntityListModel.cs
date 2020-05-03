@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Models
 {
-    public class DashboardModel
+    public class EntityListModel
     {
         public List<Uyedetay> kullanicilar { get; set; }
         public List<Sinav> sinavlar { get; set; }
