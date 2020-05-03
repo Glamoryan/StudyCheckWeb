@@ -54,8 +54,8 @@
                                     <td>@item.kullanici_adi</td>
                                     <td>@item.kullanici_mail</td>
                                     <td>@item.kayit_tarihi</td>
-                                    <td>@item.rol_id</td>
-                                    <td>@item.sil_id</td>
+                                    <td>@Model.roller.Where(r=>r.id == item.rol_id).Single().rol_adi</td>
+                                    <td>@(item.sil_id == 1 ? "Aktif":"Pasif")</td>
                                     <td><i class="fas fa-cog"></i></td>
                                 </tr>
                             }
@@ -80,7 +80,7 @@
         $(function () {
             $("#example1").DataTable({
                 "language": {
-                    "info": "Toplam: _TOTAL_ veri mevcut",
+                    "info": "Toplam _TOTAL_ veri mevcut.",
                     "infoEmpty": "Gösterilecek veri yok",
                     "infoFiltered": " - _MAX_ veriden filtrelendi",
                     "lengthMenu": "Göster _MENU_ Kullanıcılar",

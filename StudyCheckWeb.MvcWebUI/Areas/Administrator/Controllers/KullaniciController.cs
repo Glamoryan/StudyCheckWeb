@@ -13,12 +13,14 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
     public class KullaniciController : Controller
     {
         IUyeService _uyeService;
+        IRolService _rolService;
         EntityListModel _entityListModel;
 
-        public KullaniciController(IUyeService uyeService)
+        public KullaniciController(IUyeService uyeService, IRolService rolService)
         {
             _uyeService = uyeService;
-        }
+            _rolService = rolService;
+        }        
 
         public IActionResult Index()
         {
@@ -29,7 +31,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         {
             _entityListModel = new EntityListModel
             {
-                UserDetails = _uyeService.GetAllUserDetail()
+                UserDetails = _uyeService.GetAllUserDetail(),
+                roller = _rolService.GetAll()
             };
             return View(_entityListModel);
         }
