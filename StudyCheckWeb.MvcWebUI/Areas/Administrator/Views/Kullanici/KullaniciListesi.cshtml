@@ -48,15 +48,15 @@
                             @foreach (var item in Model.UserDetails)
                             {
                                 <tr>
-                                    <td>@item.uye_id</td>
+                                    <td class="text-center" style="color:#ff5311;">@item.uye_id</td>
                                     <td>@item.uye_ad</td>
                                     <td>@item.uye_soyad</td>
                                     <td>@item.kullanici_adi</td>
                                     <td>@item.kullanici_mail</td>
                                     <td>@item.kayit_tarihi</td>
                                     <td>@Model.roller.Where(r=>r.id == item.rol_id).Single().rol_adi</td>
-                                    <td>@(item.sil_id == 1 ? "Aktif":"Pasif")</td>
-                                    <td><i class="fas fa-cog"></i></td>
+                                    <td style="@(item.sil_id == 0?"color:red;":"color:limegreen;")">@(item.sil_id == 1 ? "Aktif":"Pasif")</td>
+                                    <td class="text-center"><i style="color:#ff5311;" class="fas fa-cog"></i></td>
                                 </tr>
                             }
                         </tbody>
