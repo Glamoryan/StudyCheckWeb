@@ -1,5 +1,4 @@
-﻿@using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
-@model EntityListModel;
+﻿@model EntityListModel;
 @{
     ViewData["Title"] = "Kullanıcı Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
@@ -33,7 +32,7 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Uye Id</th>
+                                <th class="text-center">Uye Id</th>
                                 <th>Uye Adı</th>
                                 <th>Uye Soyadı</th>
                                 <th>Kullanıcı Adı</th>
@@ -41,7 +40,7 @@
                                 <th>Kayıt Tarihi</th>
                                 <th>Rol</th>
                                 <th>Durum</th>
-                                <th>İşlem</th>
+                                <th class="text-center">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -19,8 +19,15 @@ using StudyCheckWeb.MvcWebUI;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\Areas\Administrator\Views\_ViewImports.cshtml"
+using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"27c4712a379cd1bf6044cb6183e42fcf9949a0b7", @"/Areas/Administrator/Views/Shared/_Header.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab18d3aa7391461f63b7ccf2ff9d2a22bcf08dfb", @"/Areas/Administrator/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9136fd81a9cf30bd091754159ce60a4fae8cf8f9", @"/Areas/Administrator/Views/_ViewImports.cshtml")]
     public class Areas_Administrator_Views_Shared__Header : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "administrator", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -93,7 +100,7 @@ using StudyCheckWeb.MvcWebUI;
         </li>
         <li class=""nav-item d-none d-sm-inline-block"">
             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b712572", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b712821", async() => {
                 WriteLiteral("Anasayfa");
             }
             );
@@ -137,9 +144,9 @@ using StudyCheckWeb.MvcWebUI;
 <aside class=""main-sidebar sidebar-dark-primary elevation-4"">
     <!-- Brand Logo -->
     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b714930", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b715179", async() => {
                 WriteLiteral("\r\n        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "27c4712a379cd1bf6044cb6183e42fcf9949a0b715194", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "27c4712a379cd1bf6044cb6183e42fcf9949a0b715443", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -175,7 +182,7 @@ using StudyCheckWeb.MvcWebUI;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n    <!-- Sidebar -->\r\n    <div class=\"sidebar\">\r\n        <!-- Sidebar user panel (optional) -->\r\n        <div class=\"user-panel mt-3 pb-3 mb-3 d-flex\">\r\n            <div class=\"image\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "27c4712a379cd1bf6044cb6183e42fcf9949a0b718255", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "27c4712a379cd1bf6044cb6183e42fcf9949a0b718504", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -204,7 +211,7 @@ using StudyCheckWeb.MvcWebUI;
                 with font-awesome or any other icon font library -->
                 <li class=""nav-item has-treeview menu-open"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b720021", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b720270", async() => {
                 WriteLiteral("\r\n                        <i class=\"nav-icon fas fa-tachometer-alt\"></i>\r\n                        <p>\r\n                            Dashboard\r\n                        </p>\r\n                    ");
             }
             );
@@ -266,7 +273,7 @@ WriteAttributeValue(" ", 2975, ViewContext.RouteData.Values["Controller"].ToStri
                     <ul class=""nav nav-treeview"">
                         <li class=""nav-item"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b724063", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b724312", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Kullanıcı Listesi</p>\r\n                            ");
             }
             );
@@ -296,7 +303,7 @@ AddHtmlAttributeValue(" ", 3555, ViewContext.RouteData.Values["Action"].ToString
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b726557", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b726806", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Kullanıcı Ekle</p>\r\n                            ");
             }
             );
@@ -358,7 +365,7 @@ WriteAttributeValue(" ", 4557, ViewContext.RouteData.Values["Controller"].ToStri
                     <ul class=""nav nav-treeview"">
                         <li class=""nav-item"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b730630", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b730879", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Rol Listesi</p>\r\n                            ");
             }
             );
@@ -388,7 +395,7 @@ AddHtmlAttributeValue(" ", 5114, ViewContext.RouteData.Values["Action"].ToString
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b733111", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b733360", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Rol Ekle</p>\r\n                            ");
             }
             );
@@ -450,7 +457,7 @@ WriteAttributeValue(" ", 6076, ViewContext.RouteData.Values["Controller"].ToStri
                     <ul class=""nav nav-treeview"">
                         <li class=""nav-item"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b737182", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b737431", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Yetki Listesi</p>\r\n                            ");
             }
             );
@@ -480,7 +487,7 @@ AddHtmlAttributeValue(" ", 6646, ViewContext.RouteData.Values["Action"].ToString
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b739665", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b739914", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Yetki Ekle</p>\r\n                            ");
             }
             );
@@ -542,7 +549,7 @@ WriteAttributeValue(" ", 7612, ViewContext.RouteData.Values["Controller"].ToStri
                     <ul class=""nav nav-treeview"">
                         <li class=""nav-item"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b743732", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b743981", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Sınav Listesi</p>\r\n                            ");
             }
             );
@@ -572,7 +579,7 @@ AddHtmlAttributeValue(" ", 8180, ViewContext.RouteData.Values["Action"].ToString
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b746213", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b746462", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Sınav Ekle</p>\r\n                            ");
             }
             );
@@ -634,7 +641,7 @@ WriteAttributeValue(" ", 9141, ViewContext.RouteData.Values["Controller"].ToStri
                     <ul class=""nav nav-treeview"">
                         <li class=""nav-item"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b750269", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b750518", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Ders Listesi</p>\r\n                            ");
             }
             );
@@ -664,7 +671,7 @@ AddHtmlAttributeValue(" ", 9699, ViewContext.RouteData.Values["Action"].ToString
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        </li>\r\n                        <li class=\"nav-item\">\r\n                            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b752748", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27c4712a379cd1bf6044cb6183e42fcf9949a0b752997", async() => {
                 WriteLiteral("\r\n                                <i class=\"nav-icon far fa-circle text-info\"></i>\r\n                                <p>Ders Ekle</p>\r\n                            ");
             }
             );

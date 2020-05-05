@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using StudyCheckWeb.Business.Abstract;
+using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
     public class RolController : Controller
     {
+        IRolService _rolService;
+        IUyedetayService _uyedetayService;
+        IYetkiService _yetkiService;
+        EntityListModel _entityListModel;
+
+        public RolController(IRolService rolService, IUyedetayService uyedetayService, IYetkiService yetkiService)
+        {
+            _rolService = rolService;
+            _uyedetayService = uyedetayService;
+            _yetkiService = yetkiService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -16,7 +30,13 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 
         public IActionResult RolListesi()
         {
-            return View();
+            _entityListModel = new EntityListModel
+            {
+                roller = _rolService.GetAll(),
+                yetkiler = _yetkiService.GetAll(),
+                kullanicilar = _uyedetayService.GetAll()
+            };
+            return View(_entityListModel);
         }
 
         public IActionResult RolEkle()

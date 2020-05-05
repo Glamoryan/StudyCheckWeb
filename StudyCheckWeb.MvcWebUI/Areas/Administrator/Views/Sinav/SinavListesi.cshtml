@@ -1,4 +1,4 @@
-﻿
+﻿@model EntityListModel;
 @{
     ViewData["Title"] = "Sınav Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
@@ -32,25 +32,28 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Sınav Id</th>
+                                <th class="text-center">Sınav Id</th>
                                 <th>Sınav Adı</th>
                                 <th>Sınav Tarihi</th>
                                 <th>Kayıt Tarihi</th>
                                 <th>Sınavı Ekleyen</th>
                                 <th>Durum</th>
-                                <th>İşlem</th>
+                                <th class="text-center">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>test</td>
-                                <td>01.05.2022</td>
-                                <td>01.05.2020</td>
-                                <td>admin</td>
-                                <td>aktif</td>
-                                <td><i class="fas fa-cog"></i></td>
-                            </tr>
+                            @foreach (var sinav in Model.sinavlar)
+                            {
+                                <tr>
+                                    <td class="text-center" style="color:#ff5311;">@sinav.id</td>
+                                    <td>@sinav.sinav_ad</td>
+                                    <td>@sinav.sinav_tarih.ToShortDateString()</td>
+                                    <td>@sinav.eklenme_tarihi</td>
+                                    <td>@Model.kullanicilar.Where(k=>k.id==sinav.ekleyen_id).Single().kullanici_adi</td>
+                                    <td style="@(sinav.sil_id==0?"color:red;":"color:limegreen;")">@(sinav.sil_id == 1?"Aktif":"Pasif")</td>
+                                    <td class="text-center" style="color:#ff5311;"><i class="fas fa-cog"></i></td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

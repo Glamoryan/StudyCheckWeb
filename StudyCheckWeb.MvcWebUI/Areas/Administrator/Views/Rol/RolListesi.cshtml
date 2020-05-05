@@ -1,4 +1,4 @@
-﻿
+﻿@model EntityListModel;
 @{
     ViewData["Title"] = "Rol Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
@@ -32,25 +32,28 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Rol Id</th>
+                                <th class="text-center">Rol Id</th>
                                 <th>Rol Adı</th>
                                 <th>Kayıt Tarihi</th>
                                 <th>Rolü Ekleyen</th>
                                 <th>Rol Yetkisi</th>
                                 <th>Durum</th>
-                                <th>İşlem</th>
+                                <th class="text-center">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Admin</td>
-                                <td>01.05.2020</td>
-                                <td>admin</td>
-                                <td>Full</td>
-                                <td>aktif</td>
-                                <td><i class="fas fa-cog"></i></td>
-                            </tr>
+                            @foreach (var rol in Model.roller)
+                            {
+                                <tr>
+                                    <td style="color:#ff5311;" class="text-center">@rol.id</td>
+                                    <td>@rol.rol_adi</td>
+                                    <td>@rol.rol_kayit_tarihi</td>
+                                    <td>@Model.kullanicilar.Where(k=>k.id==rol.ekleyen_id).Single().kullanici_adi</td>
+                                    <td>@Model.yetkiler.Where(y=>y.id == rol.yetki_id).Single().yetki_adi</td>
+                                    <td style="@(rol.sil_id==0?"color:red;":"color:limegreen;")">@(rol.sil_id == 1 ? "Aktif":"Pasif")</td>
+                                    <td class="text-center"><i style="color:#ff5311;" class="fas fa-cog"></i></td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
