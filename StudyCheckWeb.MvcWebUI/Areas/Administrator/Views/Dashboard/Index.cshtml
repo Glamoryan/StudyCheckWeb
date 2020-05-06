@@ -4,8 +4,8 @@
     ViewData["Title"] = "Admin Panel";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 
-    int adminSayisi=0;
-    foreach (var rol in Model.roller.Where(r=>r.yetki_id==2).ToList())
+    int adminSayisi = 0;
+    foreach (var rol in Model.roller.Where(r => r.yetki_id == 2).ToList())
     {
         adminSayisi += Model.kullanicilar.Where(k => k.rol_id == rol.id).Count();
     }
@@ -151,9 +151,6 @@
                         <button data-toggle="modal" data-target="#modal-default" type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Ekle</button>
                     </div>
                 </div>
-                <!-- /.card -->
-            </section>
-            <section class="col-lg-6 connectedSortable ui-sortable">
                 <div class="card bg-gradient-success">
                     <div class="card-header border-0 ui-sortable-handle" style="cursor: move;">
                         <h3 class="card-title">
@@ -162,10 +159,10 @@
                         </h3>
                         <!-- tools card -->
                         <div class="card-tools">
-                            <!-- button with a dropdown -->                           
+                            <!-- button with a dropdown -->
                             <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
-                            </button>                            
+                            </button>
                         </div>
                         <!-- /. tools -->
                     </div>
@@ -173,21 +170,43 @@
                     <div class="card-body pt-0">
                         <!--The calendar -->
                         <div id="calendar" style="width: 100%">
-                            
+
                         </div>
                     </div>
                     <!-- /.card-body -->
                 </div>
+                <!-- /.card -->
+            </section>
+            <section class="col-lg-6 connectedSortable ui-sortable">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-gamepad"></i>
+                            Yılan Oyunu
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-7">
+                                <canvas id="game" width="400" height="400"></canvas>
+                            </div>
+                            <div class="col-3 ml-5">
+                                <h2 class="text-center">Skorlar</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <button type="button" class="btn btn-info float-right"><i class="fas fa-play-circle"></i> Başlat</button>
+                    </div>
+                </div>
             </section>
 
-        </div><!-- /.container-fluid -->
+        </div><!-- /.row -->
     </div>
-    <!-- /.row -->
+    <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-
-
-
 
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
@@ -225,5 +244,13 @@
 <!-- /.modal -->
 
 <script src="~/scripts/adminPanel/todo.js"></script>
-
+<script>
+    window.addEventListener("keydown", function (e) {
+        // Yön tuşlarıyla scrool engelleme
+        if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+            e.preventDefault();
+        }
+    }, false);
+</script>
+<script src="~/scripts/adminPanel/Snake.js"></script>
 
