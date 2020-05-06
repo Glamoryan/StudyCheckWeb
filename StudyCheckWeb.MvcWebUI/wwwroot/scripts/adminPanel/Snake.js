@@ -11,7 +11,7 @@
         this.tailSize = 5;
         this.trail = [];
         this.gridSize=this.tileCount = 20;       
-        this.velocityX = this.velocityY = 0;
+        this.velocityX = this.velocityY = 0;     
 
         this.timer = setInterval(this.loop.bind(this), 1000 / 15);
     }
@@ -98,6 +98,6 @@
     }
 }
 
-
+var button = document.getElementById('basla');
 const game = new YilanOyunu();
-window.onload = () => game.init();
+button.onclick = () => { game.init(); button.style.display = 'none'; };
