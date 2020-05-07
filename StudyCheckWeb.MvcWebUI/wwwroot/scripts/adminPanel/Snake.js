@@ -1,23 +1,28 @@
 ﻿class YilanOyunu {
-    constructor() {
+    constructor() {       
         this.canvas = document.getElementById('game');
         this.context = this.canvas.getContext('2d');
         document.addEventListener('keydown', this.onKeyPress.bind(this));
     }
 
-    init() {
-        this.positionX = this.positionY = 10;
-        this.appleX = this.appleY = 5;
+    init() {        
+        this.positionX = 10;
+        this.positionY = 5;
+        this.appleX = this.appleY = 15;
         this.tailSize = 5;
         this.trail = [];
-        this.gridSize=this.tileCount = 20;       
-        this.velocityX = this.velocityY = 0;     
-
+        this.gridSize = this.tileCount = 20;
+        this.velocityX = this.velocityY = 0; 
+        
         this.timer = setInterval(this.loop.bind(this), 1000 / 15);
     }
 
     reset() {
-        clearInterval(this.timer);
+        clearInterval(this.timer);   
+        var skorUl = document.getElementById('skorlar');
+        var li = document.createElement('li');
+        li.innerHTML = `Admin: ${this.tailSize-5}`;
+        skorUl.appendChild(li);
         this.init();
     }
 
@@ -36,16 +41,19 @@
         if (this.positionY < 0) {
             this.positionY = this.tileCount - 1;
         }
-        if (this.positionX > this.tileCount-1) {
+        if (this.positionX > this.tileCount - 1) {
             this.positionX = 0;
         }
-        if (this.positionY > this.tileCount-1) {
+        if (this.positionY > this.tileCount - 1) {
             this.positionY = 0;
         }
 
         this.trail.forEach(t => {
-            if (this.positionX === t.positionX && this.positionY === t.positionY) {
-                this.reset();
+            if (this.positionX === 10 && this.positionY === 5) {
+
+            }
+            else if (this.positionX === t.positionX && this.positionY === t.positionY) {                
+                this.reset();                
             }
         });
         this.trail.push({ positionX: this.positionX, positionY: this.positionY });
@@ -67,9 +75,9 @@
 
         this.context.fillStyle = 'white';
         this.context.font = '20px Arial';
-        this.context.fillText(this.tailSize-5, 20, 40);
+        this.context.fillText(this.tailSize - 5, 20, 40);
 
-        this.context.fillStyle = 'lime'; 
+        this.context.fillStyle = 'lime';
         this.trail.forEach(t => {
             this.context.fillRect(t.positionX * this.gridSize, t.positionY * this.gridSize, this.gridSize - 5, this.gridSize - 5);
         });
@@ -95,9 +103,14 @@
             this.velocityX = 0;
             this.velocityY = 1;
         }
-    }
+    }    
 }
 
 var button = document.getElementById('basla');
+var card = document.getElementById('gameBody');
 const game = new YilanOyunu();
-button.onclick = () => { game.init(); button.style.display = 'none'; };
+button.onclick = () => {
+    game.init();    
+    button.style.display = 'none';
+    card.style.display = 'block';
+};
