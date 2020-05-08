@@ -3,6 +3,7 @@
         this.canvas = document.getElementById('game');
         this.context = this.canvas.getContext('2d');
         document.addEventListener('keydown', this.onKeyPress.bind(this));
+        this.colors = ["yellow", "lime", "orange", "purple", "blue", "white","DeepPink"];
     }
 
     init() {        
@@ -50,7 +51,7 @@
 
         this.trail.forEach(t => {
             if (this.positionX === 10 && this.positionY === 5) {
-
+                //escape start
             }
             else if (this.positionX === t.positionX && this.positionY === t.positionY) {                
                 this.reset();                
@@ -66,6 +67,7 @@
             this.tailSize++;
             this.appleX = Math.floor(Math.random() * this.tileCount);
             this.appleY = Math.floor(Math.random() * this.tileCount);
+            this.renk = this.colors[Math.floor(Math.random() * this.colors.length)];
         }
     }
 
@@ -77,11 +79,12 @@
         this.context.font = '20px Arial';
         this.context.fillText(this.tailSize - 5, 20, 40);
 
-        this.context.fillStyle = 'lime';
+        this.context.fillStyle = this.renk;
+        
         this.trail.forEach(t => {
             this.context.fillRect(t.positionX * this.gridSize, t.positionY * this.gridSize, this.gridSize - 5, this.gridSize - 5);
         });
-
+        
         this.context.fillStyle = 'red';
         this.context.fillRect(this.appleX * this.gridSize, this.appleY * this.gridSize, this.gridSize - 5, this.gridSize - 5);
     }
