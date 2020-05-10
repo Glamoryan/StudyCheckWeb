@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
@@ -9,6 +10,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
+    [Authorize]
     public class SinavController : Controller
     {
         IUyedetayService _uyedetayService;

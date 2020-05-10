@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.Business.Concrete;
 using StudyCheckWeb.DataAccess.Abstract;
 using StudyCheckWeb.DataAccess.Concrete.EntityFramework;
+using StudyCheckWeb.MvcWebUI.Authentication;
 
 namespace StudyCheckWeb.MvcWebUI
 {
@@ -37,6 +39,11 @@ namespace StudyCheckWeb.MvcWebUI
 
             services.AddSession();
             services.AddControllersWithViews();
+
+            services.AddDbContext<UserContext>();
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<UserContext>()
+                .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +57,9 @@ namespace StudyCheckWeb.MvcWebUI
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseStaticFiles();
-            app.UseSession();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
