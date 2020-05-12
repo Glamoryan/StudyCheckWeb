@@ -10,7 +10,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
-    [Authorize]
+    [Authorize]    
     public class DashboardController : Controller
     {
         IUyedetayService _uyedetayService;
@@ -30,7 +30,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             _rolService = rolService;
             _yetkiService = yetkiService;
         }
-
+        
         public IActionResult Index()
         {
             _entityListModel = new EntityListModel 
