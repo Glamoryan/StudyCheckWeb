@@ -50,9 +50,9 @@ namespace StudyCheckWeb.MvcWebUI
             services.AddControllersWithViews();
             
             services.AddIdentity<User, IdentityRole>(opt=> {
-                opt.User.RequireUniqueEmail = true;
+                opt.User.RequireUniqueEmail = true;                
                 opt.Password.RequireNonAlphanumeric = false;
-                opt.Password.RequireDigit = false;
+                opt.Password.RequireDigit = false;                
             })
                 .AddEntityFrameworkStores<UserContext>()
                 .AddDefaultTokenProviders();

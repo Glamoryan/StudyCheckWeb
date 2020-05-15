@@ -2579,6 +2579,16 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "StudyCheck.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/StudyCheck.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StudyCheck.Utilities.dll": {}
+        }
+      },
       "StudyCheckWeb.Business/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -8442,6 +8452,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "StudyCheck.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../StudyCheck.Utilities/StudyCheck.Utilities.csproj",
+      "msbuildProject": "../StudyCheck.Utilities/StudyCheck.Utilities.csproj"
+    },
     "StudyCheckWeb.Business/1.0.0": {
       "type": "project",
       "path": "../StudyCheckWeb.Business/StudyCheckWeb.Business.csproj",
@@ -8472,6 +8487,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.3",
       "Microsoft.TypeScript.MSBuild >= 3.8.3",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.2",
+      "StudyCheck.Utilities >= 1.0.0",
       "StudyCheckWeb.Business >= 1.0.0",
       "StudyCheckWeb.DataAccess >= 1.0.0",
       "StudyCheckWeb.Entities >= 1.0.0"
@@ -8507,6 +8523,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Utilities\\StudyCheck.Utilities.csproj": {
+              "projectPath": "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheck.Utilities\\StudyCheck.Utilities.csproj"
+            },
             "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheckWeb.Business\\StudyCheckWeb.Business.csproj": {
               "projectPath": "C:\\Users\\Xsabr\\source\\repos\\StudyCheckWeb\\StudyCheckWeb.Business\\StudyCheckWeb.Business.csproj"
             },

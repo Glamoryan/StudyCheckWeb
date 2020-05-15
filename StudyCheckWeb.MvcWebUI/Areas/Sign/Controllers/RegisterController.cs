@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using StudyCheck.Utilities.CustomExceptions;
 using StudyCheckWeb.MvcWebUI.Authentication;
 
 namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
@@ -27,10 +28,11 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Index(string ad,string soyad,string kullaniciAdi,string sifre,string email)
-        {
+        { 
             try
             {
-                ViewBag.Message = "Kullanıcı zaten kayıtlı";
+                if (ad == null || soyad == null)
+                    throw new RequiredFieldsException("Ad/Soyad boş bırakılamaz!");
 
                 User user = await _userManager.FindByNameAsync(kullaniciAdi);
                 if(user == null)
@@ -44,16 +46,27 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                         kullaniciMail = email,
                         UserName = kullaniciAdi,
                         PasswordHash = sifre,
-                        Email = email
+                        Email = email,
+                        rolId=1
                     };
                     IdentityResult result = await _userManager.CreateAsync(user, sifre);
-                    ViewBag.Message = "Kullanıcı oluşturuldu";
-
+                    if (result.Succeeded)
+                        ViewBag.Message = "Kullanıcı oluşturuldu";
+                    else
+                        ViewBag.Message = result.Errors;
                 }
+                else
+                {
+                    ViewBag.Message = "Bu Kullanıcı Adı zaten kayıtlı";
+                }
+            }
+            catch (RequiredFieldsException rqEx)
+            {
+                ViewBag.Exceptions = rqEx.Message; //red
             }
             catch (Exception ex)
             {
-                ViewBag.Message = ex.Message;
+                ViewBag.Exceptions = ex.Message; //red
             }
             return View();
         }

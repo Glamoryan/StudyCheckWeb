@@ -76,7 +76,22 @@
                     <!-- /.col -->
                 </div>
                 <div class="row">
-                    @ViewBag.Message
+                    @if (ViewBag.Message != null)
+                    {
+                        if (ViewBag.Message is List<Microsoft.AspNetCore.Identity.IdentityError>)
+                        {
+                            @foreach (Microsoft.AspNetCore.Identity.IdentityError error in ViewBag.Message)
+                            {
+                                <p>@error.Description</p>
+                            }
+                        }
+                        else
+                        {
+                            <p>@ViewBag.Message</p>
+                        }
+
+                    }
+                    <p style="color:red;">@ViewBag.Exceptions</p>
                 </div>
             </form>            
             <br />

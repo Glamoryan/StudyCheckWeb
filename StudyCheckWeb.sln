@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyCheckWeb.Business", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyCheckWeb.MvcWebUI", "StudyCheckWeb.MvcWebUI\StudyCheckWeb.MvcWebUI.csproj", "{CC35797D-8757-4D29-9411-0E5DBC4D1E62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCheckWeb.Core", "StudyCheckWeb.Core\StudyCheckWeb.Core.csproj", "{1ECC2703-C6F0-43BF-9B9A-B9CE67D642BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudyCheckWeb.Core", "StudyCheckWeb.Core\StudyCheckWeb.Core.csproj", "{1ECC2703-C6F0-43BF-9B9A-B9CE67D642BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyCheck.Utilities", "StudyCheck.Utilities\StudyCheck.Utilities.csproj", "{5C514E34-F24B-48BF-85A5-218A9525105B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1ECC2703-C6F0-43BF-9B9A-B9CE67D642BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ECC2703-C6F0-43BF-9B9A-B9CE67D642BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ECC2703-C6F0-43BF-9B9A-B9CE67D642BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C514E34-F24B-48BF-85A5-218A9525105B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C514E34-F24B-48BF-85A5-218A9525105B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C514E34-F24B-48BF-85A5-218A9525105B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C514E34-F24B-48BF-85A5-218A9525105B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

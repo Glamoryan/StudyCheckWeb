@@ -168,3 +168,5 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netco
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.genruntimeconfig.cache
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.csproj.CoreCompileInputs.cache
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\bin\Debug\netcoreapp3.1\StudyCheck.Utilities.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\bin\Debug\netcoreapp3.1\StudyCheck.Utilities.pdb

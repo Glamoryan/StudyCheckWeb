@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StudyCheck.Utilities\StudyCheck.Utilities.csproj" />
     <ProjectReference Include="..\StudyCheckWeb.Business\StudyCheckWeb.Business.csproj" />
     <ProjectReference Include="..\StudyCheckWeb.DataAccess\StudyCheckWeb.DataAccess.csproj" />
     <ProjectReference Include="..\StudyCheckWeb.Entities\StudyCheckWeb.Entities.csproj" />
