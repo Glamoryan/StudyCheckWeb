@@ -19,8 +19,15 @@ using StudyCheckWeb.MvcWebUI;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\Areas\Sign\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b1aae6c9e1a2e06c04f660333d3bc0702be6780a", @"/Areas/Sign/Views/Login/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ab18d3aa7391461f63b7ccf2ff9d2a22bcf08dfb", @"/Areas/Sign/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f9ed57dadcbf8ee595c947434aaafbac20bf5250", @"/Areas/Sign/Views/_ViewImports.cshtml")]
     public class Areas_Sign_Views_Login_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "sign", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -70,7 +77,7 @@ using StudyCheckWeb.MvcWebUI;
             BeginWriteAttribute("href", " href=\"", 139, "\"", 146, 0);
             EndWriteAttribute();
             WriteLiteral("><b>StudyCheck</b></a>\r\n    </div>\r\n    <!-- /.login-logo -->\r\n    <div class=\"card\">\r\n        <div class=\"card-body login-card-body\">\r\n            <p class=\"login-box-msg\">Kullanıcı Girişi</p>\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1aae6c9e1a2e06c04f660333d3bc0702be6780a6143", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1aae6c9e1a2e06c04f660333d3bc0702be6780a6363", async() => {
                 WriteLiteral(@"
                 <div class=""input-group mb-3"">
                     <input name=""kullaniciAdi"" type=""text"" class=""form-control"" placeholder=""Kullanıcı Adı"">
@@ -134,7 +141,7 @@ using StudyCheckWeb.MvcWebUI;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n            <p class=\"mb-1\">\r\n                <a href=\"#\">Şifremi unuttum</a>\r\n            </p>\r\n            <p class=\"mb-0\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1aae6c9e1a2e06c04f660333d3bc0702be6780a10054", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1aae6c9e1a2e06c04f660333d3bc0702be6780a10274", async() => {
                 WriteLiteral("Kayıt Ol");
             }
             );

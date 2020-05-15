@@ -78,9 +78,9 @@
                 <div class="row">
                     @if (ViewBag.Message != null)
                     {
-                        if (ViewBag.Message is List<Microsoft.AspNetCore.Identity.IdentityError>)
+                        if (ViewBag.Message is List<IdentityError>)
                         {
-                            @foreach (Microsoft.AspNetCore.Identity.IdentityError error in ViewBag.Message)
+                            @foreach (IdentityError error in ViewBag.Message)
                             {
                                 <p>@error.Description</p>
                             }
@@ -89,9 +89,11 @@
                         {
                             <p>@ViewBag.Message</p>
                         }
-
                     }
-                    <p style="color:red;">@ViewBag.Exceptions</p>
+                    @if (ViewBag.Exceptions != null)
+                    {
+                        <p style="color:red;">@ViewBag.Exceptions</p>
+                    }
                 </div>
             </form>            
             <br />
