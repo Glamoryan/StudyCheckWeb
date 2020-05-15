@@ -15,7 +15,7 @@
 
             <form action="#" method="post">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Ad">
+                    <input name="ad" type="text" class="form-control" placeholder="Ad">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Soyad">
+                    <input name="soyad" type="text" class="form-control" placeholder="Soyad">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Kullanıcı Adı">
+                    <input name="kullaniciAdi" type="text" class="form-control" placeholder="Kullanıcı Adı">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user-cog"></span>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Şifre">
+                    <input name="sifre" type="password" class="form-control" placeholder="Şifre">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="E-Mail">
+                    <input name="email" type="email" class="form-control" placeholder="E-Mail">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -74,6 +74,9 @@
                         <button type="submit" class="btn btn-primary btn-block">Kayıt Ol</button>
                     </div>
                     <!-- /.col -->
+                </div>
+                <div class="row">
+                    @ViewBag.Message
                 </div>
             </form>            
             <br />

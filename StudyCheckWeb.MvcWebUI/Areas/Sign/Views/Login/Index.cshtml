@@ -14,7 +14,7 @@
             <p class="login-box-msg">Kullanıcı Girişi</p>
             <form asp-area="sign" asp-controller="login" method="post">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Kullanıcı Adı">
+                    <input name="kullaniciAdi" type="text" class="form-control" placeholder="Kullanıcı Adı">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-user"></span>
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Şifre">
+                    <input name="sifre" type="password" class="form-control" placeholder="Şifre">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -43,6 +43,9 @@
                         <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
                     </div>
                     <!-- /.col -->
+                </div>
+                <div class="row">
+                    @ViewBag.Result
                 </div>
             </form>
 

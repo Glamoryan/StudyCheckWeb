@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
+using StudyCheckWeb.MvcWebUI.Authentication;
 
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
@@ -18,8 +20,9 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         ITemaService _temaService;
         IDersService _dersService;
         IRolService _rolService;
-        IYetkiService _yetkiService;
-        EntityListModel _entityListModel;    
+        IYetkiService _yetkiService;        
+
+        EntityListModel _entityListModel;
 
         public DashboardController(IUyedetayService uyedetayService, ISinavService sinavService, ITemaService temaService, IDersService dersService, IRolService rolService, IYetkiService yetkiService)
         {
@@ -28,9 +31,9 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             _temaService = temaService;
             _dersService = dersService;
             _rolService = rolService;
-            _yetkiService = yetkiService;
+            _yetkiService = yetkiService;            
         }
-        
+
         public IActionResult Index()
         {
             _entityListModel = new EntityListModel 
@@ -43,6 +46,6 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                 yetkiler = _yetkiService.GetAll()
             };
             return View(_entityListModel);
-        } 
+        }         
     }
 }

@@ -13,13 +13,6 @@ namespace StudyCheckWeb.MvcWebUI.Authentication
         {
 
         }
-        
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DBIdentityUser;Trusted_Connection=True;");
-            }
-        }
+                
     }
 }
