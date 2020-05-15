@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewData["Title"] = "Kayıt Ol";
-    Layout = "_SignLayout";
+    Layout = "_SignLayout";    
 }
 
 <div class="register-box">
@@ -57,7 +57,7 @@
                 <div class="form-group">
                     <label style="color:#ff5311">Tema</label>
                     <select class="form-control">
-                        <option>default</option>                        
+                        <option>default</option>
                     </select>
                 </div>
                 <div class="row">
@@ -71,7 +71,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Kayıt Ol</button>
+                        <button type="button" class="btn btn-primary btn-block toastrDefaultError">Kayıt Ol</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -82,24 +82,56 @@
                         {
                             @foreach (IdentityError error in ViewBag.Message)
                             {
-                                <p>@error.Description</p>
+                                <p id="mesajList" style="display:none">@error.Description</p>
                             }
                         }
                         else
                         {
-                            <p>@ViewBag.Message</p>
+                            <p id="mesaj" style="display:none">@ViewBag.Message</p>
                         }
                     }
                     @if (ViewBag.Exceptions != null)
-                    {
-                        <p style="color:red;">@ViewBag.Exceptions</p>
+                    {                        
+                        <p id="exception" style="display:none">@ViewBag.Exceptions</p>
                     }
                 </div>
-            </form>            
+            </form>
             <br />
             <a asp-area="Sign" asp-controller="login" asp-action="Index" class="text-center">Zaten bir hesabım var</a>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
 </div>
+
+@section Scripts{
+    <!-- SweetAlert2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+
+    <script type="text/javascript">        
+        $(function () {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });         
+
+            $('.toastrDefaultSuccess').click(function () {
+                toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+            });
+            $('.toastrDefaultInfo').click(function () {
+                toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+            });
+            $('.toastrDefaultError').click(function () {
+                toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+            });
+            $('.toastrDefaultWarning').click(function () {
+                toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+            });
+            
+        });
+    </script>
+}
 
