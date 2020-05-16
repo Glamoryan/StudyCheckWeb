@@ -2,8 +2,8 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\bin\Debug\netcore
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\bin\Debug\netcoreapp3.1\StudyCheck.Utilities.dll
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\bin\Debug\netcoreapp3.1\StudyCheck.Utilities.pdb
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\obj\Debug\netcoreapp3.1\StudyCheck.Utilities.csprojAssemblyReference.cache
-C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\obj\Debug\netcoreapp3.1\StudyCheck.Utilities.csproj.CoreCompileInputs.cache
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\obj\Debug\netcoreapp3.1\StudyCheck.Utilities.AssemblyInfoInputs.cache
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\obj\Debug\netcoreapp3.1\StudyCheck.Utilities.AssemblyInfo.cs
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\obj\Debug\netcoreapp3.1\StudyCheck.Utilities.dll
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\obj\Debug\netcoreapp3.1\StudyCheck.Utilities.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheck.Utilities\obj\Debug\netcoreapp3.1\StudyCheck.Utilities.csproj.CoreCompileInputs.cache

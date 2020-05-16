@@ -3,8 +3,10 @@
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000
+        timer: 3000        
     });
+
+    toastr.options.progressBar = true;
 
     if (type == 'exception') {
         toastr['error'](desc, title);

@@ -33,6 +33,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
             {
                 if (ad == null || soyad == null)
                     throw new RequiredFieldsException("Ad/Soyad boş bırakılamaz!");
+                else if (kullaniciAdi == null)
+                    throw new RequiredFieldsException("Kullanıcı adı boş bırakılamaz!");
+                else if (sifre == null)
+                    throw new RequiredFieldsException("Şifre boş bırakılamaz!");
 
                 User user = await _userManager.FindByNameAsync(kullaniciAdi);
                 if(user == null)

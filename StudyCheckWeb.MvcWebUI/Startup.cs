@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StudyCheck.Utilities.CustomIdentityError;
 using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.Business.Concrete;
 using StudyCheckWeb.DataAccess.Abstract;
@@ -54,6 +55,7 @@ namespace StudyCheckWeb.MvcWebUI
                 opt.Password.RequireNonAlphanumeric = false;
                 opt.Password.RequireDigit = false;                
             })
+                .AddErrorDescriber<TurkceIdentityErrorDescriber>()
                 .AddEntityFrameworkStores<UserContext>()
                 .AddDefaultTokenProviders();
 
