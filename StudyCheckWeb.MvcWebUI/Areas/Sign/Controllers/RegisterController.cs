@@ -51,7 +51,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                     };
                     IdentityResult result = await _userManager.CreateAsync(user, sifre);
                     if (result.Succeeded)
-                        ViewBag.Message = "Kullanıcı oluşturuldu";
+                        ViewBag.Success = "Kullanıcı oluşturuldu";
                     else
                         ViewBag.Message = result.Errors;
                 }
