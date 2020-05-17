@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using StudyCheck.Utilities.CustomExceptions;
 using StudyCheckWeb.MvcWebUI.Authentication;
 
 namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
@@ -11,7 +12,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
     [Area("Sign")]
     public class LoginController : Controller
     {
-        private SignInManager<User> _signInManager;
+        private SignInManager<User> _signInManager;        
 
         public LoginController(SignInManager<User> signInManager)
         {
@@ -19,18 +20,31 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
+        {           
+            return View();           
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(string kullaniciAdi,string sifre)
         {
-            var result = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
-            if (result.Succeeded)
-                return Redirect("/panel");
-            else
-                ViewBag.Result = result.ToString();
+            try
+            {
+                if (kullaniciAdi == null || sifre == null)
+                    throw new RequiredFieldsException("Kullanıcı Adı / Şifre boş bırakılamaz!");
+                var result = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
+                if (result.Succeeded)
+                    return Redirect("/panel");               
+                else
+                    ViewBag.Result = "Kullanıcı Adı veya Şifre geçersiz";
+            }
+            catch (RequiredFieldsException reqEx)
+            {
+                ViewBag.Exceptions = reqEx.Message;
+            }            
+            catch (Exception ex)
+            {
+                ViewBag.Exceptions = ex.Message;
+            }
             return View();
         }
 

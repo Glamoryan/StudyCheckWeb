@@ -4,6 +4,17 @@
     ViewBag.Title = "Giriş Yap";
 }
 
+@section Scripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+}
+
 <div class="login-box">
     <div class="login-logo">
         <a href=""><b>StudyCheck</b></a>
@@ -45,7 +56,30 @@
                     <!-- /.col -->
                 </div>
                 <div class="row">
-                    @ViewBag.Result
+                    @if (ViewBag.Result != null)
+                    {
+                        if (ViewBag.Result is List<IdentityError>)
+                        {
+                            @foreach (IdentityError error in ViewBag.Result)
+                            {
+                                <script type="text/javascript">
+                                    AlertErrors("Onaylama Hatası", "@error.Description", "exception");
+                                </script>
+                            }
+                        }
+                        else
+                        {
+                            <script type="text/javascript">
+                                AlertErrors("Sonuç", "@ViewBag.Result", "exception");
+                            </script>
+                        }
+                    }
+                    @if (ViewBag.Exceptions != null)
+                    {
+                        <script type="text/javascript">
+                            AlertErrors("Gerekli Alanlar", "@ViewBag.Exceptions", "exception");
+                        </script>
+                    }
                 </div>
             </form>
 
