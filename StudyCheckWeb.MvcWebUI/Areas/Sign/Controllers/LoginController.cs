@@ -47,11 +47,11 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 
                 //Bilgiler asp.users tablosunda varmı 
                 if(await _userManager.FindByNameAsync(kullaniciAdi) != null)
-                {
-                    int loginId = _uyedetayService.GetAll().Where(k => k.kullanici_adi == kullaniciAdi).Single().id;                    
+                {                                      
                     var loginResult = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
                     if (loginResult.Succeeded)//var
                     {
+                        int loginId = _uyedetayService.GetAll().Where(k => k.kullanici_adi == kullaniciAdi).Single().id;
                         return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId= loginId });
                     }                    
                     else
