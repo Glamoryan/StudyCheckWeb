@@ -56,29 +56,20 @@
                     <!-- /.col -->
                 </div>
                 <div class="row">
-                    @if (ViewBag.Result != null)
-                    {
-                        if (ViewBag.Result is List<IdentityError>)
-                        {
-                            @foreach (IdentityError error in ViewBag.Result)
-                            {
-                                <script type="text/javascript">
-                                    AlertErrors("Onaylama Hatası", "@error.Description", "exception");
-                                </script>
-                            }
-                        }
-                        else
-                        {
-                            <script type="text/javascript">
-                                AlertErrors("Sonuç", "@ViewBag.Result", "exception");
-                            </script>
-                        }
-                    }
                     @if (ViewBag.Exceptions != null)
                     {
                         <script type="text/javascript">
-                            AlertErrors("Gerekli Alanlar", "@ViewBag.Exceptions", "exception");
+                           AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
                         </script>
+                    }
+                    @if (ViewBag.IdentityResult != null)
+                    {
+                        @foreach (IdentityError error in ViewBag.IdentityResult.Errors)
+                        {
+                            <script type="text/javascript">
+                                AlertErrors("Sonuç", "@error.Description", "exception");
+                            </script>
+                        }
                     }
                 </div>
             </form>

@@ -49,7 +49,12 @@ namespace StudyCheckWeb.MvcWebUI
 
             services.AddSession();
             services.AddControllersWithViews();
-            
+
+            services.AddDbContext<UserContext>(cfg =>
+            {
+                cfg.UseSqlServer(Configuration.GetConnectionString("AppData"));
+            });
+
             services.AddIdentity<User, IdentityRole>(opt=> {
                 opt.User.RequireUniqueEmail = true;                
                 opt.Password.RequireNonAlphanumeric = false;
@@ -57,12 +62,7 @@ namespace StudyCheckWeb.MvcWebUI
             })
                 .AddErrorDescriber<TurkceIdentityErrorDescriber>()
                 .AddEntityFrameworkStores<UserContext>()
-                .AddDefaultTokenProviders();
-
-            services.AddDbContext<UserContext>(cfg =>
-            {
-                cfg.UseSqlServer(Configuration.GetConnectionString("AppData"));
-            });
+                .AddDefaultTokenProviders();            
 
             services.ConfigureApplicationCookie(options =>
             {
