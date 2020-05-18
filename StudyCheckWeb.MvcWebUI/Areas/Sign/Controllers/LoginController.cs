@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Newtonsoft.Json;
 using StudyCheck.Utilities.CustomExceptions;
 using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.Business.Concrete;
@@ -36,19 +37,6 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
             return View();
         }
 
-        /// <summary>
-        /// Kullanıcı identity'nin users tablosunda var mı?
-        /// </summary>
-        /// <param name="kullaniciAdi"></param>
-        /// <returns></returns>
-        public async Task<bool> userExist(string kullaniciAdi)
-        {
-            var user = await _userManager.FindByNameAsync(kullaniciAdi);
-            if (user != null)
-                return true;
-            return false;
-        }
-
         [HttpPost]
         public async Task<IActionResult> Index(string kullaniciAdi, string sifre)
         {
@@ -59,10 +47,13 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 
                 //Bilgiler asp.users tablosunda varmı 
                 if(await _userManager.FindByNameAsync(kullaniciAdi) != null)
-                {                    
+                {
+                    int loginId = _uyedetayService.GetAll().Where(k => k.kullanici_adi == kullaniciAdi).Single().id;                    
                     var loginResult = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
                     if (loginResult.Succeeded)//var
-                        return RedirectToAction("Index", "dashboard", new { area = "administrator" });//kullanıcı bilgilerini model ile gönder
+                    {
+                        return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId= loginId });
+                    }                    
                     else
                         throw new Exception("Kullanıcı bilgileri hatalı");
                 }               
@@ -89,33 +80,13 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                         if (!identityResult.Succeeded)//failed
                         {
                             ViewBag.IdentityResult = identityResult;
-                            throw new Exception("Web versiyonu için bilgilerinizi güncelleyin!!!");
+                            throw new Exception("Web versiyonu için bilgilerinizi güncelleyin (Yardım)");
                         }
                         else if (identityResult.Succeeded)//success
-                        {
-                            AccountInfosModel model = new AccountInfosModel
-                            {
-                                KullaniciBilgisi = new UserDetail
-                                {
-                                    uye_ad = createUser.uyeAdi,
-                                    uye_soyad = createUser.uyeSoyadi,
-                                    kullanici_adi = createUser.kullaniciAdi,
-                                    kullanici_sifre = createUser.kullaniciSifre,
-                                    kullanici_mail = createUser.kullaniciMail,
-                                    uye_id = user.uye_id,
-                                    guncelleme_tarihi = user.guncelleme_tarihi,
-                                    guncelleyen_id = user.guncelleyen_id,
-                                    kayit_tarihi = user.kayit_tarihi,
-                                    rol_id = user.rol_id,
-                                    sil_id = user.sil_id,
-                                    tema_id = user.tema_id,
-                                    uyedetay_id = user.id
-                                }
-                            };
-                            TempData["kullaniciModel"] = model;
+                        {                            
                             var newLoginResult = await _signInManager.PasswordSignInAsync(createUser, createUser.kullaniciSifre, false, false);
                             if (newLoginResult.Succeeded)
-                                return RedirectToAction("Index", "Dashboard",new { area = "administrator" });//kullanıcı bilgilerini model ile gönder
+                                return RedirectToAction("Index", "Dashboard",new { area = "administrator", kullaniciId = user.id});
                             else
                             {
                                 ViewBag.Exceptions = newLoginResult;

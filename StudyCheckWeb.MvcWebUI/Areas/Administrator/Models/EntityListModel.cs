@@ -19,7 +19,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Models
         //Complex Type
         public List<UserDetail> UserDetails { get; set; }
 
-        //loginden gelen
-        public UserDetail kullanici { get; set; }
+        //loginli kullanıcı bilgileri
+        public int AdminID { get; set; }
+
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.Entities.Dtos;
 using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
@@ -35,10 +36,9 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             _yetkiService = yetkiService;            
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int kullaniciId)
         {
-
-            _entityListModel = new EntityListModel 
+            _entityListModel = new EntityListModel
             {
                 kullanicilar = _uyedetayService.GetAll(),
                 dersler = _dersService.GetAll(),
@@ -46,8 +46,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                 sinavlar = _sinavService.GetAll(),
                 temalar = _temaService.GetAll(),
                 yetkiler = _yetkiService.GetAll(),
-                kullanici = TempData["kullaniciModel"] as UserDetail
-            };
+                AdminID = kullaniciId
+            };            
             return View(_entityListModel);
         }         
     }

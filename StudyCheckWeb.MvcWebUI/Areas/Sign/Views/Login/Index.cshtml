@@ -55,32 +55,32 @@
                     </div>
                     <!-- /.col -->
                 </div>
-                <div class="row">
-                    @if (ViewBag.Exceptions != null)
-                    {
-                        <script type="text/javascript">
-                           AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
-                        </script>
-                    }
-                    @if (ViewBag.IdentityResult != null)
-                    {
-                        @foreach (IdentityError error in ViewBag.IdentityResult.Errors)
-                        {
-                            <script type="text/javascript">
-                                AlertErrors("Sonuç", "@error.Description", "exception");
-                            </script>
-                        }
-                    }
-                </div>
             </form>
-
             <p class="mb-1">
                 <a href="#">Şifremi unuttum</a>
             </p>
             <p class="mb-0">
                 <a asp-area="Sign" asp-controller="register" asp-action="Index" class="text-center">Kayıt Ol</a>
-            </p>
+            </p>            
+            <hr />
+            <button type="button" class="btn btn-primary" style="background:#1c2349;width:100%;border-color:#1c2349;">Yardım</button>
         </div>
         <!-- /.login-card-body -->
     </div>
 </div>
+
+@if (ViewBag.Exceptions != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
+@if (ViewBag.IdentityResult != null)
+{
+    @foreach (IdentityError error in ViewBag.IdentityResult.Errors)
+    {
+        <script type="text/javascript">
+            AlertErrors("Sonuç", "@error.Description", "exception");
+        </script>
+    }
+}
