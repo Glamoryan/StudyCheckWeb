@@ -59,10 +59,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 
                 //Bilgiler asp.users tablosunda varmı 
                 if(await _userManager.FindByNameAsync(kullaniciAdi) != null)
-                {
+                {                    
                     var loginResult = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
                     if (loginResult.Succeeded)//var
-                        return RedirectToAction("Index", "dashboard", new { area = "administrator" });
+                        return RedirectToAction("Index", "dashboard", new { area = "administrator" });//kullanıcı bilgilerini model ile gönder
                     else
                         throw new Exception("Kullanıcı bilgileri hatalı");
                 }               
@@ -115,7 +115,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                             TempData["kullaniciModel"] = model;
                             var newLoginResult = await _signInManager.PasswordSignInAsync(createUser, createUser.kullaniciSifre, false, false);
                             if (newLoginResult.Succeeded)
-                                return RedirectToAction("Index", "Dashboard",new {area="administrator");
+                                return RedirectToAction("Index", "Dashboard",new { area = "administrator" });//kullanıcı bilgilerini model ile gönder
                             else
                             {
                                 ViewBag.Exceptions = newLoginResult;
