@@ -46,14 +46,12 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                     throw new RequiredFieldsException("Kullanıcı Adı / Şifre boş bırakılamaz!");
 
                 //Bilgiler asp.users tablosunda varmı 
-                if(await _userManager.FindByNameAsync(kullaniciAdi) != null)
+                var loggedUser = await _userManager.FindByNameAsync(kullaniciAdi);
+                if (loggedUser != null)
                 {                                      
                     var loginResult = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
                     if (loginResult.Succeeded)//var
-                    {
-                        int loginId = _uyedetayService.GetAll().Where(k => k.kullanici_adi == kullaniciAdi).Single().id;
-                        return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId= loginId });
-                    }                    
+                        return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId = loggedUser.uyeDetayId });
                     else
                         throw new Exception("Kullanıcı bilgileri hatalı");
                 }               
