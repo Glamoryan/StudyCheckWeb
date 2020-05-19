@@ -66,6 +66,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                         Uye uye = _uyeService.GetById(user.uye_id);
                         User createUser = new User
                         {
+                            uyeId = uye.id,
+                            uyeDetayId = user.id,
                             uyeAdi = uye.uye_ad,
                             uyeSoyadi = uye.uye_soyad,
                             kullaniciAdi = user.kullanici_adi,
