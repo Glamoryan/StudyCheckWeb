@@ -4,6 +4,17 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
+@section AlertScripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+}
+
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -30,17 +41,17 @@
                         <h3 class="card-title">Sınav Bilgileri</h3>
                     </div>
                     <!-- /.card-header -->
-                    <form role="form">
+                    <form asp-area="administrator" asp-controller="sinav" method="post">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Sınav Adı</label>
-                                <input type="text" class="form-control" id="" placeholder="Sınav adı...">
+                                <input name="sinavAdi" type="text" class="form-control" placeholder="Sınav adı...">
                             </div>
                             <div class="form-group">
                                 <label>Durum</label>
-                                <select class="form-control select2 select2-success" data-dropdown-css-class="select2-success" style="width: 100%;">
-                                    <option selected="selected">Aktif</option>
-                                    <option>Pasif</option>
+                                <select name="durum" class="form-control select2 select2-success" data-dropdown-css-class="select2-success" style="width: 100%;">
+                                    <option selected="selected" value="1">Aktif</option>
+                                    <option value="0">Pasif</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -50,7 +61,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                                    <input name="sinavTarihi" type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -65,15 +76,22 @@
         </div>
     </div>
 </section>
+@if (ViewBag.Exceptions != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
 
-@section Scripts{   
+
+@section Scripts{
     <!-- Select2 -->
     <script src="~/plugins/select2/js/select2.full.min.js"></script>
-   
+
     <!-- InputMask -->
     <script src="~/plugins/moment/moment.min.js"></script>
-    <script src="~/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>    
-    
+    <script src="~/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+
     <!-- Page script -->
     <script>
         $(function () {
@@ -86,7 +104,7 @@
             })
 
             //Datemask dd/mm/yyyy
-            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })            
+            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
             //Money Euro
             $('[data-mask]').inputmask()//input mask için gerekli
 

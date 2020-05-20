@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    ClaimsPrincipal currentUser = this.User;
 }
 
 <!-- Navbar -->
@@ -47,7 +48,7 @@
                 <img src="~/dist/img/administrator_male_32px.png" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block">@currentUser.Identity.Name</a>
             </div>
         </div>
 

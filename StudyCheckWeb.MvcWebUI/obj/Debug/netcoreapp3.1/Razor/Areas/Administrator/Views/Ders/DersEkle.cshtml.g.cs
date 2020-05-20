@@ -26,8 +26,15 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\Areas\Administrator\Views\_ViewImports.cshtml"
+using System.Security.Claims;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1d0157169537953d55f2b8e6fdf71fb15f665ed3", @"/Areas/Administrator/Views/Ders/DersEkle.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9136fd81a9cf30bd091754159ce60a4fae8cf8f9", @"/Areas/Administrator/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f1b140010cfc99635a180e8ef57fce3d7e5fa193", @"/Areas/Administrator/Views/_ViewImports.cshtml")]
     public class Areas_Administrator_Views_Ders_DersEkle : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("selected", new global::Microsoft.AspNetCore.Html.HtmlString("selected"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -98,7 +105,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
                     </div>
                     <!-- /.card-header -->
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed36138", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed36360", async() => {
                 WriteLiteral(@"
                         <div class=""card-body"">
                             <div class=""form-group"">
@@ -109,7 +116,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
                                 <label>Durum</label>
                                 <select class=""form-control select2 select2-success"" data-dropdown-css-class=""select2-success"" style=""width: 100%;"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed37030", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed37252", async() => {
                     WriteLiteral("Aktif");
                 }
                 );
@@ -124,7 +131,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed38166", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed38388", async() => {
                     WriteLiteral("Pasif");
                 }
                 );
@@ -144,7 +151,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
                                 <label>Hangi Sınav</label>
                                 <select class=""form-control select2 select2-warning"" data-dropdown-css-class=""select2-warning"" style=""width: 100%;"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed39565", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed39787", async() => {
                     WriteLiteral("test");
                 }
                 );
@@ -159,7 +166,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed310700", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed310922", async() => {
                     WriteLiteral("deneme");
                 }
                 );
@@ -198,7 +205,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
             WriteLiteral("\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n");
             DefineSection("Scripts", async() => {
                 WriteLiteral("\r\n    <!-- Select2 -->\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed313375", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1d0157169537953d55f2b8e6fdf71fb15f665ed313597", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
