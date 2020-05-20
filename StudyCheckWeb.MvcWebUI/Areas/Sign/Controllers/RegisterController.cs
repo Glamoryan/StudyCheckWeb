@@ -89,7 +89,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                     {                        
                         using (StudyCheckContext context = new StudyCheckContext())
                         {
-                            using (var transaction = context.Database.BeginTransaction())
+                            using (var transaction = context.Database.BeginTransaction())//transaction'a başla ve tabloları kilitle
                             {
                                 try
                                 {
@@ -142,10 +142,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                                 }
                                 catch (Exception ex)
                                 {
-                                    transaction.Rollback();
-                                    throw new Exception("İşlem geri alındı!");
+                                    transaction.Rollback();//değişiklikleri geri al
+                                    throw new Exception(ex.Message);
                                 }
-                                transaction.Commit();
+                                transaction.Commit();//tablo kilitlerini aç
                             }
                             
                         }
