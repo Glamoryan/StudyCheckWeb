@@ -11,8 +11,8 @@ namespace StudyCheckWeb.Business.Abstract
     {
         List<Uye> GetAll();        
         Uye GetById(int id);
-        void AddUser(Uye uye);
-        void UpdateUser(Uye uye);
+        Uye AddUser(Uye uye);
+        Uye UpdateUser(Uye uye);
         void DeleteUser(Uye uye);
         List<UserDetail> GetAllUserDetail();
         UserDetail GetUserDetailByUyeId(int id);

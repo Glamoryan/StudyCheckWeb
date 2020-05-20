@@ -15,9 +15,10 @@ namespace StudyCheckWeb.Business.Concrete
         {
             _uyeDetayDal = uyeDetayDal;
         }
-        public void AddUyedetay(Uyedetay uyedetay)
+        public Uyedetay AddUyedetay(Uyedetay uyedetay)
         {
             _uyeDetayDal.Add(uyedetay);
+            return uyedetay;
         }
 
         public void DeleteUyedetay(Uyedetay uyedetay)
@@ -50,9 +51,10 @@ namespace StudyCheckWeb.Business.Concrete
             return _uyeDetayDal.GetList(u => u.uye_id == uyeId);
         }
 
-        public void UpdateUyedetay(Uyedetay uyedetay)
+        public Uyedetay UpdateUyedetay(Uyedetay uyedetay)
         {
             _uyeDetayDal.Update(uyedetay);
+            return uyedetay;
         }
     }
 }

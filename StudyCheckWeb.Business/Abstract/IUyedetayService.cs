@@ -12,8 +12,8 @@ namespace StudyCheckWeb.Business.Abstract
         List<Uyedetay> GetListByStatus(int silId);
         List<Uyedetay> GetListByRoleId(int rolId);
         Uyedetay GetById(int id);
-        void AddUyedetay(Uyedetay uyedetay);
-        void UpdateUyedetay(Uyedetay uyedetay);
+        Uyedetay AddUyedetay(Uyedetay uyedetay);
+        Uyedetay UpdateUyedetay(Uyedetay uyedetay);
         void DeleteUyedetay(Uyedetay uyedetay);
     }
 }

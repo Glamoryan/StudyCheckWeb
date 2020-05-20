@@ -16,9 +16,10 @@ namespace StudyCheckWeb.Business.Concrete
         {
             _uyeDal = uyeDal;
         }
-        public void AddUser(Uye uye)
+        public Uye AddUser(Uye uye)
         {
             _uyeDal.Add(uye);
+            return uye;
         }
 
         public void DeleteUser(Uye uye)
@@ -36,9 +37,10 @@ namespace StudyCheckWeb.Business.Concrete
             return _uyeDal.Get(u=>u.id==id);
         }
 
-        public void UpdateUser(Uye uye)
+        public Uye UpdateUser(Uye uye)
         {
             _uyeDal.Update(uye);
+            return uye;
         }
 
         public UserDetail GetUserDetailByUyeId(int uyeId)

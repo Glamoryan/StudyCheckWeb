@@ -86,38 +86,6 @@
                     </div>
                     <!-- /.col -->
                 </div>
-                <div class="row">
-                    @if (ViewBag.Message != null)
-                    {
-                        if (ViewBag.Message is List<IdentityError>)
-                        {
-                            @foreach (IdentityError error in ViewBag.Message)
-                            {
-                                <script type="text/javascript">
-                                    AlertErrors("Onaylama Hatası", "@error.Description", "exception");
-                                </script>
-                            }
-                        }
-                        else
-                        {
-                            <script type="text/javascript">
-                                AlertErrors("Sonuç", "@ViewBag.Message", "message");
-                            </script>
-                        }
-                    }
-                    @if (ViewBag.Exceptions != null)
-                    {
-                        <script type="text/javascript">
-                            AlertErrors("Gerekli Alanlar", "@ViewBag.Exceptions", "exception");
-                        </script>
-                    }
-                    @if (ViewBag.Success != null)
-                    {
-                        <script type="text/javascript">
-                            AlertErrors("İşlem Başarılı", "@ViewBag.Success", "success");
-                        </script>
-                    }
-                </div>
             </form>
             <br />
             <a asp-area="Sign" asp-controller="login" asp-action="Index" class="text-center">Zaten bir hesabım var</a>
@@ -125,4 +93,32 @@
         <!-- /.form-box -->
     </div><!-- /.card -->
 </div>
+
+@if (ViewBag.Exceptions != null)
+{
+    <script>
+        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
+@if (ViewBag.IdentityResult != null)
+{
+    <script>
+        AlertErrors("Sonuç", "@ViewBag.IdentityResult", "success");
+    </script>
+}
+@if (ViewBag.IdentityErrors != null)
+{
+    @foreach (IdentityError error in ViewBag.IdentityErrors.Errors)
+    {
+        <script type="text/javascript">
+            AlertErrors("Sonuç", "@error.Description", "exception");
+        </script>
+    }
+}
+@if (ViewBag.Transaction != null)
+{
+    <script type="text/javascript">
+            AlertErrors("Sonuç", "@ViewBag.Transaction", "exception");
+    </script>
+}
 
