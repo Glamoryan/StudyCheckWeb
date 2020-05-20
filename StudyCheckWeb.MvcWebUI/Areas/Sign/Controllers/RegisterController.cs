@@ -89,53 +89,65 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                     {                        
                         using (StudyCheckContext context = new StudyCheckContext())
                         {
-                            Uye uyemiz = new Uye
+                            using (var transaction = context.Database.BeginTransaction())
                             {
-                                uye_ad = ad,
-                                uye_soyad = soyad
-                            };
-                            Uye createdUye = context.Uyeler.Add(uyemiz).Entity;                            
-                            Uyedetay kullanicimiz = new Uyedetay
-                            {
-                                uye_id = createdUye.id,
-                                kullanici_adi = kullaniciAdi,
-                                kullanici_sifre = sifre,
-                                kullanici_mail = email,
-                                guncelleyen_id = 1,
-                                guncelleme_tarihi = DateTime.Now,
-                                kayit_tarihi = DateTime.Now,
-                                rol_id = 1,
-                                sil_id = 1,
-                                tema_id = 1
-                            };
-                            var createdUyedetay = context.UyeDetay.Add(kullanicimiz).Entity;                            
-                            User createdLogin = new User
-                            {
-                                kullaniciAdi = kullaniciAdi,
-                                kullaniciSifre = sifre,
-                                kullaniciMail = email,
-                                uyeAdi = ad,
-                                uyeSoyadi = soyad,
-                                rolId = 1,
-                                uyeId = createdUye.id,
-                                uyeDetayId = createdUyedetay.id,
-                                UserName = kullaniciAdi,
-                                Email = email,
-                                PasswordHash = sifre
-                            };
-                            IdentityResult createResult = await _userManager.CreateAsync(createdLogin, sifre);
-                            if (createResult.Succeeded)
-                            {
-                                context.SaveChanges();//----------->uyeId olşumadan uyedetayOluşuyor EXCEPTION HERE
-                                ViewBag.IdentityResult = "Kullanıcı başarıyla oluşturuldu";
+                                try
+                                {
+                                    Uye uyemiz = new Uye
+                                    {
+                                        uye_ad = ad,
+                                        uye_soyad = soyad
+                                    };
+                                    Uye createdUye = context.Uyeler.Add(uyemiz).Entity;
+                                    context.SaveChanges();
+                                    Uyedetay kullanicimiz = new Uyedetay
+                                    {
+                                        uye_id = createdUye.id,
+                                        kullanici_adi = kullaniciAdi,
+                                        kullanici_sifre = sifre,
+                                        kullanici_mail = email,
+                                        guncelleyen_id = 1,
+                                        guncelleme_tarihi = DateTime.Now,
+                                        kayit_tarihi = DateTime.Now,
+                                        rol_id = 1,
+                                        sil_id = 1,
+                                        tema_id = 1
+                                    };
+                                    var createdUyedetay = context.UyeDetay.Add(kullanicimiz).Entity;
+                                    context.SaveChanges();
+                                    User createdLogin = new User
+                                    {
+                                        kullaniciAdi = kullaniciAdi,
+                                        kullaniciSifre = sifre,
+                                        kullaniciMail = email,
+                                        uyeAdi = ad,
+                                        uyeSoyadi = soyad,
+                                        rolId = 1,
+                                        uyeId = createdUye.id,
+                                        uyeDetayId = createdUyedetay.id,
+                                        UserName = kullaniciAdi,
+                                        Email = email,
+                                        PasswordHash = sifre
+                                    };
+                                    IdentityResult createResult = await _userManager.CreateAsync(createdLogin, sifre);
+                                    if (createResult.Succeeded)
+                                    {                                       
+                                        ViewBag.IdentityResult = "Kullanıcı başarıyla oluşturuldu";
+                                    }
+                                    else
+                                    {                                        
+                                        ViewBag.IdentityErrors = createResult;
+                                        throw new Exception("Hata! İşlem iptal edildi");
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    transaction.Rollback();
+                                    throw new Exception("İşlem geri alındı!");
+                                }
+                                transaction.Commit();
                             }
-                            else
-                            {
-                                context.Entry(uyemiz).Reload();
-                                context.Entry(kullanicimiz).Reload();
-                                ViewBag.IdentityErrors = createResult;
-                                throw new Exception("Hata! İşlem iptal edildi");
-                            }                            
+                            
                         }
                     }
                 }
