@@ -80,7 +80,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                         if (!identityResult.Succeeded)//failed
                         {
                             ViewBag.IdentityResult = identityResult;
-                            throw new Exception("Web versiyonu için bilgilerinizi güncelleyin (Yardım)");
+                            throw new Exception("Hesabınız bulundu fakat web versiyonu için hesap bilgileri güncellenmeli! (Code:21) (Yardım)");
                         }
                         else if (identityResult.Succeeded)//success
                         {                            
@@ -96,7 +96,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                     }
                     else //veri uyedetayTablosunda yoksa
                     {                        
-                        throw new Exception("Bilgilerinizi kontrol edin veya Yeni kullanıcı oluşturun");
+                        throw new Exception("Hatalı Bilgiler! Bilgilerinizi kontrol edin veya Yeni kullanıcı oluşturun");
                     }                                     
                 }
             }            

@@ -90,11 +90,34 @@
             <br />
             <a asp-area="Sign" asp-controller="login" asp-action="Index" class="text-center">Zaten bir hesabım var</a>
             <hr />
-            <button type="button" class="btn btn-primary" style="background:#1c2349;width:100%;border-color:#1c2349;">Yardım</button>
+            <button style="background:#1c2349;width:100%;border-color:#1c2349;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">Yardım</button>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
 </div>
+
+<div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Masaüstü uygulamasındaki hesap ile giriş</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="color:red;"><b>Buradaki adımları uygulamadan önce kayıt olmayı deneyin!</b></p>
+                <p><b>ADIMLAR</b><br />- Kayıt olmak istediğiniz hesap masaüstü uygulamanızda varsa "Zaten bir hesabım var" butonundan giriş yapmayı deneyin</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 @if (ViewBag.Exceptions != null)
 {

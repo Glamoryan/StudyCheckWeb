@@ -54,39 +54,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                     var kullanici = _uyedetayService.GetAll().Where(k => k.kullanici_adi == kullaniciAdi || k.kullanici_mail == email).FirstOrDefault();//veri uyedetay tablosunda var mı                    
                     if (kullanici != null)//var
                     {
-                        if (kullanici.kullanici_adi == kullaniciAdi && kullanici.kullanici_mail != email)
-                            throw new Exception("Bu kullanıcı adı masaüstü uygulamasında zaten mevcut , ancak email bilgisi hatalı. Email bilgisini düzeltin yada farklı bir hesap açın!");
-                        else if (kullanici.kullanici_adi != kullaniciAdi && kullanici.kullanici_mail == email)
-                            throw new Exception("Bu email masaüstü uygulamasında zaten mevcut , ancak kullanıcı adı bilgisi hatalı. Kullanıcı bilgisini düzeltin yada farklı bir hesap açın!");
-
-                        User createUser = new User
-                        {
-                            kullaniciAdi = kullaniciAdi,
-                            kullaniciSifre = sifre,
-                            kullaniciMail = email,
-                            uyeAdi = ad,
-                            uyeSoyadi = soyad,
-                            rolId = 1,
-                            uyeId = kullanici.uye_id,
-                            uyeDetayId = kullanici.id,
-                            UserName = kullaniciAdi,
-                            Email = email,
-                            PasswordHash = sifre
-                        };
-                        IdentityResult identityResult = await _userManager.CreateAsync(createUser, sifre);
-                        if (identityResult.Succeeded)
-                        {
-                            ViewBag.IdentityResult = "Kullanıcı başarıyla oluşturuldu";
-                            return View();
-                        }
-                        else
-                        {
-                            ViewBag.IdentityErrors = identityResult;
-                            throw new Exception("Bu kullanıcı bilgileri masaüstü uygulamasında zaten mevcut ancak web uygulaması için üstteki bilgileri güncelleyin (Yardım) veya farklı bir hesap açın!");
-                        }
+                        throw new Exception("Bu kullanıcı bilgileri masaüstü uygulamasında zaten mevcut. Bu kullanıcı ile Giriş yapmayı deneyin yada farklı bilgiler ile kayıt olun!");
                     }
                     else //yok
-                    {                        
+                    {
                         using (StudyCheckContext context = new StudyCheckContext())
                         {
                             using (var transaction = context.Database.BeginTransaction())//transaction'a başla ve tabloları kilitle
@@ -131,11 +102,11 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                                     };
                                     IdentityResult createResult = await _userManager.CreateAsync(createdLogin, sifre);
                                     if (createResult.Succeeded)
-                                    {                                       
+                                    {
                                         ViewBag.IdentityResult = "Kullanıcı başarıyla oluşturuldu";
                                     }
                                     else
-                                    {                                        
+                                    {
                                         ViewBag.IdentityErrors = createResult;
                                         throw new Exception("Hata! İşlem iptal edildi");
                                     }
@@ -147,7 +118,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                                 }
                                 transaction.Commit();//tablo kilitlerini aç
                             }
-                            
+
                         }
                     }
                 }
