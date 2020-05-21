@@ -56,7 +56,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview menu-open">
                     <a asp-area="administrator" asp-controller="dashboard" asp-action="Index" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -180,6 +180,31 @@
                             <a asp-area="administrator" asp-controller="ders" asp-action="dersEkle" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString()=="DersEkle"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Ders Ekle</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-header" style="color:#ff5311;text-align:center;"><h5>- IDENTITY CORE -</h5></li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-paste"></i>
+                        <p>
+                            Identity Core İşlemleri
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-area="administrator" asp-controller="ders" asp-action="dersListesi" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Identity Rol Listesi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="administrator" asp-controller="ders" asp-action="dersEkle" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Identity Rolü Ekle</p>
                             </a>
                         </li>
                     </ul>
