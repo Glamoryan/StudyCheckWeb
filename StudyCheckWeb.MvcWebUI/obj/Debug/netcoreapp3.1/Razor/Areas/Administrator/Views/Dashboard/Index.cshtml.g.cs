@@ -27,6 +27,13 @@ using System.Security.Claims;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\Areas\Administrator\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\Areas\Administrator\Views\Dashboard\Index.cshtml"
 using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 
@@ -34,7 +41,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e1ed4a523f69bb718966ca3bb58af177944fb5a4", @"/Areas/Administrator/Views/Dashboard/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f1b140010cfc99635a180e8ef57fce3d7e5fa193", @"/Areas/Administrator/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ef96754046a7a330624bd17be0715e70641d91b9", @"/Areas/Administrator/Views/_ViewImports.cshtml")]
     public class Areas_Administrator_Views_Dashboard_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<EntityListModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "Administrator", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -97,7 +104,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
             <div class=""col-sm-6"">
                 <ol class=""breadcrumb float-sm-right"">
                     <li class=""breadcrumb-item"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1ed4a523f69bb718966ca3bb58af177944fb5a47262", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1ed4a523f69bb718966ca3bb58af177944fb5a47491", async() => {
                 WriteLiteral("Anasayfa");
             }
             );
@@ -380,7 +387,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
                 </button>
             </div>
             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1ed4a523f69bb718966ca3bb58af177944fb5a420205", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1ed4a523f69bb718966ca3bb58af177944fb5a420434", async() => {
                 WriteLiteral("\r\n                <div class=\"modal-body\">\r\n\r\n                    <div class=\"form-row\">\r\n                        <div class=\"form-group col-md-12\">\r\n                            <input class=\"form-control\" type=\"text\" id=\"mesaj\"");
                 BeginWriteAttribute("value", " value=\"", 10287, "\"", 10295, 0);
                 EndWriteAttribute();
@@ -417,7 +424,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </div>\r\n        <!-- /.modal-content -->\r\n    </div>\r\n    <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1ed4a523f69bb718966ca3bb58af177944fb5a422985", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1ed4a523f69bb718966ca3bb58af177944fb5a423214", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -431,7 +438,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n<script>\r\n    window.addEventListener(\"keydown\", function (e) {\r\n        // Yön tuşlarıyla scrool engelleme\r\n        if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {\r\n            e.preventDefault();\r\n        }\r\n    }, false);\r\n</script>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1ed4a523f69bb718966ca3bb58af177944fb5a424280", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1ed4a523f69bb718966ca3bb58af177944fb5a424509", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

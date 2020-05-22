@@ -33,8 +33,15 @@ using System.Security.Claims;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\Areas\Administrator\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"24228f22ce58124eb3d28f281b8a1c61164d21fa", @"/Areas/Administrator/Views/Kullanici/KullaniciEkle.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f1b140010cfc99635a180e8ef57fce3d7e5fa193", @"/Areas/Administrator/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ef96754046a7a330624bd17be0715e70641d91b9", @"/Areas/Administrator/Views/_ViewImports.cshtml")]
     public class Areas_Administrator_Views_Kullanici_KullaniciEkle : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("selected", new global::Microsoft.AspNetCore.Html.HtmlString("selected"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -103,7 +110,7 @@ using System.Security.Claims;
                     </div>
                     <!-- /.card-header -->
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa5909", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa6138", async() => {
                 WriteLiteral(@"
                         <div class=""card-body"">
                             <div class=""form-group"">
@@ -131,7 +138,7 @@ using System.Security.Claims;
                                 <label>Durum</label>
                                 <select class=""form-control select2 select2-success"" data-dropdown-css-class=""select2-success"" style=""width: 100%;"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa7887", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa8116", async() => {
                     WriteLiteral("Aktif");
                 }
                 );
@@ -146,7 +153,7 @@ using System.Security.Claims;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa9023", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa9252", async() => {
                     WriteLiteral("Pasif");
                 }
                 );
@@ -166,7 +173,7 @@ using System.Security.Claims;
                                 <label>Tema</label>
                                 <select class=""form-control select2 select2-warning"" data-dropdown-css-class=""select2-warning"" style=""width: 100%;"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa10415", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa10644", async() => {
                     WriteLiteral("Default");
                 }
                 );
@@ -187,7 +194,7 @@ using System.Security.Claims;
                                 <label>Rol</label>
                                 <select class=""form-control select2 select2-primary"" data-dropdown-css-class=""select2-primary"" style=""width: 100%;"">
                                     ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa11896", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa12125", async() => {
                     WriteLiteral("Admin");
                 }
                 );
@@ -202,7 +209,7 @@ using System.Security.Claims;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa13033", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa13262", async() => {
                     WriteLiteral("User");
                 }
                 );
@@ -241,7 +248,7 @@ using System.Security.Claims;
                     </div>
                     <!-- /.card-header -->
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa15664", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "24228f22ce58124eb3d28f281b8a1c61164d21fa15893", async() => {
                 WriteLiteral(@"
                         <div class=""card-body"">
                             <div class=""form-group"">

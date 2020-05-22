@@ -170,3 +170,5 @@ C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netco
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.dll
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.pdb
 C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\StudyCheckWeb.MvcWebUI.genruntimeconfig.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Identity\RoleListesi.cshtml.g.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.MvcWebUI\obj\Debug\netcoreapp3.1\Razor\Areas\Administrator\Views\Identity\RoleEkle.cshtml.g.cs

@@ -186,8 +186,8 @@
                 </li>
 
                 <li class="nav-header" style="color:#ff5311;text-align:center;"><h5>- IDENTITY CORE -</h5></li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString()=="Identity"?"menu-open":"")">
+                    <a href="#" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString()=="Identity"?"active":"")">
                         <i class="nav-icon fas fa-paste"></i>
                         <p>
                             Identity Core İşlemleri
@@ -196,17 +196,34 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a asp-area="administrator" asp-controller="ders" asp-action="dersListesi" class="nav-link">
+                            <a asp-area="administrator" asp-controller="identity" asp-action="roleListesi" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString()=="RoleListesi"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Identity Rol Listesi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a asp-area="administrator" asp-controller="ders" asp-action="dersEkle" class="nav-link">
+                            <a asp-area="administrator" asp-controller="identity" asp-action="roleEkle" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString()=="RoleEkle"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Identity Rolü Ekle</p>
                             </a>
                         </li>
+                    </ul>
+                </li>                
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-paste"></i>
+                        <p>
+                            Yetki İşlemleri
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a asp-area="administrator" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Yetki Ver</p>
+                            </a>
+                        </li>                        
                     </ul>
                 </li>
 

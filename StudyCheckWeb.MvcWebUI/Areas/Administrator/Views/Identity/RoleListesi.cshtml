@@ -1,0 +1,90 @@
+﻿@model IdentityListModel
+@{
+    ViewData["Title"] = "Role Listesi";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Role Listesi</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Role İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Role Listesi</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">All Roles</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="dersTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Id</th>
+                                <th>Role Name</th>
+                                <th>NormalizedName</th>
+                                <th>ConcurrencyStamp</th>                                
+                                <th class="text-center">İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var role in Model.IdentityRoles)
+                            {
+                            <tr>
+                                <td>@role.Id</td>
+                                <td>@role.Name</td>
+                                <td>@role.NormalizedName</td>
+                                <td>@role.ConcurrencyStamp</td>
+                                <td class="text-center" style="color:#ff5311;"><i class="fas fa-cog"></i></td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</section>
+
+@section Scripts{
+    <!-- DataTables -->
+    <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $(function () {
+            $("#dersTable").DataTable({
+                "language": {
+                    "info": "Toplam: _TOTAL_ veri mevcut",
+                    "infoEmpty": "Gösterilecek veri yok",
+                    "infoFiltered": " - _MAX_ veriden filtrelendi",
+                    "lengthMenu": "Göster _MENU_ Roller",
+                    "search": "Ara:",
+                    "zeroRecords": "Kayıt bulunamadı",
+                    "paginate": {
+                        "previous": "Önceki",
+                        "next": "Sonraki"
+                    },
+                },
+                "responsive": true,
+                "autoWidth": false,
+                "paging": true,
+            });
+        });
+    </script>
+}
