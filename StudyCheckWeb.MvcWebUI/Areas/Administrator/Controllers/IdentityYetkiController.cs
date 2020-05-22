@@ -16,6 +16,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View();
         }
 
+        public IActionResult YetkiVer()
+        {
+            return View();
+        }
 
     }
 }

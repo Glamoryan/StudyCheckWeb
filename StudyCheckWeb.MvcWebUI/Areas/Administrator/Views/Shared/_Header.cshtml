@@ -208,9 +208,10 @@
                             </a>
                         </li>
                     </ul>
-                </li>                
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
+                </li>          
+                
+                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString()=="IdentityYetki"?"menu-open":"")">
+                    <a href="#" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString()=="IdentityYetki"?"active":"")">
                         <i class="nav-icon fas fa-paste"></i>
                         <p>
                             Yetki İşlemleri
@@ -219,7 +220,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a asp-area="administrator" class="nav-link">
+                            <a asp-area="administrator" asp-controller="identityYetki" asp-action="yetkiVer" class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "YetkiVer"?"active":"")">
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Yetki Ver</p>
                             </a>
