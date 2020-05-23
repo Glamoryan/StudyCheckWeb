@@ -86,7 +86,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                         {                            
                             var newLoginResult = await _signInManager.PasswordSignInAsync(createUser, createUser.kullaniciSifre, false, false);
                             if (newLoginResult.Succeeded)
-                                ViewBag.Success = "Hesabınız senkronize edildi fakat giriş yapabilmek için onaylanmasını bekleyin(Code:06)";
+                                ViewBag.Warning = "Hesabınız senkronize edildi fakat giriş yapabilmek için onaylanmasını bekleyin(Code:06)";
                             else
                             {
                                 ViewBag.Exceptions = newLoginResult;

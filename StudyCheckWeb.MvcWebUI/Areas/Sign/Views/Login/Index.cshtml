@@ -107,9 +107,9 @@
         </script>
     }
 }
-@if (ViewBag.Success != null)
+@if (ViewBag.Warning != null)
 {
     <script type="text/javascript">
-        AlertErrors("Sonuç", "@ViewBag.Success", "success");
+        AlertErrors("Sonuç", "@ViewBag.Warning", "message");
     </script>
 }
