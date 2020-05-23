@@ -80,10 +80,10 @@
             </div>
             <div class="modal-body">
                 <p style="color:red;"><b>Buradaki adımları uygulamadan önce giriş yapmayı deneyin!</b></p>
-                <p><b>ADIMLAR</b><br />- Masaüstü uygulamasından giriş yapmak için bilgilerinizi girip giriş yapmayı deneyin<br />- Masaüstü uygulamasındaki hesabınız ile giriş yapamıyorsanız (Code:21) admin ile iletişime geçin.<br />- Masaüstü uygulamasındaki hesabınız ile giriş yapmak istemiyorsanız , kayıt ol butonundan yeni kayıt oluşturun.</p>
+                <p><b>ADIMLAR</b><br />- Masaüstü uygulamasından giriş yapmak için bilgilerinizi girip giriş yapmayı deneyin<br />- Masaüstü uygulamasındaki hesabınız ile giriş yapamıyorsanız (Code:21) admin ile iletişime geçin.<br />- Hesabınız admin tarafından onay bekliyor(Code:06)<br />- Masaüstü uygulamasındaki hesabınız ile giriş yapmak istemiyorsanız , kayıt ol butonundan yeni kayıt oluşturun.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Tamam</button>                
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tamam</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -106,4 +106,10 @@
             AlertErrors("Sonuç", "@error.Description", "exception");
         </script>
     }
+}
+@if (ViewBag.Success != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Success", "success");
+    </script>
 }

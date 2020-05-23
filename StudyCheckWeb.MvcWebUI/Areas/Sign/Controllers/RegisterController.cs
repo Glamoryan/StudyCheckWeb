@@ -103,7 +103,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                                     IdentityResult createResult = await _userManager.CreateAsync(createdLogin, sifre);
                                     if (createResult.Succeeded)
                                     {
-                                        ViewBag.IdentityResult = "Kullanıcı başarıyla oluşturuldu";
+                                        ViewBag.IdentityResult = "Kullanıcı başarıyla oluşturuldu fakat giriş yapabilmek için onaylanmasını bekleyin(Code:06)";
                                     }
                                     else
                                     {
