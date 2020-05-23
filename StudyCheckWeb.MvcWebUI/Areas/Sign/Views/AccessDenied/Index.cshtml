@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Erişim Engellendi!";
+    Layout = "~/Areas/Sign/Views/Shared/_AccessDeniedLayout.cshtml";
+}
+
+<!-- Automatic element centering -->
+<div class="lockscreen-wrapper">
+    <div class="lockscreen-logo">
+        <a href="~/"><b>StudyCheck Web</b></a>
+    </div>
+    <!-- /.lockscreen-item -->
+    <div class="help-block text-center">
+        Yetkisiz erişim! Bu sayfayı görüntülemek için yetkiniz yok!
+    </div>
+    <div class="text-center">
+        <a asp-area="sign" asp-controller="login" asp-action="CikisYap">Çıkış Yap</a>
+    </div>
+    <div class="lockscreen-footer text-center">
+        Copyright &copy; 2020 <b><a href="https://github.com/Glamoryan/StudyCheckWeb" class="text-black">StudyCheck Web</a></b><br>
+        All rights reserved
+    </div>
+</div>
+<!-- /.center -->

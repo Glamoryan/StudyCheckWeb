@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class IdentityController:Controller
     {
         private RoleManager<IdentityRole> _roleManager;
@@ -42,11 +42,11 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RoleEkle(string roleName,string normalizedName,string concurrency)
+        public async Task<IActionResult> RoleEkle(string roleName,string normalizedName)
         {
             try
             {
-                if (roleName == null || normalizedName == null || concurrency == null)
+                if (roleName == null || normalizedName == null)
                     throw new Exception("Hiçbir alan boş bırakılamaz!");
                 if(await _roleManager.FindByNameAsync(roleName) != null)
                     throw new Exception("Bu rol adı zaten kayıtlı!");
@@ -56,7 +56,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                     {
                         Name = roleName,
                         NormalizedName = normalizedName,
-                        ConcurrencyStamp = concurrency
+                        ConcurrencyStamp = roleName
                     };
                     var result = await _roleManager.CreateAsync(role);
                     if (result.Succeeded)

@@ -5,16 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 using StudyCheckWeb.MvcWebUI.Authentication;
 
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class IdentityYetkiController : Controller
     {
-        private UserManager<User> _userManager;
+        private UserManager<User> _userManager;        
         private IdentityListModel _identityListModel;
 
         public IdentityYetkiController(UserManager<User> userManager)
@@ -29,10 +30,20 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 
         public IActionResult YetkiVer()
         {
+            List<User> allUsers = _userManager.Users.ToList();
             _identityListModel = new IdentityListModel
             {
-                Users = _userManager.Users.ToList()
+                Users = new List<User>()
             };
+            IList<string> result;
+            foreach (User user in allUsers)
+            {
+                result = _userManager.GetRolesAsync(user).Result;
+                if (result.Count == 0)
+                {
+                    _identityListModel.Users.Add(user);
+                }
+            }
             return View(_identityListModel);
         }
 

@@ -11,7 +11,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class KullaniciController : Controller
     {
         IUyeService _uyeService;

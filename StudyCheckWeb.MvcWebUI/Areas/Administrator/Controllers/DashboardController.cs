@@ -14,7 +14,7 @@ using StudyCheckWeb.MvcWebUI.Authentication;
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
-    [Authorize]    
+    [Authorize(Roles ="Admin")]
     public class DashboardController : Controller
     {
         IUyedetayService _uyedetayService;

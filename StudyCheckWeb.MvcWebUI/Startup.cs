@@ -67,6 +67,7 @@ namespace StudyCheckWeb.MvcWebUI
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/sign/login";
+                options.AccessDeniedPath = "/sign/accessDenied";
             });
         }
 

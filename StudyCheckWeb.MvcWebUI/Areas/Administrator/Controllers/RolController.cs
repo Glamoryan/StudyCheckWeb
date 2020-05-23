@@ -10,7 +10,7 @@ using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
 namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
 {
     [Area("Administrator")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class RolController : Controller
     {
         IRolService _rolService;
