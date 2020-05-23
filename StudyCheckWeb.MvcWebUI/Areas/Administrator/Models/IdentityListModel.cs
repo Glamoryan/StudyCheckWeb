@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using StudyCheckWeb.MvcWebUI.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Models
     public class IdentityListModel
     {
         public List<IdentityRole> IdentityRoles { get; set; }
+        public List<User> Users { get; set; }
     }
 }
