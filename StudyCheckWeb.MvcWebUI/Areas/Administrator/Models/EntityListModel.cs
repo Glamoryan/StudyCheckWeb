@@ -20,7 +20,6 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Models
         public List<UserDetail> UserDetails { get; set; }
 
         //loginli kullanıcı bilgileri
-        public int AdminID { get; set; }
-
+        public int AdminID { get; set; }        
     }
 }

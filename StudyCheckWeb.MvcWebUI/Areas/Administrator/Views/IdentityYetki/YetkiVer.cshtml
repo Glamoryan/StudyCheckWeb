@@ -1,7 +1,7 @@
 ﻿@model IdentityListModel
 @{
     ViewData["Title"] = "Yetki Ver";
-    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";    
 }
 
 <section class="content-header">
@@ -35,7 +35,7 @@
                             <tr>
                                 <th class="text-center">Id</th>
                                 <th>Kullanıcı Adı</th>
-                                <th>Kullanıcı Mail</th>                                       
+                                <th>Kullanıcı Mail</th>
                                 <th class="text-center">İşlem</th>
                             </tr>
                         </thead>
@@ -45,9 +45,9 @@
                                 <tr>
                                     <td>@user.Id</td>
                                     <td>@user.UserName</td>
-                                    <td>@user.Email</td>                                    
+                                    <td>@user.Email</td>
                                     <td class="text-center" style="color:#ff5311;"><button type="button" class="btn btn-primary">Onayla</button></td>
-                                </tr>
+                                </tr>                                
                             }
                         </tbody>
                     </table>

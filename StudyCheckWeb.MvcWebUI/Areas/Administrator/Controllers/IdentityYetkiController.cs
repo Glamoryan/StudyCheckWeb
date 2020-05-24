@@ -43,7 +43,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                 {
                     _identityListModel.Users.Add(user);
                 }
-            }
+            }            
             return View(_identityListModel);
         }
 
