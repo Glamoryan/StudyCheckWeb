@@ -1,0 +1,21 @@
+﻿@model StudyCheckWeb.MvcWebUI.Areas.Administrator.Models.IdentityListModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!-- Notifications Dropdown Menu -->
+<li class="nav-item dropdown">
+    <a class="nav-link" data-toggle="dropdown" href="#">
+        <i class="far fa-bell"></i>
+        <span class="badge badge-warning navbar-badge">@Model.Users.Count.ToString()</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <span class="dropdown-item dropdown-header">@Model.Users.Count.ToString() Bildirim</span>
+        <div class="dropdown-divider"></div>
+        <a asp-area="Administrator" asp-controller="identityYetki" asp-action="yetkiVer" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i>@Model.Users.Count.ToString() yeni onaylama
+        </a>
+        <div class="dropdown-divider"></div>
+    </div>
+</li>
