@@ -3,6 +3,7 @@ using StudyCheckWeb.DataAccess.Abstract;
 using StudyCheckWeb.Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace StudyCheckWeb.Business.Concrete

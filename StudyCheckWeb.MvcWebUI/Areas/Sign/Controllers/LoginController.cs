@@ -47,10 +47,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 
                 //Bilgiler asp.users tablosunda varmı 
                 var loggedUser = await _userManager.FindByNameAsync(kullaniciAdi);
-                if (loggedUser != null)
+                if (loggedUser != null)//var
                 {                                      
                     var loginResult = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
-                    if (loginResult.Succeeded)//var
+                    if (loginResult.Succeeded)//bilgiler dogrumu
                         return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId = loggedUser.uyeDetayId });
                     else
                         throw new Exception("Kullanıcı bilgileri hatalı");

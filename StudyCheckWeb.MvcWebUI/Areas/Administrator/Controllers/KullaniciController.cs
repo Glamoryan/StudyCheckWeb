@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using StudyCheck.Utilities.CustomExceptions;
 using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.DataAccess.Abstract;
 using StudyCheckWeb.MvcWebUI.Areas.Administrator.Models;
@@ -40,7 +41,35 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         }
         public IActionResult KullaniciEkle()
         {
-            return View();
+            _entityListModel = new EntityListModel
+            {
+                roller = _rolService.GetListByStatus(1)
+            };
+            return View(_entityListModel);
+        }
+
+        [HttpPost]
+        public IActionResult KullaniciEkle(string kullaniciAdi,string sifre,string mail,int durum,int rol,string uyeAd,string uyeSoyad)
+        {
+            try
+            {
+                if (kullaniciAdi == null || sifre == null || mail == null)
+                    throw new RequiredFieldsException("Kullanıcı bilgileri boş bırakılamaz!");
+                else if (uyeAd == null || uyeSoyad == null)
+                    throw new RequiredFieldsException("Üye bilgileri boş bırakılamaz!");       
+                
+                //Buraya Ekleme işlemi yapılacak
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Exceptions = ex.Message;
+            }
+            _entityListModel = new EntityListModel
+            {
+                roller = _rolService.GetListByStatus(1)
+            };
+            return View(_entityListModel);
+
         }
     }
 }
