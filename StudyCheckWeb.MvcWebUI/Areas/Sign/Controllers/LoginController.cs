@@ -96,7 +96,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                     }
                     else //veri uyedetayTablosunda yoksa
                     {                        
-                        throw new Exception("Hatalı Bilgiler! Bilgilerinizi kontrol edin veya Yeni kullanıcı oluşturun");
+                        throw new Exception("Kullanıcı bulunamadı! Bilgilerinizi kontrol edin veya Yeni kullanıcı oluşturun");
                     }                                     
                 }
             }            

@@ -108,7 +108,7 @@
                 </div>
             </div>
             <!-- right column -->
-        </div>        
+        </div>
     </div>
 </section>
 
@@ -116,6 +116,12 @@
 {
     <script type="text/javascript">
         AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Message", "message");
     </script>
 }
 
