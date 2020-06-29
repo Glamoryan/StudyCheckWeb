@@ -70,7 +70,6 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                         throw new Exception("Hata");
                     }                        
                 }
-
             }
             catch (Exception ex)
             {

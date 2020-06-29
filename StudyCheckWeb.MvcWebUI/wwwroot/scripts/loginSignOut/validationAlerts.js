@@ -3,18 +3,29 @@
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000        
+        timer: 3000
     });
 
     toastr.options.progressBar = true;
 
-    if (type == 'exception') {
-        toastr['error'](desc, title);
+    switch (type) {
+        case "exception":
+            toastr['error'](desc, title);
+            break;
+        case "message":
+            toastr['warning'](desc, title);
+            break;
+        case "success":
+            toastr['success'](desc, title);
+            break;
     }
-    else if (type == 'message') {
-        toastr['warning'](desc, title);
-    }
-    else if (type == 'success') {
-        toastr['success'](desc, title);
-    }
+}
+
+function warning(baslik,desc) {
+    $(document).Toasts('create', {
+        class: 'bg-danger',
+        title: baslik,
+        subtitle: 'Dikkat',
+        body: desc
+    });
 }
