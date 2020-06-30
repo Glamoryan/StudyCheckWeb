@@ -212,8 +212,8 @@
                             </a>
                         </li>
                     </ul>
-                </li>          
-                
+                </li>
+
                 <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString()=="IdentityYetki"?"menu-open":"")">
                     <a href="#" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString()=="IdentityYetki"?"active":"")">
                         <i class="nav-icon fas fa-paste"></i>
@@ -228,8 +228,17 @@
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Yetki Ver</p>
                             </a>
-                        </li>                        
+                        </li>
                     </ul>
+                </li>
+
+                <li class="nav-item has-treeview @(ViewContext.RouteData.Values["Controller"].ToString()=="IdentityRole"?"menu-open":"")">
+                    <a asp-area="administrator" asp-controller="identityRole" asp-action="yetkiliListesi" class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString()=="IdentityRole"?"active":"")">
+                        <i class="fas fa-check-circle"></i>
+                        <p>
+                            Yetkili Hesaplar                            
+                        </p>
+                    </a>                    
                 </li>
 
             </ul>
