@@ -83,6 +83,13 @@
     </script>
 }
 
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Message", "success");
+    </script>
+}
+
 
 @section Scripts{
     <!-- Select2 -->
