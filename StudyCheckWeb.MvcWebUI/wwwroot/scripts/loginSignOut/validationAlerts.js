@@ -18,7 +18,7 @@
         case "success":
             toastr['success'](desc, title);
             break;
-    }
+    }    
 }
 
 function warning(baslik,desc) {
@@ -26,6 +26,6 @@ function warning(baslik,desc) {
         class: 'bg-danger',
         title: baslik,
         subtitle: 'Dikkat',
-        body: desc
+        body: desc        
     });
 }
