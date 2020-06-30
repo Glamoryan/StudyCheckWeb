@@ -4,6 +4,16 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
+@section AlertScripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+}
 
 <section class="content-header">
     <div class="container-fluid">
@@ -31,17 +41,17 @@
                         <h3 class="card-title">Yetki Bilgileri</h3>
                     </div>
                     <!-- /.card-header -->
-                    <form role="form">
+                    <form role="form" method="post">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Yetki Adı</label>
-                                <input type="text" class="form-control" id="" placeholder="Yetki adı...">
+                                <input name="yetkiAd" type="text" class="form-control" id="" placeholder="Yetki adı...">
                             </div>
                             <div class="form-group">
                                 <label>Durum</label>
-                                <select class="form-control select2 select2-success" data-dropdown-css-class="select2-success" style="width: 100%;">
-                                    <option selected="selected">Aktif</option>
-                                    <option>Pasif</option>
+                                <select name="durum" class="form-control select2 select2-success" data-dropdown-css-class="select2-success" style="width: 100%;">
+                                    <option value="1" selected="selected">Aktif</option>
+                                    <option value="0">Pasif</option>
                                 </select>
                             </div>
                         </div>
@@ -56,6 +66,18 @@
     </div>
 </section>
 
+@if (ViewBag.Exceptions != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Message", "success");
+    </script>
+}
 
 @section Scripts{
     <!-- Select2 -->
