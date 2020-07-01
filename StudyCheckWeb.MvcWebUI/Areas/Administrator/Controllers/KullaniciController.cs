@@ -38,6 +38,12 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         {
             return View();
         }
+        
+        public IActionResult KullaniciDuzenle(KullaniciModel model)
+        {
+            model.tumRoller = _rolService.GetListByStatus(1);
+            return View(model);
+        }
 
         public IActionResult KullaniciListesi()
         {

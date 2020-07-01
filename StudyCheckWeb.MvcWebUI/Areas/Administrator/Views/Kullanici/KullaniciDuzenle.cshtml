@@ -1,8 +1,9 @@
-﻿@model EntityListModel
+﻿@model KullaniciModel
 @{
-    ViewData["Title"] = "Kullanıcı Ekle";
+    ViewData["Title"] = "Kullanıcı Düzenle";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
+
 
 @section AlertScripts{
     <!-- JQuery -->
@@ -19,12 +20,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Kullanıcı Ekle</h1>
+                <h1>Kullanıcı Düzenle</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Kullanıcı İşlemleri</a></li>
-                    <li class="breadcrumb-item active">Kullanıcı Ekle</li>
+                    <li class="breadcrumb-item active">Kullanıcı Düzenle</li>
                 </ol>
             </div>
         </div>
@@ -41,25 +42,25 @@
                         <h3 class="card-title">Kullanıcı Bilgileri</h3>
                     </div>
                     <!-- /.card-header -->
-                    <form asp-area="Administrator" asp-controller="Kullanici" method="post">
+                    <form>
                         <div class="card-body">
                             <div class="row align-items-start">
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Üye Adı</label>
-                                        <input name="uyeAd" type="text" class="form-control" placeholder="Üye adı...">
+                                        <input name="uyeAd" type="text" class="form-control" placeholder="Üye adı..." value="@Model.uyeAd">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Üye Soyadı</label>
-                                        <input name="uyeSoyad" type="text" class="form-control" placeholder="Üye soyadı...">
+                                        <input name="uyeSoyad" type="text" class="form-control" placeholder="Üye soyadı..." value="@Model.uyeSoyad">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Kullanıcı Adı</label>
-                                        <input name="kullaniciAdi" type="text" class="form-control" placeholder="Kullanıcı adı...">
+                                        <input name="kullaniciAdi" type="text" class="form-control" placeholder="Kullanıcı adı..." value="@Model.kullaniciAdi">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Şifre</label>
-                                        <input name="sifre" type="password" class="form-control" placeholder="Şifre...">
+                                        <input name="sifre" type="password" class="form-control" placeholder="Şifre..." value="@Model.kullaniciSifre">
                                     </div>
                                     <div class="form-group">
                                         <div class="icheck-primary d-inline">
@@ -73,13 +74,23 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Kullanıcı Mail</label>
-                                        <input name="mail" type="email" class="form-control" placeholder="Mail...">
+                                        <input name="mail" type="email" class="form-control" placeholder="Mail..." value="@Model.kullaniciMail">
                                     </div>
                                     <div class="form-group">
                                         <label>Durum</label>
                                         <select name="durum" class="form-control select2 select2-success" data-dropdown-css-class="select2-success" style="width: 100%;">
-                                            <option value="1">Aktif</option>
-                                            <option value="0">Pasif</option>
+                                            @{
+                                                if (Model.silId == 1)
+                                                {
+                                                    <option value="1" selected>Aktif</option>
+                                                    <option value="0">Pasif</option>
+                                                }
+                                                else if (Model.silId == 0)
+                                                {
+                                                    <option value="1">Aktif</option>
+                                                    <option value="0" selected>Pasif</option>
+                                                }
+                                            }
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -91,9 +102,16 @@
                                     <div class="form-group">
                                         <label>Rol</label>
                                         <select name="rol" class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;">
-                                            @foreach (var rol in Model.roller)
+                                            @foreach (var rol in Model.tumRoller)
                                             {
-                                                <option value="@rol.id">@rol.rol_adi</option>
+                                                if (Model.rolId == rol.id)
+                                                {
+                                                    <option value="@rol.id" selected>@rol.rol_adi</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@rol.id">@rol.rol_adi</option>
+                                                }
                                             }
                                         </select>
                                     </div>
@@ -101,7 +119,14 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Ekle</button>
+                            <div class="row align-items-center">
+                                <div class="col col-md-6">
+                                    <a asp-area="administrator" asp-controller="kullanici" asp-action="kullaniciListesi"><i class="fas fa-window-close" style="font-size:xx-large"></i></a>
+                                </div>
+                                <div class="col col-md-6">
+                                    <button type="submit" class="btn btn-success float-md-right"><i class="fas fa-save"></i> Kaydet</button>
+                                </div>                                                                
+                            </div>                            
                         </div>
                         <!-- /.card-body -->
                     </form>
@@ -140,5 +165,4 @@
         })
     </script>
 }
-
 

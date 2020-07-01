@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Kullanıcı Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+    KullaniciModel _model;
 }
 
 <section class="content-header">
@@ -46,6 +47,21 @@
                         <tbody>
                             @foreach (var item in Model.UserDetails)
                             {
+                                _model = new KullaniciModel
+                                {
+                                    uyeId = item.uye_id,
+                                    uyeDetayId = item.uyedetay_id,
+                                    uyeAd = item.uye_ad,
+                                    uyeSoyad = item.uye_soyad,
+                                    kullaniciAdi = item.kullanici_adi,
+                                    kullaniciSifre = item.kullanici_sifre,
+                                    kullaniciMail = item.kullanici_mail,
+                                    kayitTarihi = item.kayit_tarihi,
+                                    guncellemeTarihi = item.guncelleme_tarihi,
+                                    silId = item.sil_id,
+                                    rolId = item.rol_id,
+                                    guncelleyenId = item.guncelleyen_id
+                                };
                                 <tr>
                                     <td class="text-center" style="color:#ff5311;">@item.uye_id</td>
                                     <td>@item.uye_ad</td>
@@ -53,9 +69,9 @@
                                     <td>@item.kullanici_adi</td>
                                     <td>@item.kullanici_mail</td>
                                     <td>@item.kayit_tarihi</td>
-                                    <td>@Model.roller.Where(r=>r.id == item.rol_id).Single().rol_adi</td>
+                                    <td>@Model.roller.Where(r => r.id == item.rol_id).Single().rol_adi</td>
                                     <td style="@(item.sil_id == 0?"color:red;":"color:limegreen;")">@(item.sil_id == 1 ? "Aktif":"Pasif")</td>
-                                    <td class="text-center"><i style="color:#ff5311;" class="fas fa-cog"></i></td>
+                                    <td class="text-center"><a href="@Url.Action("KullaniciDuzenle","Kullanici",_model)"><i style="color:#ff5311;" class="fas fa-cog"></i></a></td>
                                 </tr>
                             }
                         </tbody>
