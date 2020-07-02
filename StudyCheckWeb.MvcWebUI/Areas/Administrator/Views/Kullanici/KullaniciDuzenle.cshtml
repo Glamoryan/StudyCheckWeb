@@ -14,6 +14,8 @@
     <script src="~/plugins/toastr/toastr.min.js"></script>
     <!-- Alerts -->
     <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+    <!-- Utilities -->
+    <script src="~/scripts/adminPanel/Utilities.js"></script>
 }
 
 <section class="content-header">
@@ -60,12 +62,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Şifre</label>
-                                        <input name="sifre" type="password" class="form-control" placeholder="Şifre..." value="@Model.kullaniciSifre">
+                                        <input id="pass" name="sifre" type="password" class="form-control" placeholder="Şifre..." value="@Model.kullaniciSifre">
                                     </div>
                                     <div class="form-group">
                                         <div class="icheck-primary d-inline">
-                                            <input type="checkbox" id="checkboxPrimary2">
-                                            <label for="checkboxPrimary2">
+                                            <input type="checkbox" id="showPass">
+                                            <label for="showPass">
                                                 Şifreyi Göster
                                             </label>
                                         </div>
@@ -149,6 +151,8 @@
         AlertErrors("Sonuç", "@ViewBag.Message", "message");
     </script>
 }
+
+
 
 @section Scripts{
     <!-- Select2 -->
