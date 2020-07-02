@@ -35,6 +35,13 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View();
         }
 
+        public IActionResult YetkiDuzenle(YetkiModel model)
+        {
+            model.ekleyenKisi = _uyedetayService.GetById(model.ekleyenId).kullanici_adi;
+            model.guncelleyenKisi = _uyedetayService.GetById(model.guncelleyenId).kullanici_adi;
+            return View(model);
+        }
+
         public IActionResult YetkiListesi()
         {
             _entityListModel = new EntityListModel

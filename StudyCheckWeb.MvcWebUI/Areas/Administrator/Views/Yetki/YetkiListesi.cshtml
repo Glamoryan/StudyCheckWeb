@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Yetki Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+    YetkiModel _model;
 }
 
 <section class="content-header">
@@ -43,13 +44,23 @@
                         <tbody>
                             @foreach (var yetki in Model.yetkiler)
                             {
+                                _model = new YetkiModel
+                                {
+                                    yetkiId = yetki.id,
+                                    eklenmeTarihi = yetki.eklenme_tarihi,
+                                    ekleyenId = yetki.ekleyen_id,
+                                    guncellemeTarihi = yetki.guncelleme_tarihi,
+                                    guncelleyenId = yetki.guncelleyen_id,
+                                    silId = yetki.sil_id,
+                                    yetkiAd = yetki.yetki_adi
+                                };
                                 <tr>
                                     <td style="color:#ff5311;" class="text-center">@yetki.id</td>
                                     <td>@yetki.yetki_adi</td>
                                     <td>@yetki.eklenme_tarihi</td>
                                     <td>@Model.kullanicilar.Where(k => k.id == yetki.ekleyen_id).Single().kullanici_adi</td>
                                     <td style="@(yetki.sil_id==0?"color:red;":"color:limegreen;")">@(yetki.sil_id==1?"Aktif":"Pasif")</td>
-                                    <td class="text-center"><i style="color:#ff5311;" class="fas fa-cog"></i></td>
+                                    <td class="text-center"><a href="@Url.Action("YetkiDuzenle","Yetki",_model)"><i style="color:#ff5311;" class="fas fa-cog"></i></a></td>
                                 </tr>
                             }
                         </tbody>

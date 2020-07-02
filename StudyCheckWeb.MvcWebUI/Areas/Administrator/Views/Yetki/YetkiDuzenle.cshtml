@@ -1,0 +1,138 @@
+﻿@model YetkiModel
+@{
+    ViewData["Title"] = "Yetki Düzenle";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section AlertScripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+    <!-- Utilities -->
+    <script src="~/scripts/adminPanel/Utilities.js"></script>
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Yetki Düzenle</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Yetki İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Yetki Düzenle</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <div class="card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">Yetki Bilgileri</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <form>
+                        <div class="card-body">
+                            <div class="row align-items-start">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Yetki Adı</label>
+                                        <input name="rolAd" type="text" class="form-control" placeholder="Yetki adı..." value="@Model.yetkiAd">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Durum</label>
+                                        <select name="durum" class="form-control select2 select2-success" data-dropdown-css-class="select2-success" style="width: 100%;">
+                                            @{
+                                                if (Model.silId == 1)
+                                                {
+                                                    <option value="1" selected>Aktif</option>
+                                                    <option value="0">Pasif</option>
+                                                }
+                                                else if (Model.silId == 0)
+                                                {
+                                                    <option value="1">Aktif</option>
+                                                    <option value="0" selected>Pasif</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col col-md-6">
+                                    <a asp-area="administrator" asp-controller="yetki" asp-action="yetkiListesi"><i class="fas fa-window-close" style="font-size:xx-large"></i></a>
+                                </div>
+                                <div class="col col-md-6">
+                                    <button type="submit" class="btn btn-success float-md-right"><i class="fas fa-save"></i> Kaydet</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </form>
+                </div>
+            </div>
+            <!-- right column -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><b>Kayıt Bilgileri</b></h3>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b style="color:#ff5311">Yetki Id:</b> @Model.yetkiId</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Son Güncelleme Tarihi:</b> @Model.guncellemeTarihi</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Kayıt Tarihi:</b> @Model.eklenmeTarihi</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Yetki Ekleyen:</b> @Model.ekleyenKisi</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Son Güncelleyen:</b> @Model.guncelleyenKisi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (ViewBag.Exceptions != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Message", "message");
+    </script>
+}
+
+
+
+@section Scripts{
+    <!-- Select2 -->
+    <script src="~/plugins/select2/js/select2.full.min.js"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
+        })
+    </script>
+}
+
+
