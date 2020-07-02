@@ -127,14 +127,28 @@
                                 </div>
                                 <div class="col col-md-6">
                                     <button type="submit" class="btn btn-success float-md-right"><i class="fas fa-save"></i> Kaydet</button>
-                                </div>                                                                
-                            </div>                            
+                                </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </form>
                 </div>
             </div>
             <!-- right column -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><b>Kayıt Bilgileri</b></h3>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b style="color:#ff5311">Kullanıcı Id:</b> @Model.rolId</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Üye Id:</b> @Model.rolId</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Son Güncelleme Tarihi:</b> @Model.guncellemeTarihi</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Kayıt Tarihi:</b> @Model.kayitTarihi</li>                        
+                        <li class="list-group-item"><b style="color:#ff5311">Son Güncelleyen:</b> @Model.guncelleyenKisi</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </section>

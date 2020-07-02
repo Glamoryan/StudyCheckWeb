@@ -42,6 +42,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         public IActionResult KullaniciDuzenle(KullaniciModel model)
         {
             model.tumRoller = _rolService.GetListByStatus(1);
+            model.guncelleyenKisi = _uyedetayService.GetById(model.guncelleyenId).kullanici_adi;
             return View(model);
         }
 
