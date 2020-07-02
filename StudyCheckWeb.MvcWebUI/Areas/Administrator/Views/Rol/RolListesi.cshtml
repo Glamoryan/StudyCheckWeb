@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Rol Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+    RolModel _model;
 }
 
 <section class="content-header">
@@ -44,6 +45,17 @@
                         <tbody>
                             @foreach (var rol in Model.roller)
                             {
+                                _model = new RolModel
+                                {
+                                    rolId = rol.id,
+                                    rolAd = rol.rol_adi,
+                                    ekleyenId = rol.ekleyen_id,
+                                    guncellemeTarihi = rol.rol_guncelleme_tarihi,
+                                    guncelleyenId = rol.guncelleyen_id,
+                                    kayitTarihi = rol.rol_kayit_tarihi,
+                                    silId = rol.sil_id,
+                                    yetkiId = rol.yetki_id
+                                };
                                 <tr>
                                     <td style="color:#ff5311;" class="text-center">@rol.id</td>
                                     <td>@rol.rol_adi</td>
@@ -51,7 +63,7 @@
                                     <td>@Model.kullanicilar.Where(k=>k.id==rol.ekleyen_id).Single().kullanici_adi</td>
                                     <td>@Model.yetkiler.Where(y=>y.id == rol.yetki_id).Single().yetki_adi</td>
                                     <td style="@(rol.sil_id==0?"color:red;":"color:limegreen;")">@(rol.sil_id == 1 ? "Aktif":"Pasif")</td>
-                                    <td class="text-center"><i style="color:#ff5311;" class="fas fa-cog"></i></td>
+                                    <td class="text-center"><a href="@Url.Action("RolDuzenle","Rol",_model)"><i style="color:#ff5311;" class="fas fa-cog"></i></a></td>
                                 </tr>
                             }
                         </tbody>

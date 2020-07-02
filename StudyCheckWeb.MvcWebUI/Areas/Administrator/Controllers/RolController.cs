@@ -21,7 +21,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         IRolService _rolService;
         IUyedetayService _uyedetayService;
         IYetkiService _yetkiService;
-        EntityListModel _entityListModel;
+        EntityListModel _entityListModel;        
 
         public RolController(IRolService rolService, IUyedetayService uyedetayService, IYetkiService yetkiService, UserManager<User> userManager)
         {
@@ -34,6 +34,12 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult RolDuzenle(RolModel model)
+        {
+            model.tumYetkiler = _yetkiService.GetListByStatus(1);
+            return View(model);
         }
 
         public IActionResult RolListesi()
