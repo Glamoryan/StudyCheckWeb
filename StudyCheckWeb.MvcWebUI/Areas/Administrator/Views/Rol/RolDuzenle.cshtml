@@ -48,7 +48,7 @@
                             <div class="row align-items-start">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Üye Adı</label>
+                                        <label for="exampleInputEmail1">Rol Adı</label>
                                         <input name="rolAd" type="text" class="form-control" placeholder="Rol adı..." value="@Model.rolAd">
                                     </div>
                                     <div class="form-group">
@@ -84,7 +84,7 @@
                                             }
                                         </select>
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer">
@@ -102,6 +102,20 @@
                 </div>
             </div>
             <!-- right column -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><b>Kayıt Bilgileri</b></h3>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b style="color:#ff5311">Rol Id:</b> @Model.rolId</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Son Güncelleme Tarihi:</b> @Model.guncellemeTarihi</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Kayıt Tarihi:</b> @Model.kayitTarihi</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Rolü Ekleyen:</b> @Model.ekleyenKisi</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Son Güncelleyen:</b> @Model.guncelleyenKisi</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </section>

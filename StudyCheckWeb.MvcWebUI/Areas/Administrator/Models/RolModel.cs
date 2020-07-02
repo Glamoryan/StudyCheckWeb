@@ -18,5 +18,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Models
         public int guncelleyenId { get; set; }
         //-----------------------------------------
         public List<Yetki> tumYetkiler { get; set; }
+        public string ekleyenKisi { get; set; }
+        public string guncelleyenKisi { get; set; }
     }
 }

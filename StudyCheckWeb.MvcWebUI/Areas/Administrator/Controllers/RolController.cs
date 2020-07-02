@@ -39,6 +39,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         public IActionResult RolDuzenle(RolModel model)
         {
             model.tumYetkiler = _yetkiService.GetListByStatus(1);
+            model.ekleyenKisi = _uyedetayService.GetById(model.ekleyenId).kullanici_adi;
+            model.guncelleyenKisi = _uyedetayService.GetById(model.guncelleyenId).kullanici_adi;
             return View(model);
         }
 
