@@ -35,6 +35,13 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View();
         }
 
+        public IActionResult SinavDuzenle(SinavModel model)
+        {
+            model.guncelleyenKisi = _uyedetayService.GetById(model.guncelleyenId).kullanici_adi;
+            model.ekleyenKisi = _uyedetayService.GetById(model.ekleyenId).kullanici_adi;
+            return View(model);
+        }
+
         public IActionResult SinavListesi()
         {
             _entityListModel = new EntityListModel

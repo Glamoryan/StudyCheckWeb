@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Sınav Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+    SinavModel _model;
 }
 
 <section class="content-header">
@@ -44,6 +45,17 @@
                         <tbody>
                             @foreach (var sinav in Model.sinavlar)
                             {
+                                _model = new SinavModel
+                                {
+                                    sinavId = sinav.id,
+                                    eklenmeTarihi = sinav.eklenme_tarihi,
+                                    sinavAd = sinav.sinav_ad,
+                                    ekleyenId = sinav.ekleyen_id,
+                                    guncellemeTarihi = sinav.guncelleme_tarihi,
+                                    guncelleyenId = sinav.guncelleyen_id,
+                                    silId = sinav.sil_id,
+                                    sinavTarihi = sinav.sinav_tarih
+                                };
                                 <tr>
                                     <td class="text-center" style="color:#ff5311;">@sinav.id</td>
                                     <td>@sinav.sinav_ad</td>
@@ -51,7 +63,7 @@
                                     <td>@sinav.eklenme_tarihi</td>
                                     <td>@Model.kullanicilar.Where(k=>k.id==sinav.ekleyen_id).Single().kullanici_adi</td>
                                     <td style="@(sinav.sil_id==0?"color:red;":"color:limegreen;")">@(sinav.sil_id == 1?"Aktif":"Pasif")</td>
-                                    <td class="text-center" style="color:#ff5311;"><i class="fas fa-cog"></i></td>
+                                    <td class="text-center" style="color:#ff5311;"><a href="@Url.Action("SinavDuzenle","Sinav",_model)"><i class="fas fa-cog"></i></a></td>
                                 </tr>
                             }
                         </tbody>
