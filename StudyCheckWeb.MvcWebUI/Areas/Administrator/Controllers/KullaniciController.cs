@@ -69,6 +69,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                             {
                                 var oldUser = _uyedetayService.GetById(Convert.ToInt32(uyeDetayId));
                                 var updatedUser =await _userManager.FindByNameAsync(oldUser.kullanici_adi);
+                                IdentityResult passResult = await _userManager.ChangePasswordAsync(updatedUser, oldUser.kullanici_sifre, sifre);
+                                if(!passResult.Succeeded)
+                                    throw new Exception(passResult.ToString());
+                                
                                 updatedUser.UserName = kullaniciAdi;
                                 updatedUser.NormalizedUserName = kullaniciAdi.ToUpper();
                                 updatedUser.Email = mail;
@@ -78,7 +82,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                                 updatedUser.kullaniciAdi = kullaniciAdi;
                                 updatedUser.kullaniciSifre = sifre;
                                 updatedUser.kullaniciMail = mail;
-                                updatedUser.rolId = rol;
+                                updatedUser.rolId = rol;                                
                                 IdentityResult result = await _userManager.UpdateAsync(updatedUser);
                                 if (!result.Succeeded)
                                     throw new Exception(result.ToString());
