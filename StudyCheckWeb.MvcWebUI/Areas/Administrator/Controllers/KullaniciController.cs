@@ -25,6 +25,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         IUyedetayService _uyedetayService;
         UserManager<User> _userManager;
         EntityListModel _entityListModel;
+        SenkronizasyonModel _model;
 
         public KullaniciController(IUyeService uyeService, IRolService rolService, IUyedetayService uyedetayService, UserManager<User> userManager)
         {
@@ -46,13 +47,120 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View(model);
         }
 
-        public IActionResult KullaniciListesi()
+        [HttpPost]
+        public async Task<IActionResult> KullaniciDuzenle(string uyeDetayId,string uyeId,string kayitTarihi,string kullaniciAdi, string sifre, string mail, int durum, int rol, string uyeAd, string uyeSoyad)
         {
+            try
+            {
+                if (uyeAd == null || uyeSoyad == null)
+                    throw new RequiredFieldsException("Üye bilgileri boş bırakılamaz!");
+                else if (kullaniciAdi == null || sifre == null || mail == null)
+                    throw new RequiredFieldsException("Kullanıcı bilgileri boş bırakılamaz!");
+                var kullanici = _uyedetayService.GetAll().Where(k => k.kullanici_adi == kullaniciAdi || k.kullanici_mail == mail).ToList();
+                if (kullanici.Count > 1)
+                    throw new Exception("Bu kullanıcı adı / mail zaten mevcut!");
+                else
+                {
+                    using (StudyCheckContext context = new StudyCheckContext())
+                    {
+                        using (var transaction = context.Database.BeginTransaction())
+                        {
+                            try
+                            {
+                                var updatedUser =await _userManager.FindByNameAsync(kullaniciAdi);
+                                updatedUser.UserName = kullaniciAdi;
+                                updatedUser.NormalizedUserName = kullaniciAdi.ToUpper();
+                                updatedUser.Email = mail;
+                                updatedUser.NormalizedEmail = mail.ToUpper();
+                                updatedUser.uyeAdi = uyeAd;
+                                updatedUser.uyeSoyadi = uyeSoyad;
+                                updatedUser.kullaniciAdi = kullaniciAdi;
+                                updatedUser.kullaniciSifre = sifre;
+                                updatedUser.kullaniciMail = mail;
+                                updatedUser.rolId = rol;
+                                IdentityResult result = await _userManager.UpdateAsync(updatedUser);
+                                if (!result.Succeeded)
+                                    throw new Exception(result.ToString());
+                                else
+                                {
+                                    Uye updatedUye = new Uye
+                                    {
+                                        id = Convert.ToInt32(uyeId),
+                                        uye_ad = uyeAd,
+                                        uye_soyad = uyeSoyad
+                                    };
+                                    context.Uyeler.Update(updatedUye);
+                                    context.SaveChanges();
+                                    var identityUser = await _userManager.GetUserAsync(HttpContext.User);
+                                    Uyedetay updatedKullanici = new Uyedetay
+                                    {
+                                        id = Convert.ToInt32(uyeDetayId),
+                                        kullanici_adi = kullaniciAdi,
+                                        kullanici_sifre = sifre,
+                                        kullanici_mail = mail,
+                                        kayit_tarihi = Convert.ToDateTime(kayitTarihi),
+                                        guncelleyen_id = identityUser.uyeDetayId,
+                                        guncelleme_tarihi = DateTime.Now,
+                                        uye_id = Convert.ToInt32(uyeId),
+                                        rol_id = rol,
+                                        tema_id = 1,
+                                        sil_id = durum
+                                    };
+                                    context.UyeDetay.Update(updatedKullanici);
+                                    context.SaveChanges();
+                                }
+                                
+                            }
+                            catch (Exception transException)
+                            {
+                                transaction.Rollback();
+                                throw new Exception(transException.Message);
+                            }
+                            ViewBag.Message = "Kullanıcı güncellendi";
+                            transaction.Commit();
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Exceptions = ex.Message;
+            }
+            return RedirectToAction("KullaniciListesi");
+        }
+
+        public async Task<IActionResult> KullaniciListesi()
+        {
+            var userDetails = _uyeService.GetAllUserDetail();            
             _entityListModel = new EntityListModel
             {
-                UserDetails = _uyeService.GetAllUserDetail(),
-                roller = _rolService.GetAll()
-            };
+                UserDetails = userDetails,
+                roller = _rolService.GetAll(),
+                senkron = new List<SenkronizasyonModel>()
+            };            
+            foreach (var user in userDetails)
+            {
+                var identity = await _userManager.FindByNameAsync(user.kullanici_adi);
+                if (identity == null)
+                {
+                    _model = new SenkronizasyonModel
+                    {
+                        senkronUsername = user.kullanici_adi,
+                        senkron = 0
+                    };
+                    _entityListModel.senkron.Add(_model);
+                }
+                else
+                {
+                    _model = new SenkronizasyonModel
+                    {
+                        senkronUsername = user.kullanici_adi,
+                        senkron = 1
+                    };
+                    _entityListModel.senkron.Add(_model);
+                }
+            }
             return View(_entityListModel);
         }
         public IActionResult KullaniciEkle()

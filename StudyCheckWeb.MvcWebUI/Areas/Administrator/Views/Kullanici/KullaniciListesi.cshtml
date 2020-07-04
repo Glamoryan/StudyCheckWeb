@@ -62,17 +62,34 @@
                                     rolId = item.rol_id,
                                     guncelleyenId = item.guncelleyen_id
                                 };
-                                <tr>
-                                    <td class="text-center" style="color:#ff5311;">@item.uye_id</td>
-                                    <td>@item.uye_ad</td>
-                                    <td>@item.uye_soyad</td>
-                                    <td>@item.kullanici_adi</td>
-                                    <td>@item.kullanici_mail</td>
-                                    <td>@item.kayit_tarihi</td>
-                                    <td>@Model.roller.Where(r => r.id == item.rol_id).Single().rol_adi</td>
-                                    <td style="@(item.sil_id == 0?"color:red;":"color:limegreen;")">@(item.sil_id == 1 ? "Aktif":"Pasif")</td>
-                                    <td class="text-center"><a href="@Url.Action("KullaniciDuzenle","Kullanici",_model)"><i style="color:#ff5311;" class="fas fa-cog"></i></a></td>
-                                </tr>
+                                if (Model.senkron.Find(s => s.senkronUsername == item.kullanici_adi).senkron == 1)
+                                {
+                                    <tr>
+                                        <td class="text-center" style="color:#ff5311;">@item.uye_id</td>
+                                        <td>@item.uye_ad</td>
+                                        <td>@item.uye_soyad</td>
+                                        <td>@item.kullanici_adi</td>
+                                        <td>@item.kullanici_mail</td>
+                                        <td>@item.kayit_tarihi</td>
+                                        <td>@Model.roller.Where(r => r.id == item.rol_id).Single().rol_adi</td>
+                                        <td style="@(item.sil_id == 0?"color:red;":"color:limegreen;")">@(item.sil_id == 1 ? "Aktif":"Pasif")</td>
+                                        <td class="text-center"><a href="@Url.Action("KullaniciDuzenle","Kullanici",_model)"><i style="color:#ff5311;" class="fas fa-cog"></i></a></td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td class="text-center" style="color:#ff5311;">@item.uye_id</td>
+                                        <td>@item.uye_ad</td>
+                                        <td>@item.uye_soyad</td>
+                                        <td>@item.kullanici_adi</td>
+                                        <td>@item.kullanici_mail</td>
+                                        <td>@item.kayit_tarihi</td>
+                                        <td>@Model.roller.Where(r => r.id == item.rol_id).Single().rol_adi</td>
+                                        <td style="@(item.sil_id == 0?"color:red;":"color:limegreen;")">@(item.sil_id == 1 ? "Aktif":"Pasif")</td>
+                                        <td class="text-center" style="background:#ffd800">Hesap Senkronize Değil</td>
+                                    </tr>
+                                }
                             }
                         </tbody>
                     </table>
@@ -84,6 +101,19 @@
         <!-- /.card -->
     </div>
 </section>
+
+@if (ViewBag.Exceptions != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Message", "message");
+    </script>
+}
 
 @section Scripts{
     <!-- DataTables -->
@@ -109,7 +139,7 @@
                 "responsive": true,
                 "autoWidth": false,
                 "paging": true,
-            });       
+            });
         });
     </script>
 }

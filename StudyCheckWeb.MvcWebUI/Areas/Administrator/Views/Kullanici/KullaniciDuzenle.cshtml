@@ -44,7 +44,7 @@
                         <h3 class="card-title">Kullanıcı Bilgileri</h3>
                     </div>
                     <!-- /.card-header -->
-                    <form>
+                    <form method="post">
                         <div class="card-body">
                             <div class="row align-items-start">
                                 <div class="col">
@@ -131,6 +131,10 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
+                        <!-- hidden Parameters -->
+                        <input type="hidden" name="uyeDetayId" value="@Model.uyeDetayId" />
+                        <input type="hidden" name="uyeId" value="@Model.uyeId" />
+                        <input type="hidden" name="kayitTarihi" value="@Model.kayitTarihi" />                        
                     </form>
                 </div>
             </div>
@@ -141,8 +145,8 @@
                         <h3 class="card-title"><b>Kayıt Bilgileri</b></h3>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b style="color:#ff5311">Kullanıcı Id:</b> @Model.rolId</li>
-                        <li class="list-group-item"><b style="color:#ff5311">Üye Id:</b> @Model.rolId</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Kullanıcı Id:</b> @Model.uyeDetayId</li>
+                        <li class="list-group-item"><b style="color:#ff5311">Üye Id:</b> @Model.uyeId</li>
                         <li class="list-group-item"><b style="color:#ff5311">Son Güncelleme Tarihi:</b> @Model.guncellemeTarihi</li>
                         <li class="list-group-item"><b style="color:#ff5311">Kayıt Tarihi:</b> @Model.kayitTarihi</li>                        
                         <li class="list-group-item"><b style="color:#ff5311">Son Güncelleyen:</b> @Model.guncelleyenKisi</li>

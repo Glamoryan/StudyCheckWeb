@@ -10,6 +10,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Models
     public class EntityListModel
     {
         public List<Uyedetay> kullanicilar { get; set; }
+        public List<SenkronizasyonModel>  senkron { get; set; }
         public List<Sinav> sinavlar { get; set; }
         public List<Tema> temalar { get; set; }
         public List<Ders> dersler { get; set; }
