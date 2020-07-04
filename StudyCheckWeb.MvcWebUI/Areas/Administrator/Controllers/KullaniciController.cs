@@ -73,7 +73,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                                 {
                                     IdentityResult passResult = await _userManager.ChangePasswordAsync(updatedUser, oldUser.kullanici_sifre, sifre);
                                     if (!passResult.Succeeded)
-                                        throw new Exception(passResult.ToString());
+                                        throw new Exception(passResult.Errors.First().Description);
                                 }                                                                                                    
                                 updatedUser.UserName = kullaniciAdi;
                                 updatedUser.NormalizedUserName = kullaniciAdi.ToUpper();
@@ -87,7 +87,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                                 updatedUser.rolId = rol;                                
                                 IdentityResult result = await _userManager.UpdateAsync(updatedUser);
                                 if (!result.Succeeded)
-                                    throw new Exception(result.ToString());
+                                    throw new Exception(result.Errors.First().Description);
                                 else
                                 {
                                     Uye updatedUye = new Uye
@@ -123,7 +123,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                                 transaction.Rollback();
                                 throw new Exception(transException.Message);
                             }
-                            ViewBag.Message = "Kullanıcı güncellendi";
+                            TempData["Sonuc"] = "Kullanıcı güncellendi";                            
                             transaction.Commit();
                         }
                     }
@@ -132,7 +132,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Exceptions = ex.Message;
+                TempData["Exception"] = ex.Message;                
             }
             return RedirectToAction("KullaniciListesi");
         }
@@ -168,6 +168,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                     _entityListModel.senkron.Add(_model);
                 }
             }
+            if (TempData["Exception"] != null)
+                ViewBag.Exceptions = TempData["Exception"].ToString();
+            if (TempData["Sonuc"] != null)
+                ViewBag.Message = TempData["Sonuc"].ToString();
             return View(_entityListModel);
         }
         public IActionResult KullaniciEkle()
