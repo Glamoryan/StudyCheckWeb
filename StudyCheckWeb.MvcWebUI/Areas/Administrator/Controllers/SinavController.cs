@@ -42,6 +42,41 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SinavDuzenle(string sinavAd,string sinavTarihi,int sinavId,string eklenmeTarihi,int ekleyenId,int durum)
+        {
+            try
+            {
+                if (sinavAd == null || sinavTarihi == null)
+                    throw new RequiredFieldsException("Sınav bilgileri boş bırakılamaz");
+                var sinav = _sinavService.GetAll().Where(s => s.sinav_ad == sinavAd).ToList();
+                if (sinav.Count > 1)
+                    throw new Exception("Bu sınav zaten kayıtlı");
+                else
+                {
+                    var identityUser = await _userManager.GetUserAsync(HttpContext.User);
+                    Sinav updatedSinav = new Sinav
+                    {
+                        id = sinavId,
+                        sinav_tarih = Convert.ToDateTime(sinavTarihi),
+                        eklenme_tarihi = Convert.ToDateTime(eklenmeTarihi),
+                        ekleyen_id = ekleyenId,
+                        guncelleme_tarihi = DateTime.Now,
+                        guncelleyen_id = identityUser.uyeDetayId,
+                        sil_id = durum,
+                        sinav_ad = sinavAd
+                    };
+                    _sinavService.UpdateSinav(updatedSinav);
+                    TempData["Sonuc"] = "Sınav başarıyla güncellendi";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Exception"] = ex.Message;
+            }
+            return RedirectToAction("SinavListesi");
+        }
+
         public IActionResult SinavListesi()
         {
             _entityListModel = new EntityListModel
@@ -49,6 +84,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                 sinavlar = _sinavService.GetAll(),
                 kullanicilar = _uyedetayService.GetAll()
             };
+            if (TempData["Sonuc"] != null)
+                ViewBag.Message = TempData["Sonuc"].ToString();
+            if (TempData["Exception"] != null)
+                ViewBag.Exceptions = TempData["Exception"].ToString();
             return View(_entityListModel);
         }
 

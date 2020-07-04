@@ -5,6 +5,19 @@
     SinavModel _model;
 }
 
+@section AlertScripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+    <!-- Utilities -->
+    <script src="~/scripts/adminPanel/Utilities.js"></script>
+}
+
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -61,7 +74,7 @@
                                     <td>@sinav.sinav_ad</td>
                                     <td>@sinav.sinav_tarih.ToShortDateString()</td>
                                     <td>@sinav.eklenme_tarihi</td>
-                                    <td>@Model.kullanicilar.Where(k=>k.id==sinav.ekleyen_id).Single().kullanici_adi</td>
+                                    <td>@Model.kullanicilar.Where(k => k.id == sinav.ekleyen_id).Single().kullanici_adi</td>
                                     <td style="@(sinav.sil_id==0?"color:red;":"color:limegreen;")">@(sinav.sil_id == 1?"Aktif":"Pasif")</td>
                                     <td class="text-center" style="color:#ff5311;"><a href="@Url.Action("SinavDuzenle","Sinav",_model)"><i class="fas fa-cog"></i></a></td>
                                 </tr>
@@ -76,6 +89,20 @@
         <!-- /.card -->
     </div>
 </section>
+
+
+@if (ViewBag.Exceptions != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Message", "success");
+    </script>
+}
 
 @section Scripts{
     <!-- DataTables -->

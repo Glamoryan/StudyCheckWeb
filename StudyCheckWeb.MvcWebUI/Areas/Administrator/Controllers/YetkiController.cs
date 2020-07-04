@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using StudyCheck.Utilities.CustomExceptions;
 using StudyCheckWeb.Business.Abstract;
@@ -42,6 +43,41 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> YetkiDuzenle(int yetkiId,string yetkiAd,int ekleyenId,string eklenmeTarihi,int durum)
+        {
+            try
+            {
+                if (yetkiAd == null)
+                    throw new RequiredFieldsException("Yetki adı boş geçilemez!");
+
+                var yetki = _yetkiService.GetAll().Where(y => y.yetki_adi == yetkiAd).ToList();
+                if (yetki.Count > 1)
+                    throw new Exception("Bu yetki adı zaten kayıtlı");
+                else
+                {
+                    var identityUser = await _userManager.GetUserAsync(HttpContext.User);
+                    Yetki updatedYetki = new Yetki
+                    {
+                        id = yetkiId,
+                        eklenme_tarihi = Convert.ToDateTime(eklenmeTarihi),
+                        ekleyen_id = ekleyenId,
+                        guncelleme_tarihi = DateTime.Now,
+                        guncelleyen_id = identityUser.uyeDetayId,
+                        sil_id = durum,
+                        yetki_adi = yetkiAd
+                    };
+                    _yetkiService.UpdateYetki(updatedYetki);
+                    TempData["Sonuc"] = "Yetki başarıyla güncellendi";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Exception"] = ex.Message;
+            }
+            return RedirectToAction("YetkiListesi");
+        }
+
         public IActionResult YetkiListesi()
         {
             _entityListModel = new EntityListModel
@@ -49,6 +85,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                 yetkiler = _yetkiService.GetAll(),
                 kullanicilar = _uyedetayService.GetAll()
             };
+            if (TempData["Sonuc"] != null)
+                ViewBag.Message = TempData["Sonuc"].ToString();
+            if (TempData["Exception"] != null)
+                ViewBag.Exceptions = TempData["Exception"].ToString();
             return View(_entityListModel);
         }
 
