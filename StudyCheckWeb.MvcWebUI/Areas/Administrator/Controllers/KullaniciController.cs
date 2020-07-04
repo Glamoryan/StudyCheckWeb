@@ -67,7 +67,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                         {
                             try
                             {
-                                var updatedUser =await _userManager.FindByNameAsync(kullaniciAdi);
+                                var oldUser = _uyedetayService.GetById(Convert.ToInt32(uyeDetayId));
+                                var updatedUser =await _userManager.FindByNameAsync(oldUser.kullanici_adi);
                                 updatedUser.UserName = kullaniciAdi;
                                 updatedUser.NormalizedUserName = kullaniciAdi.ToUpper();
                                 updatedUser.Email = mail;
