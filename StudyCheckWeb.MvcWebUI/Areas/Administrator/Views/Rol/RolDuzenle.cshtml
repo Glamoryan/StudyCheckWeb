@@ -43,7 +43,7 @@
                         <h3 class="card-title">Rol Bilgileri</h3>
                     </div>
                     <!-- /.card-header -->
-                    <form>
+                    <form method="post">
                         <div class="card-body">
                             <div class="row align-items-start">
                                 <div class="col">
@@ -98,6 +98,9 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
+                        <input type="hidden" name="rolId" value="@Model.rolId" />
+                        <input type="hidden" name="kayitTarihi" value="@Model.kayitTarihi" />
+                        <input type="hidden" name="ekleyenId" value="@Model.ekleyenId" />                        
                     </form>
                 </div>
             </div>
@@ -119,19 +122,6 @@
         </div>
     </div>
 </section>
-
-@if (ViewBag.Exceptions != null)
-{
-    <script type="text/javascript">
-        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
-    </script>
-}
-@if (ViewBag.Message != null)
-{
-    <script type="text/javascript">
-        AlertErrors("Sonuç", "@ViewBag.Message", "message");
-    </script>
-}
 
 
 

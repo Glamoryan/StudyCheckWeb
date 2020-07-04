@@ -44,6 +44,41 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> RolDuzenle(int rolId,string rolAd,int durum,int rolYetki,string kayitTarihi,int ekleyenId)
+        {
+            try
+            {
+                if (rolAd == null)
+                    throw new RequiredFieldsException("Rol adı boş geçilemez");
+                var roller = _rolService.GetAll().Where(r => r.rol_adi == rolAd).ToList();
+                if (roller.Count > 1)
+                    throw new Exception("Bu rol adı zaten kayıtlı");
+                else
+                {
+                    var identityUser = await _userManager.GetUserAsync(HttpContext.User);
+                    Rol updatedRol = new Rol
+                    {
+                        id = rolId,
+                        ekleyen_id = ekleyenId,
+                        guncelleyen_id = identityUser.uyeDetayId,
+                        rol_adi = rolAd,
+                        rol_guncelleme_tarihi = DateTime.Now,
+                        rol_kayit_tarihi =Convert.ToDateTime(kayitTarihi),
+                        sil_id = durum,
+                        yetki_id = rolYetki
+                    };
+                    _rolService.UpdateRol(updatedRol);
+                    TempData["Sonuc"] = "Rol başarıyla güncellendi";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Exception"] = ex.Message;                
+            }
+            return RedirectToAction("RolListesi");
+        }
+
         public IActionResult RolListesi()
         {
             _entityListModel = new EntityListModel
@@ -52,6 +87,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                 yetkiler = _yetkiService.GetAll(),
                 kullanicilar = _uyedetayService.GetAll()
             };
+            if (TempData["Sonuc"] != null)
+                ViewBag.Message = TempData["Sonuc"].ToString();
+            if(TempData["Exception"] != null)
+                ViewBag.Exceptions = TempData["Exception"].ToString();
             return View(_entityListModel);
         }
 
