@@ -4,18 +4,6 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-@section AlertScripts{
-    <!-- JQuery -->
-    <script src="~/scripts/jquery/jquery.min.js"></script>
-    <!-- Sweet Alert 2 -->
-    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
-    <!-- Toastr -->
-    <script src="~/plugins/toastr/toastr.min.js"></script>
-    <!-- Alerts -->
-    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
-    <!-- Utilities -->
-    <script src="~/scripts/adminPanel/Utilities.js"></script>
-}
 
 <section class="content-header">
     <div class="container-fluid">
@@ -43,13 +31,13 @@
                         <h3 class="card-title">Ders Bilgileri</h3>
                     </div>
                     <!-- /.card-header -->
-                    <form>
+                    <form method="post">
                         <div class="card-body">
                             <div class="row align-items-start">
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Ders Adı</label>
-                                        <input name="sinavAd" type="text" class="form-control" placeholder="Ders adı..." value="@Model.dersAd">
+                                        <input name="dersAd" type="text" class="form-control" placeholder="Ders adı..." value="@Model.dersAd">
                                     </div>
                                     <div class="form-group">
                                         <label>Durum</label>
@@ -98,6 +86,9 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
+                        <input type="hidden" name="dersId" value="@Model.dersId" />
+                        <input type="hidden" name="kayitTarihi" value="@Model.eklenmeTarihi" />
+                        <input type="hidden" name="ekleyenId" value="@Model.ekleyenId" />
                     </form>
                 </div>
             </div>
@@ -119,20 +110,6 @@
         </div>
     </div>
 </section>
-
-@if (ViewBag.Exceptions != null)
-{
-    <script type="text/javascript">
-        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
-    </script>
-}
-@if (ViewBag.Message != null)
-{
-    <script type="text/javascript">
-        AlertErrors("Sonuç", "@ViewBag.Message", "message");
-    </script>
-}
-
 
 
 @section Scripts{

@@ -1,9 +1,23 @@
-﻿@model EntityListModel; 
+﻿@model EntityListModel;
 @{
     ViewData["Title"] = "Ders Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
     DersModel _model;
 }
+
+@section AlertScripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+    <!-- Utilities -->
+    <script src="~/scripts/adminPanel/Utilities.js"></script>
+}
+
 
 <section class="content-header">
     <div class="container-fluid">
@@ -59,9 +73,9 @@
                                 <tr>
                                     <td class="text-center" style="color:#ff5311;">@ders.id</td>
                                     <td>@ders.ders_ad</td>
-                                    <td>@Model.sinavlar.Where(s=>s.id==ders.sinav_id).Single().sinav_ad</td>
+                                    <td>@Model.sinavlar.Where(s => s.id == ders.sinav_id).Single().sinav_ad</td>
                                     <td>@ders.eklenme_tarihi</td>
-                                    <td>@Model.kullanicilar.Where(k=>k.id==ders.ekleyen_id).Single().kullanici_adi</td>
+                                    <td>@Model.kullanicilar.Where(k => k.id == ders.ekleyen_id).Single().kullanici_adi</td>
                                     <td style="@(ders.sil_id==0 ? "color:red;":"color:limegreen;")">@(ders.sil_id==1?"Aktif":"Pasif")</td>
                                     <td class="text-center" style="color:#ff5311;"><a href="@Url.Action("DersDuzenle","Ders",_model)"><i class="fas fa-cog"></i></a></td>
                                 </tr>
@@ -76,6 +90,19 @@
         <!-- /.card -->
     </div>
 </section>
+
+@if (ViewBag.Exceptions != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Exceptions", "exception");
+    </script>
+}
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        AlertErrors("Sonuç", "@ViewBag.Message", "success");
+    </script>
+}
 
 @section Scripts{
     <!-- DataTables -->

@@ -44,6 +44,41 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> DersDuzenle(string dersAd,int durum,int sinavId,int dersId,string kayitTarihi,int ekleyenId)
+        {
+            try
+            {
+                if (dersAd == null)
+                    throw new RequiredFieldsException("Ders adı boş bırakılamaz");
+                var dersler = _dersService.GetAll().Where(d => d.ders_ad == dersAd).ToList();
+                if (dersler.Count > 1)
+                    throw new Exception("Bu ders zaten kayıtlı");
+                else
+                {
+                    var identityUser = await _userManager.GetUserAsync(HttpContext.User);
+                    Ders updatedDers = new Ders
+                    {
+                        id = dersId,
+                        ders_ad = dersAd,
+                        eklenme_tarihi = Convert.ToDateTime(kayitTarihi),
+                        ekleyen_id = ekleyenId,
+                        guncelleme_tarihi = DateTime.Now,
+                        guncelleyen_id = identityUser.uyeDetayId,
+                        sil_id = durum,
+                        sinav_id = sinavId
+                    };
+                    _dersService.UpdateDers(updatedDers);
+                    TempData["Sonuc"] = "Ders başarıyla güncellendi";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Exception"] = ex.Message;
+            }
+            return RedirectToAction("DersListesi");
+        }
+
         public IActionResult DersListesi()
         {
             _entityListModel = new EntityListModel
@@ -52,6 +87,10 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                 dersler = _dersService.GetAll(),
                 sinavlar = _sinavService.GetAll()
             };
+            if (TempData["Sonuc"] != null)
+                ViewBag.Message = TempData["Sonuc"].ToString();
+            if (TempData["Exception"] != null)
+                ViewBag.Exceptions = TempData["Exception"].ToString();
             return View(_entityListModel);
         }
 
