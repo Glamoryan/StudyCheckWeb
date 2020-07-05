@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Hoşgeldiniz";
     Layout = "_VisitorLayout";
+    ClaimsPrincipal currentUser = this.User;
 }
 
 <!-- Preloader -->
@@ -37,15 +38,22 @@
                 <a asp-area="sign" asp-controller="login" asp-action="Index" class="nav-link page-scroll">GİRİŞ YAP</a>
             </li>
 
+            @if (currentUser.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a asp-area="sign" asp-controller="login" asp-action="CikisYap" class="nav-link page-scroll">Çıkış YAP</a>
+                </li>
+            }
+
             <!-- Dropdown Menu -->
             @*<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#details" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">DETAILS</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">TERMS CONDITIONS</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">PRIVACY POLICY</span></a>
-                    </div>
-                </li>*@
+            <a class="nav-link dropdown-toggle page-scroll" href="#details" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">DETAILS</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">TERMS CONDITIONS</span></a>
+                <div class="dropdown-items-divide-hr"></div>
+                <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">PRIVACY POLICY</span></a>
+            </div>
+        </li>*@
             <!-- end of dropdown menu -->
 
         </ul>

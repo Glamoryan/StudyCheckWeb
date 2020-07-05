@@ -51,7 +51,16 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                 {                                      
                     var loginResult = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
                     if (loginResult.Succeeded)//bilgiler dogrumu
-                        return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId = loggedUser.uyeDetayId });
+                    {
+                        if(await _userManager.IsInRoleAsync(loggedUser, "Admin"))//Admin paneli
+                        {
+                            return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId = loggedUser.uyeDetayId });
+                        }
+                        else //Kullanıcı Sayfası
+                        {
+                            return RedirectToAction("Index", "Home", new { area = "" });
+                        }
+                    }                        
                     else
                         throw new Exception("Kullanıcı bilgileri hatalı");
                 }               

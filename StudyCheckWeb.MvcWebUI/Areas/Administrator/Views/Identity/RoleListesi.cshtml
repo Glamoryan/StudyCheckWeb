@@ -46,7 +46,14 @@
                                 <td>@role.Name</td>
                                 <td>@role.NormalizedName</td>
                                 <td>@role.ConcurrencyStamp</td>
-                                <td class="text-center" style="color:#ff5311;"><i class="fas fa-cog"></i></td>
+                                @if (role.Name == "Admin" || role.Name == "User")
+                                {
+                                    <td class="text-center" style="background:#ffd800">Ana Roller Değiştirilemez</td>
+                                }
+                                else
+                                {
+                                    <td class="text-center" style="color:#ff5311;"><i class="fas fa-cog"></i></td>
+                                }
                             </tr>
                             }
                         </tbody>
