@@ -320,7 +320,7 @@ h1 .subtitle {
   font-size: 12px;
   text-transform: uppercase;
   -webkit-font-smoothing: subpixel-antialiased;
-  background-color: #FF9500;
+  background-color: #ff5311;
   top: 0px;
   left: 0px;
   color: #FFFFFF;
@@ -653,13 +653,13 @@ h1 .subtitle {
   background-color: #05AE0E;
   border-color: #05AE0E;
 }
-.btn-fill.btn-warning {
-  background-color: #FF9500;
-  border-color: #FF9500;
-}
+    .btn-fill.btn-warning {
+        background-color: #ff5311;
+        border-color: #ff5311;
+    }
 .btn-fill.btn-warning:hover, .btn-fill.btn-warning:focus, .btn-fill.btn-warning:active, .btn-fill.btn-warning.active, .open .dropdown-toggle .btn-fill.btn-warning {
-  background-color: #ED8D00;
-  border-color: #ED8D00;
+  background-color: #ff5311;
+  border-color: #ff5311;
 }
 .btn-fill.btn-danger {
   background-color: #FF3B30;
