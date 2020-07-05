@@ -591,7 +591,7 @@ input[type='checkbox'] {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #2f2c3d;
+	background: #162d3b;
 }
 
 .spinner {
@@ -609,7 +609,7 @@ input[type='checkbox'] {
 	width: 1rem;
 	height: 1rem;
 	border-radius: 100%;
-	background-color: #fff;
+	background-color: #ff5311;
 	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 	animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
