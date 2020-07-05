@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using StudyCheck.Utilities.CustomExceptions;
@@ -13,7 +14,7 @@ using StudyCheckWeb.MvcWebUI.Authentication;
 
 namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 {
-    [Area("Sign")]
+    [Area("Sign")]    
     public class RegisterController : Controller
     {
         private UserManager<User> _userManager;
@@ -32,6 +33,13 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                    return RedirectToAction("Index", "Dashboard", new { area = "administrator" });
+                else
+                    return RedirectToAction("Index", "Home", new { area = "" });
+            }
             return View();
         }
 
