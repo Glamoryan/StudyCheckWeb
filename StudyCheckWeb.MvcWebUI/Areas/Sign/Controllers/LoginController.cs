@@ -39,8 +39,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
             {
                 if(User.IsInRole("Admin"))
                     return RedirectToAction("Index", "Dashboard", new {area = "administrator" });
-                else
-                    return RedirectToAction("Index", "Home", new { area = "" });
+                else if (User.IsInRole("User"))
+                    return RedirectToAction("Index", "Home", new { area = "Study" });
             }
             return View();
         }
@@ -66,7 +66,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                         }
                         else //Kullanıcı Sayfası
                         {
-                            return RedirectToAction("Index", "Home", new { area = "" });
+                            return RedirectToAction("Index", "Home", new { area = "Study" });
                         }
                     }                        
                     else

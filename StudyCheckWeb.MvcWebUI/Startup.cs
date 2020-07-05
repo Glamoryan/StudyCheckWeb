@@ -95,6 +95,12 @@ namespace StudyCheckWeb.MvcWebUI
                     );
 
                 endpoints.MapAreaControllerRoute(
+                    name: "StudyPaneli",
+                    areaName: "Study",
+                    pattern: "study/{controller=Home}/{action=Index}/{id?}"
+                    );
+
+                endpoints.MapAreaControllerRoute(
                     name:"SiteyeGiriþ",
                     areaName:"Sign",
                     pattern:"sign/{controller=Login}/{action=Index}/{id?}"
