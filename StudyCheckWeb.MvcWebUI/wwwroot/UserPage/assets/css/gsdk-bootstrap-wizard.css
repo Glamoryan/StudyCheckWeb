@@ -325,7 +325,7 @@ h1 .subtitle {
   left: 0px;
   color: #FFFFFF;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 500;  
 }
 .wizard-card[data-color="red"] .choice:hover .icon, .wizard-card[data-color="red"] .choice.active .icon {
   border-color: #FF3B30;

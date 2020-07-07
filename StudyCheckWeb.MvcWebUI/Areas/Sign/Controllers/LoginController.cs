@@ -127,7 +127,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
         public async Task<IActionResult> CikisYap()
         {
             await _signInManager.SignOutAsync();
-            return Redirect("/sign");
+            return Redirect("/");
         }
     }
 }
