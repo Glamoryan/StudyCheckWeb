@@ -1,4 +1,4 @@
-﻿
+﻿@model PanelModel
 @{
     ViewData["Title"] = "Bir çalışma oluşturun!";
     Layout = "~/Areas/Study/Views/Shared/_StudyLayout.cshtml";
@@ -66,12 +66,12 @@
                                                     <h3 class="card-title">Genel Bilgiler</h3>
                                                 </div>
                                                 <ul class="list-group list-group-flush">
-                                                    <p class="list-group-item"><b style="color:#ff5311">Adı:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Soyadı:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Toplam Çalışılan Zaman:</b> 12:12:21</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Sınav:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Ders:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışma Zamanı:</b> 01.01.1254</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Adı:</b> @Model.userDetail.uye_ad</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Soyadı:</b> @Model.userDetail.uye_soyad</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Toplam Çalışılan Zaman:</b> @Model.toplamCalisilanZaman</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Sınav:</b> @Model.sonCalisilanSinav</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Ders:</b> @Model.sonCalisilanDers</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışma Tarihi:</b> @Model.sonCalismaTarihi</p>
                                                 </ul>
                                             </div>
                                         </div>
@@ -81,14 +81,14 @@
                                                     <h3 class="card-title">Çalışma Bilgileri</h3>
                                                 </div>
                                                 <ul class="list-group list-group-flush">
-                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Sınav:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Sınava Çalışılan Toplam Zaman:</b> 12</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Sınav Tarihi:</b> 01.01.1616</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Sınav:</b> @Model.sonCalisilanSinav</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Sınava Çalışılan Toplam Zaman:</b> @Model.sinavaCalisilanToplamZaman</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Sınav Tarihi:</b> @Model.sinavTarihi</p>
                                                 </ul>
                                                 <ul class="list-group list-group-flush">
-                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Ders:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Derse Çalışılan Toplam Zaman:</b> 12</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Zaman:</b> 21</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Ders:</b> @Model.sonCalisilanDers</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Derse Çalışılan Toplam Zaman:</b> @Model.derseCalisilanToplamZaman</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Son Çalışılan Zaman:</b> @Model.derseSonCalisilanZaman</p>
                                                 </ul>
                                             </div>
                                         </div>
@@ -98,11 +98,11 @@
                                                     <h3 class="card-title">Kullanıcı Bilgileri</h3>
                                                 </div>
                                                 <ul class="list-group list-group-flush">
-                                                    <p class="list-group-item"><b style="color:#ff5311">Kullanıcı Adı:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">E-Mail:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Kayıt Tarihi:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Tema:</b> test</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Rol:</b> test</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Kullanıcı Adı:</b> @Model.userDetail.kullanici_adi</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">E-Mail:</b> @Model.userDetail.kullanici_mail</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Kayıt Tarihi:</b> @Model.userDetail.kayit_tarihi</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Tema:</b> Default</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Rol:</b> @Model.rolAdi</p>
                                                 </ul>
                                             </div>
                                         </div>

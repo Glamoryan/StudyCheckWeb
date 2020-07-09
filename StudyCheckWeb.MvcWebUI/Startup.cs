@@ -46,6 +46,8 @@ namespace StudyCheckWeb.MvcWebUI
             services.AddSingleton<IRolDal, EfRolDal>();
             services.AddSingleton<IYetkiService, YetkiManager>();
             services.AddSingleton<IYetkiDal, EfYetkiDal>();
+            services.AddSingleton<ICalismaService, CalismaManager>();
+            services.AddSingleton<ICalismaDal, EfCalismaDal>();
 
             services.AddSession();
             services.AddControllersWithViews();
