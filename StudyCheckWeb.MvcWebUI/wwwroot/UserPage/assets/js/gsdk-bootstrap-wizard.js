@@ -93,13 +93,20 @@ $(document).ready(function(){
 
             var $wizard = navigation.closest('.wizard-card');
 
-            // If it's the last tab then hide the last button and show the finish instead
-            if($current >= $total) {
-                $($wizard).find('.btn-next').hide();
-                $($wizard).find('.btn-finish').show();
-            } else {
+            // If it's the last tab then hide the last button and show the finish instead                        
+            if ($current >= $total) {                 
+                $($wizard).find('.btn-next').hide();  
+                $($wizard).find('.btn-finish').show();            
+            }            
+            else {
                 $($wizard).find('.btn-next').show();
                 $($wizard).find('.btn-finish').hide();
+                if ($current == 1) {
+                    $($wizard).find('.btn-next').val('Yeni CalIsma Baslat');
+                }
+                else {
+                    $($wizard).find('.btn-next').val('Devam');
+                }
             }
 
             button_text = navigation.find('li:nth-child(' + $current + ') a').html();
