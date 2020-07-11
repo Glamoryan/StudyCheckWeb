@@ -49,7 +49,7 @@
                         <div class="wizard-navigation">
                             <ul>
                                 <li><a href="#baslangic" data-toggle="tab">Başlangıç</a></li>
-                                <li><a href="#account" data-toggle="tab">Ayarlar</a></li>
+                                <li><a href="#ayarlar" data-toggle="tab">Ayarlar</a></li>
                                 <li><a href="#address" data-toggle="tab">Çalışma</a></li>
                             </ul>
 
@@ -110,42 +110,52 @@
                                 </div>
                             </div>
 
-                            <div class="tab-pane" id="account">
-                                <h4 class="info-text"> What are you doing? (checkboxes) </h4>
+                            <div class="tab-pane" id="ayarlar">
+                                <h4 class="info-text"> Çalışmanızı Ayarlayın </h4>
                                 <div class="row">
-
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-checkbox">
-                                                <input type="checkbox" name="jobb" value="Design">
-                                                <div class="icon">
-                                                    <i class="fa fa-pencil"></i>
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-5">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Çalışma Bilgileri</h3>
                                                 </div>
-                                                <h6>Design</h6>
+                                                <ul class="list-group list-group-flush">
+                                                    <p class="list-group-item"><b style="color:#ff5311">Sınav Adı:</b> -</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Sınava Çalışılan Toplam Zaman:</b> -</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Sınava Kalan Gün:</b> -</p>
+                                                    <hr />
+                                                    <p class="list-group-item"><b style="color:#ff5311">Ders Adı:</b> -</p>
+                                                    <p class="list-group-item"><b style="color:#ff5311">Derse Çalışılan Toplam Zaman:</b> -</p>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-checkbox">
-                                                <input type="checkbox" name="jobb" value="Code">
-                                                <div class="icon">
-                                                    <i class="fa fa-terminal"></i>
-                                                </div>
-                                                <h6>Code</h6>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect2"><h3><b>Sınav Seçimi</b></h3></label>
+                                                <select class="custom-select" size="5">
+                                                    <option value="1">Sınav Seçimi Yapın</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                    <option value="3">Three</option>
+                                                    <option value="3">Three</option>
+                                                    <option value="3">Three</option>
+                                                </select>
                                             </div>
-
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-checkbox">
-                                                <input type="checkbox" name="jobb" value="Develop">
-                                                <div class="icon">
-                                                    <i class="fa fa-laptop"></i>
-                                                </div>
-                                                <h6>Develop</h6>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect2"><h3><b>Ders Seçimi</b></h3></label>
+                                                <select class="custom-select" size="5">
+                                                    <option value="1">Ders Seçimi Yapın</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                    <option value="3">Three</option>
+                                                    <option value="3">Three</option>
+                                                    <option value="3">Three</option>
+                                                </select>
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
 
@@ -193,9 +203,9 @@
 
                         </div>
                         <div class="wizard-footer height-wizard">
-                            <div class="pull-right">                                                              
+                            <div class="pull-right">
                                 <input type='button' class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='Devam' />
-                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Başlat' />                                
+                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Başlat' />
                             </div>
                             <div class="pull-left">
                                 <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Geri' />
@@ -210,7 +220,7 @@
     </div><!-- end row -->
 </div> <!--  big container -->
 
-@section Scripts{    
+@section Scripts{
     <!--  Plugin for the Wizard -->
     <script src="~/UserPage/assets/js/gsdk-bootstrap-wizard.js"></script>
 

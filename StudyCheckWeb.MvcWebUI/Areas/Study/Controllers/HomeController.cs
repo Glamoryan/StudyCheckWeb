@@ -61,6 +61,15 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
                     bilgiler.sonCalisilanSinav = sinav.sinav_ad;
                     bilgiler.sinavTarihi = sinav.sinav_tarih.ToShortDateString();
                     bilgiler.derseSonCalisilanZaman = calismalar.LastOrDefault().calisilan_zaman.ToString();
+
+                    //Sınava Çalışılan Toplam Zaman
+                    TimeSpan sinavToplam = TimeSpan.Zero;
+                    foreach (var calisma in calismalar)
+                    {
+                        if(calisma.sinav_id == sinav.id)
+                            sinavToplam += calisma.calisilan_zaman;
+                    }
+                    bilgiler.sinavaCalisilanZaman = sinavToplam.ToString();
                 }
 
                 //Son Ders
