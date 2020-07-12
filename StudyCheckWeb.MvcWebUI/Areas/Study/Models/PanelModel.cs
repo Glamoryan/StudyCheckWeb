@@ -11,6 +11,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Models
     {
         public UserDetail userDetail { get; set; }
         public List<Calisma> tumCalismalar { get; set; }
+        public List<Sinav> aktifSinavlar { get; set; }
+        public List<Ders> aktifDersler { get; set; }
         //----------------------------
         public string rolAdi { get; set; }
         public string toplamCalisilanZaman { get; set; }

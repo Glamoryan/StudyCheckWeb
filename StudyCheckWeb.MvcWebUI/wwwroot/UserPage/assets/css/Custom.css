@@ -1,0 +1,10 @@
+﻿.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover {
+    background-color: #ff5311;
+    border-color: #ff5311;    
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+}

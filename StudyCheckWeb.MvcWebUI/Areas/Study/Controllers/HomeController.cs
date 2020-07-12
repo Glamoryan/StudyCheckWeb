@@ -104,7 +104,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
                 bilgiler.derseSonCalisilanZaman = "-";
             }           
             return bilgiler;
-        }
+        }              
 
         public async Task<IActionResult> Index()
         {
@@ -114,7 +114,9 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
             string rolName = _rolService.GetById(kullanici.rol_id).rol_adi;
 
             List<Calisma> calismalar = _calismaService.GetListByUyeId(identityUser.uyeDetayId);
-            CalismaBilgileri studyInfo = studyInfos(calismalar);            
+            CalismaBilgileri studyInfo = studyInfos(calismalar);
+
+            List<Sinav> sinavlar = _sinavService.GetListByStatus(1);            
 
             _model = new PanelModel
             {
@@ -137,7 +139,8 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
                 sinavTarihi = studyInfo.sinavTarihi,
                 sonCalisilanDers = studyInfo.sonCalisilanDers,
                 derseCalisilanToplamZaman = studyInfo.derseCalisilanZaman,
-                derseSonCalisilanZaman = studyInfo.derseSonCalisilanZaman
+                derseSonCalisilanZaman = studyInfo.derseSonCalisilanZaman,
+                aktifSinavlar = sinavlar                
             };
             return View(_model);
         }
