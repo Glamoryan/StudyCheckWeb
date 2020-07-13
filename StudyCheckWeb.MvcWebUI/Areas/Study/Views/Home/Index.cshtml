@@ -120,12 +120,12 @@
                                                     <h3 class="card-title">Çalışma Bilgileri</h3>
                                                 </div>
                                                 <ul class="list-group list-group-flush">
-                                                    <p class="list-group-item"><b style="color:#ff5311">Sınav Adı:</b> -</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Sınava Çalışılan Toplam Zaman:</b> -</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Sınava Kalan Gün:</b> -</p>
+                                                    <p id="sinavAd" class="list-group-item"><b style="color:#ff5311">Sınav Adı:</b>-</p>
+                                                    <p id="toplamZaman" class="list-group-item"><b style="color:#ff5311">Sınava Çalışılan Toplam Zaman:</b>-</p>
+                                                    <p id="kalanGun" class="list-group-item"><b style="color:#ff5311">Sınava Kalan Gün:</b>-</p>
                                                     <hr />
-                                                    <p class="list-group-item"><b style="color:#ff5311">Ders Adı:</b> -</p>
-                                                    <p class="list-group-item"><b style="color:#ff5311">Derse Çalışılan Toplam Zaman:</b> -</p>
+                                                    <p id="dersAd" class="list-group-item"><b style="color:#ff5311">Ders Adı:</b>-</p>
+                                                    <p id="dersToplam" class="list-group-item"><b style="color:#ff5311">Derse Çalışılan Toplam Zaman:</b>-</p>
                                                 </ul>
                                             </div>
                                         </div>
@@ -140,16 +140,7 @@
                                                             <a class="list-group-item list-group-item-action sinavClass" data-toggle="list" id="@sinav.id" role="tab">@sinav.sinav_ad</a>
                                                         }
                                                     </div>
-                                                </div>
-                                                @*<div class="col-8">
-                                                        <!-- Tab panes -->
-                                                        <div class="tab-content">
-                                                            <div class="tab-pane fade" id="home" role="tabpanel">1</div>
-                                                            <div class="tab-pane fade" id="profile" role="tabpanel">2</div>
-                                                            <div class="tab-pane fade" id="messages" role="tabpanel">3</div>
-                                                            <div class="tab-pane fade" id="settings" role="tabpanel">4</div>
-                                                        </div>
-                                                    </div>*@
+                                                </div>                                                
                                             </div>
                                         </div>
                                         <div class="col-sm-3" style="margin-left:16px">
@@ -158,11 +149,7 @@
                                                     <h3 class="card-title" style="margin-top:28px">Aktif Dersler</h3>
                                                     <!-- List group -->
                                                     <div class="list-group" style="margin-top:12px;height: 270px;overflow:scroll;-webkit-overflow-scrolling:touch;overflow-x: hidden;border:1px solid #808080;border-radius:4px" id="dersList" role="tablist">
-
-                                                        @*<a class="list-group-item list-group-item-action" data-toggle="list" href="#home" role="tab">Home</a>
-                                                            <a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab">Profile</a>
-                                                            <a class="list-group-item list-group-item-action" data-toggle="list" href="#messages" role="tab">Messages</a>
-                                                            <a class="list-group-item list-group-item-action" data-toggle="list" href="#settings" role="tab">Settings</a>*@
+                                                        <!-- From script (Ders listesi) --> 
                                                     </div>
                                                 </div>
                                             </div>
@@ -254,12 +241,12 @@
     <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
     <script src="~/UserPage/assets/js/jquery.validate.min.js"></script>
 
+    <!-- Seçilen sınavın derslerini getir -->
     <script type="text/javascript">
         var div = document.getElementById('dersList');
-        $(div).on('click', 'a', function (e) {
-            e.preventDefault()
-            $(this).addClass('active').siblings().removeClass('active');
-        });
+        var s_ad = document.getElementById('sinavAd');
+        var s_toptime = document.getElementById('toplamZaman');
+        var s_kalan = document.getElementById('kalanGun');
     $(document).ready(function () {
         $(".sinavClass").click(function () {
             div.textContent = '';
@@ -278,7 +265,7 @@
                             node.classList.add("list-group-item-action");
                             node.setAttribute("data-toggle", "list");
                             node.setAttribute("id", result.value[i].id);
-                            node.setAttribute("role", "tab");                            
+                            node.setAttribute("role", "tab");
                             div.appendChild(node);
                         }
                     }
@@ -286,8 +273,39 @@
                         div.textContent = '';
                     }
                 }
-            })
+            });
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetSinavBilgileri","Home")',
+                data: { sinavId: this.id },
+                dataType: 'json',
+                success: function (result) {
+                    if (result.success == true) {
+                        s_ad.innerHTML = '<b style="color:#ff5311">Sınav Adı: </b>' + result.sinavAdi;
+                        s_toptime.innerHTML = '<b style="color:#ff5311">Sınava Çalışılan Toplam Zaman: </b>' + result.topTime;
+                        s_kalan.innerHTML = '<b style="color:#ff5311">Sınava Kalan Gün: </b>' + result.kalanGun;
+                    }
+                }
+            });
         });
-    });        
-    </script>
+    });
+        var d_ad = document.getElementById('dersAd');
+        var d_toplam = document.getElementById('dersToplam');        
+         $(div).on('click', 'a', function (e) {
+            e.preventDefault()
+            $(this).addClass('active').siblings().removeClass('active');
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetDersBilgileri","Home")',
+                data: { dersId: this.id },
+                dataType: 'json',
+                success: function (result) {
+                    if (result.success == true) {
+                        d_ad.innerHTML = '<b style="color:#ff5311">Ders Adı: </b>' + result.dersAdi;
+                        d_toplam.innerHTML = '<b style="color:#ff5311">Derse Çalışılan Toplam Zaman: </b>' + result.dtopTime;
+                    }
+                }
+            });
+        });
+    </script>        
 }
