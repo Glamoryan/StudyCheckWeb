@@ -50,7 +50,7 @@ namespace StudyCheckWeb.MvcWebUI
             services.AddSingleton<ICalismaDal, EfCalismaDal>();
 
             services.AddSession();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews();                
 
             services.AddDbContext<UserContext>(cfg =>
             {

@@ -104,7 +104,23 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
                 bilgiler.derseSonCalisilanZaman = "-";
             }           
             return bilgiler;
-        }              
+        }        
+        
+        [HttpGet]
+        public JsonResult GetDers(int sinavId)
+        {
+            if (sinavId > 0)
+            {
+                List<Ders> dersler = _dersService.GetListBySinavId(sinavId);
+                if (dersler.Count > 0)
+                    return Json(new { success = true, value = dersler });
+                else
+                    return Json(new { success = true, value = "Veri Yok" });
+            }
+            else
+                return Json(new {success=false,value = "Başarısız" });
+            
+        }
 
         public async Task<IActionResult> Index()
         {
