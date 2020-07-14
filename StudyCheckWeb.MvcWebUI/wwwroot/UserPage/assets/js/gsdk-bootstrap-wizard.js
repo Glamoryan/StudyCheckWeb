@@ -109,6 +109,10 @@ $(document).ready(function(){
                 }
             }
 
+            if ($current == 2) {
+                checkSettings(); //Sýnav ve Ders seçilmiþ mi
+            }
+
             button_text = navigation.find('li:nth-child(' + $current + ') a').html();
 
             setTimeout(function(){

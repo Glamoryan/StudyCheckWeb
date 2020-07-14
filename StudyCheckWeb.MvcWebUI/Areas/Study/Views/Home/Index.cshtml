@@ -47,10 +47,10 @@
                         </div>
 
                         <div class="wizard-navigation">
-                            <ul>
+                            <ul style="pointer-events:none">
                                 <li><a href="#baslangic" data-toggle="tab">Başlangıç</a></li>
                                 <li><a href="#ayarlar" data-toggle="tab">Ayarlar</a></li>
-                                <li><a href="#address" data-toggle="tab">Çalışma</a></li>
+                                <li><a href="#start" data-toggle="tab">Çalışma</a></li>
                             </ul>
 
                         </div>
@@ -137,10 +137,10 @@
                                                     <div class="list-group" style="margin-top:12px;height: 270px;overflow:scroll;-webkit-overflow-scrolling:touch;overflow-x: hidden;border:1px solid #808080;border-radius:4px" id="sinavList" role="tablist">
                                                         @foreach (var sinav in Model.aktifSinavlar)
                                                         {
-                                                            <a class="list-group-item list-group-item-action sinavClass" data-toggle="list" id="@sinav.id" role="tab">@sinav.sinav_ad</a>
+                                                            <a class="list-group-item list-group-item-action sinavClass" data-toggle="list" id="@sinav.id" role="tab" onclick="checkSettings()">@sinav.sinav_ad</a>
                                                         }
                                                     </div>
-                                                </div>                                                
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-3" style="margin-left:16px">
@@ -149,7 +149,7 @@
                                                     <h3 class="card-title" style="margin-top:28px">Aktif Dersler</h3>
                                                     <!-- List group -->
                                                     <div class="list-group" style="margin-top:12px;height: 270px;overflow:scroll;-webkit-overflow-scrolling:touch;overflow-x: hidden;border:1px solid #808080;border-radius:4px" id="dersList" role="tablist">
-                                                        <!-- From script (Ders listesi) --> 
+                                                        <!-- From script (Ders listesi) -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -158,43 +158,46 @@
                                 </div>
                             </div>
 
-                            <div class="tab-pane" id="address">
+                            <div class="tab-pane" id="start">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <h4 class="info-text"> Are you living in a nice area? </h4>
-                                    </div>
-                                    <div class="col-sm-7 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>Street Name</label>
-                                            <input type="text" class="form-control" placeholder="5h Avenue">
+                                        <div class="col-sm-4">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Çalışılan Sınav</h3>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <p id="studySinavAd" class="list-group-item"><b style="color:#ff5311">Sınav Adı:</b>-</p>
+                                                    <p id="studyToplamZaman" class="list-group-item"><b style="color:#ff5311">Sınava Çalışılan Toplam Zaman:</b>-</p>
+                                                    <p id="studyKalanGun" class="list-group-item"><b style="color:#ff5311">Sınava Kalan Gün:</b>-</p>
+                                                </ul>
+                                            </div>
+                                            <div class="card-block">
+                                                <b style="color:#ff5311">Başlanıç Zamanı: </b><label>-</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label>Street Number</label>
-                                            <input type="text" class="form-control" placeholder="242">
+                                        <div class="col-sm-4">
+                                            <div class="card align-items-center">
+                                                <div class="card-header">
+                                                    <h3 class="card-title" style="text-align:center;">Şuan Çalışılan Zaman</h3>
+                                                </div>
+                                                <h3 style="text-align:center;font-family:Consolas;font-weight:bold">00:00:00</h3>
+                                                <div class="card-block" style="text-align:center">
+                                                    <button type="button" class="btn btn-primary"><i class="fas fa-play"></i></button>
+                                                    <button type="button" class="btn btn-warning"><i class="fas fa-stop"></i></button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-5 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>City</label>
-                                            <input type="text" class="form-control" placeholder="New York...">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-group">
-                                            <label>Country</label><br>
-                                            <select name="country" class="form-control">
-                                                <option value="Afghanistan"> Afghanistan </option>
-                                                <option value="Albania"> Albania </option>
-                                                <option value="Algeria"> Algeria </option>
-                                                <option value="American Samoa"> American Samoa </option>
-                                                <option value="Andorra"> Andorra </option>
-                                                <option value="Angola"> Angola </option>
-                                                <option value="Anguilla"> Anguilla </option>
-                                                <option value="Antarctica"> Antarctica </option>
-                                                <option value="...">...</option>
-                                            </select>
+                                        <div class="col-sm-4">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">Çalışılan Ders</h3>
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <p id="studyDersAd" class="list-group-item"><b style="color:#ff5311">Ders Adı:</b>-</p>
+                                                    <p id="studyDersToplamZaman" class="list-group-item"><b style="color:#ff5311">Derse Çalışılan Toplam Zaman:</b>-</p>                                                    
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -203,8 +206,8 @@
                         </div>
                         <div class="wizard-footer height-wizard">
                             <div class="pull-right">
-                                <input type='button' class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='Devam' />
-                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Başlat' />
+                                <input type='button' id="next" class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='Devam' />
+                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Kaydet' />
                             </div>
                             <div class="pull-left">
                                 <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Geri' />
@@ -221,8 +224,9 @@
 
 <script src="~/UserPage/assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
 <script src="~/UserPage/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="~/scripts/studyPanel/checkConfig.js"></script>
 
-<script>
+<script>   
     $('#sinavList a').on('click', function (e) {
         e.preventDefault()
         $(this).addClass('active').siblings().removeClass('active');
@@ -263,6 +267,7 @@
                             node.appendChild(textNode);
                             node.classList.add("list-group-item");
                             node.classList.add("list-group-item-action");
+                            node.classList.add("dersClass");
                             node.setAttribute("data-toggle", "list");
                             node.setAttribute("id", result.value[i].id);
                             node.setAttribute("role", "tab");
@@ -273,7 +278,7 @@
                         div.textContent = '';
                     }
                 }
-            });
+            });            
             $.ajax({
                 type: 'GET',
                 url: '@Url.Action("GetSinavBilgileri","Home")',
@@ -286,11 +291,11 @@
                         s_kalan.innerHTML = '<b style="color:#ff5311">Sınava Kalan Gün: </b>' + result.kalanGun;
                     }
                 }
-            });
+            });            
         });
     });
         var d_ad = document.getElementById('dersAd');
-        var d_toplam = document.getElementById('dersToplam');        
+        var d_toplam = document.getElementById('dersToplam');
          $(div).on('click', 'a', function (e) {
             e.preventDefault()
             $(this).addClass('active').siblings().removeClass('active');
@@ -306,6 +311,7 @@
                     }
                 }
             });
+             checkSettings();
         });
-    </script>        
+    </script>
 }
