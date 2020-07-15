@@ -173,7 +173,7 @@
                                                 </ul>
                                             </div>
                                             <div class="card-block">
-                                                <b style="color:#ff5311">Başlanıç Zamanı: </b><label>-</label>
+                                                <b style="color:#ff5311">Başlanıç Zamanı: </b><label id="startTime">-</label>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -182,9 +182,9 @@
                                                     <h3 class="card-title" style="text-align:center;">Şuan Çalışılan Zaman</h3>
                                                 </div>
                                                 <h3 style="text-align:center;font-family:Consolas;font-weight:bold">00:00:00</h3>
-                                                <div class="card-block" style="text-align:center">
-                                                    <button type="button" class="btn btn-primary"><i class="fas fa-play"></i></button>
-                                                    <button type="button" class="btn btn-warning"><i class="fas fa-stop"></i></button>
+                                                <div id="controlButtons" class="card-block" style="text-align:center">
+                                                    <button id="btnBaslat" type="button" class="btn btn-primary aktif"><i class="fas fa-play"></i></button>
+                                                    <button id="btnDuraklat" type="button" class="btn btn-warning"><i class="fas fa-pause"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -230,6 +230,21 @@
     $('#sinavList a').on('click', function (e) {
         e.preventDefault()
         $(this).addClass('active').siblings().removeClass('active');
+    });
+
+    $("#controlButtons button").on("click", function (e) {
+        e.preventDefault();
+        $(this).removeClass('aktif').siblings().addClass('aktif');
+        checkButtonStatus();
+    });
+
+    $("#btnBaslat").one("click", function () {
+        var label = document.getElementById("startTime");
+        var bugun = new Date();
+        var date = bugun.getFullYear() + '-' + (bugun.getMonth() + 1) + '-' + bugun.getDate();
+        var time = bugun.getHours() + ':' + bugun.getMinutes() + ':' + bugun.getSeconds();
+        var dateTime = date + ' ' + time;
+        label.innerHTML = dateTime;
     });
 
     $('a[data-toggle="list"]').on('shown.bs.tab', function (e) {
@@ -278,7 +293,10 @@
                         div.textContent = '';
                     }
                 }
-            });            
+            });
+            var start_sinavAd = document.getElementById('studySinavAd');
+            var start_toplam = document.getElementById('studyToplamZaman');
+            var start_kalan = document.getElementById('studyKalanGun');
             $.ajax({
                 type: 'GET',
                 url: '@Url.Action("GetSinavBilgileri","Home")',
@@ -289,6 +307,10 @@
                         s_ad.innerHTML = '<b style="color:#ff5311">Sınav Adı: </b>' + result.sinavAdi;
                         s_toptime.innerHTML = '<b style="color:#ff5311">Sınava Çalışılan Toplam Zaman: </b>' + result.topTime;
                         s_kalan.innerHTML = '<b style="color:#ff5311">Sınava Kalan Gün: </b>' + result.kalanGun;
+                        //-------------------- Start Section
+                        start_sinavAd.innerHTML = '<b style="color:#ff5311">Sınav Adı: </b>' + result.sinavAdi;
+                        start_toplam.innerHTML = '<b style="color:#ff5311">Sınava Çalışılan Toplam Zaman: </b>' + result.topTime;
+                        start_kalan.innerHTML = '<b style="color:#ff5311">Sınava Kalan Gün: </b>' + result.kalanGun;
                     }
                 }
             });            
@@ -296,6 +318,8 @@
     });
         var d_ad = document.getElementById('dersAd');
         var d_toplam = document.getElementById('dersToplam');
+        var start_dersAd = document.getElementById('studyDersAd');
+        var start_toplam = document.getElementById('studyDersToplamZaman');
          $(div).on('click', 'a', function (e) {
             e.preventDefault()
             $(this).addClass('active').siblings().removeClass('active');
@@ -308,6 +332,9 @@
                     if (result.success == true) {
                         d_ad.innerHTML = '<b style="color:#ff5311">Ders Adı: </b>' + result.dersAdi;
                         d_toplam.innerHTML = '<b style="color:#ff5311">Derse Çalışılan Toplam Zaman: </b>' + result.dtopTime;
+                        //------------------- Start Section
+                        start_dersAd.innerHTML = '<b style="color:#ff5311">Ders Adı: </b>' + result.dersAdi;
+                        start_toplam.innerHTML = '<b style="color:#ff5311">Derse Çalışılan Toplam Zaman: </b>' + result.dtopTime;
                     }
                 }
             });

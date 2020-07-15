@@ -109,6 +109,13 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
             }
             else if (durum == 1) //Çalışma Bilgileri
             {
+                var sinav = _sinavService.GetById((int)sinav_id);
+                int kalan = Convert.ToInt32((sinav.sinav_tarih - DateTime.Now).TotalDays);
+                if (kalan < 0)
+                    bilgiler.sinavaKalanGun = "Sınav süresi geçti";
+                else
+                    bilgiler.sinavaKalanGun = kalan.ToString();
+
                 if (calismalar.Count > 0)
                 {                    
                     TimeSpan toplam = TimeSpan.Zero;
@@ -117,22 +124,14 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
                         if (calisma.sinav_id == sinav_id)
                             toplam += calisma.calisilan_zaman;
                     }
-                    bilgiler.sinavaCalisilanZaman = toplam.ToString();
-
-                    var sinav = _sinavService.GetById((int)sinav_id);
-                    int kalan = Convert.ToInt32((sinav.sinav_tarih - DateTime.Now).TotalDays);
-                    if (kalan < 0)
-                        bilgiler.sinavaKalanGun = "Sınav süresi geçti";
-                    else
-                        bilgiler.sinavaKalanGun = kalan.ToString();
+                    bilgiler.sinavaCalisilanZaman = toplam.ToString();                    
 
                     bilgiler.data = 1;
                 }
                 else
                 {
                     bilgiler.data = 0;
-                    bilgiler.sinavaCalisilanZaman = "-";
-                    bilgiler.sinavaKalanGun = "-";                    
+                    bilgiler.sinavaCalisilanZaman = "-";                             
                 }
                 return bilgiler;   
             }
@@ -186,7 +185,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
                 if(bilgiler.data == 1)
                     return Json(new { success = true, topTime = bilgiler.sinavaCalisilanZaman, kalanGun = bilgiler.sinavaKalanGun,sinavAdi = sinavAd });
                 else
-                    return Json(new { success = true, topTime = "-", kalanGun = "-" , sinavAdi = "-"});
+                    return Json(new { success = true, topTime = "-", kalanGun = bilgiler.sinavaKalanGun , sinavAdi = sinavAd});
             }
             else
                 return Json(new { success = false, value = "Başarısız" });
@@ -204,7 +203,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
                 if (bilgiler.data == 1)
                     return Json(new { success = true, dtopTime = bilgiler.derseCalisilanZaman, dersAdi = dersAd });
                 else
-                    return Json(new { success = true, dtopTime = "-", dersAdi = "-" });
+                    return Json(new { success = true, dtopTime = "-", dersAdi = dersAd });
             }
             else
             {

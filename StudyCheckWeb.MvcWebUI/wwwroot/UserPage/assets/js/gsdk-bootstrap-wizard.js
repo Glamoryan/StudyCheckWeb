@@ -112,6 +112,9 @@ $(document).ready(function(){
             if ($current == 2) {
                 checkSettings(); //Sýnav ve Ders seçilmiþ mi
             }
+            if ($current == 3) {
+                checkButtonStatus();
+            }
 
             button_text = navigation.find('li:nth-child(' + $current + ') a').html();
 
