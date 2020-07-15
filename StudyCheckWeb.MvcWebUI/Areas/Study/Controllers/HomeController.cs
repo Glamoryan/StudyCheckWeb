@@ -211,6 +211,29 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
             }
         }
 
+        [HttpPost]
+        public void calismaKaydet(string calisilanZaman, int uyedetayId, string sinavAdi, string dersAdi)
+        {
+            try
+            {
+                int sinavId = _sinavService.GetAll().Where(s => s.sinav_ad.ToLower() == sinavAdi.ToLower()).FirstOrDefault().id;
+                int dersId = _dersService.GetAll().Where(d => d.ders_ad.ToLower() == dersAdi.ToLower() && d.sinav_id == sinavId).FirstOrDefault().id;
+                Calisma calismamiz = new Calisma
+                {
+                    calisilan_tarih = DateTime.Now,
+                    calisilan_zaman = TimeSpan.Parse(calisilanZaman),
+                    uye_id = uyedetayId,
+                    sinav_id = sinavId,
+                    ders_id = dersId
+                };
+                _calismaService.AddCalisma(calismamiz);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Exceptions = ex.Message;
+            }            
+        }
+
         public async Task<IActionResult> Index()
         {
             var identityUser = await _userManager.GetUserAsync(HttpContext.User);

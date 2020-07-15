@@ -181,7 +181,7 @@
                                                 <div class="card-header">
                                                     <h3 class="card-title" style="text-align:center;">Şuan Çalışılan Zaman</h3>
                                                 </div>
-                                                <h3 style="text-align:center;font-family:Consolas;font-weight:bold">00:00:00</h3>
+                                                <h3 id="timeShow" style="text-align:center;font-family:Consolas;font-weight:bold"><b style="color:#ff5311" class="values">00:00:00</b></h3>
                                                 <div id="controlButtons" class="card-block" style="text-align:center">
                                                     <button id="btnBaslat" type="button" class="btn btn-primary aktif"><i class="fas fa-play"></i></button>
                                                     <button id="btnDuraklat" type="button" class="btn btn-warning"><i class="fas fa-pause"></i></button>
@@ -195,7 +195,7 @@
                                                 </div>
                                                 <ul class="list-group list-group-flush">
                                                     <p id="studyDersAd" class="list-group-item"><b style="color:#ff5311">Ders Adı:</b>-</p>
-                                                    <p id="studyDersToplamZaman" class="list-group-item"><b style="color:#ff5311">Derse Çalışılan Toplam Zaman:</b>-</p>                                                    
+                                                    <p id="studyDersToplamZaman" class="list-group-item"><b style="color:#ff5311">Derse Çalışılan Toplam Zaman:</b>-</p>
                                                 </ul>
                                             </div>
                                         </div>
@@ -207,7 +207,7 @@
                         <div class="wizard-footer height-wizard">
                             <div class="pull-right">
                                 <input type='button' id="next" class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='Devam' />
-                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Kaydet' />
+                                <input type='button' id="kaydet" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Kaydet' />
                             </div>
                             <div class="pull-left">
                                 <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Geri' />
@@ -225,8 +225,9 @@
 <script src="~/UserPage/assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
 <script src="~/UserPage/assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="~/scripts/studyPanel/checkConfig.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.1/src/easytimer.min.js"></script>
 
-<script>   
+<script>
     $('#sinavList a').on('click', function (e) {
         e.preventDefault()
         $(this).addClass('active').siblings().removeClass('active');
@@ -241,7 +242,7 @@
     $("#btnBaslat").one("click", function () {
         var label = document.getElementById("startTime");
         var bugun = new Date();
-        var date = bugun.getFullYear() + '-' + (bugun.getMonth() + 1) + '-' + bugun.getDate();
+        var date = bugun.getDate() + '-' + (bugun.getMonth() + 1) + '-' + bugun.getFullYear();
         var time = bugun.getHours() + ':' + bugun.getMinutes() + ':' + bugun.getSeconds();
         var dateTime = date + ' ' + time;
         label.innerHTML = dateTime;
@@ -251,6 +252,7 @@
         e.target // newly activated tab
         e.relatedTarget // previous active tab
     })
+    
 </script>
 
 @section Scripts{
@@ -266,6 +268,8 @@
         var s_ad = document.getElementById('sinavAd');
         var s_toptime = document.getElementById('toplamZaman');
         var s_kalan = document.getElementById('kalanGun');
+        var calisilanSinavAd = "";
+        var calisilanDersAd = "";
     $(document).ready(function () {
         $(".sinavClass").click(function () {
             div.textContent = '';
@@ -311,9 +315,10 @@
                         start_sinavAd.innerHTML = '<b style="color:#ff5311">Sınav Adı: </b>' + result.sinavAdi;
                         start_toplam.innerHTML = '<b style="color:#ff5311">Sınava Çalışılan Toplam Zaman: </b>' + result.topTime;
                         start_kalan.innerHTML = '<b style="color:#ff5311">Sınava Kalan Gün: </b>' + result.kalanGun;
+                        calisilanSinavAd = result.sinavAdi;
                     }
                 }
-            });            
+            });
         });
     });
         var d_ad = document.getElementById('dersAd');
@@ -335,10 +340,41 @@
                         //------------------- Start Section
                         start_dersAd.innerHTML = '<b style="color:#ff5311">Ders Adı: </b>' + result.dersAdi;
                         start_toplam.innerHTML = '<b style="color:#ff5311">Derse Çalışılan Toplam Zaman: </b>' + result.dtopTime;
+                        calisilanDersAd = result.dersAdi;
                     }
                 }
             });
              checkSettings();
+         });
+        //Timer Script
+    var timer = new Timer();
+    $("#btnBaslat").click(function () {
+        timer.start();
+    });
+    $("#btnDuraklat").click(function () {
+        timer.pause();
+    });
+    timer.addEventListener('secondsUpdated', function (e) {
+        $("#timeShow .values").html(timer.getTimeValues().toString());
+    });
+    timer.addEventListener('started', function (e) {
+        $("#timeShow .values").html(timer.getTimeValues().toString());
+    });
+    timer.addEventListener('reset', function (e) {
+        $("#timeShow .values").html(timer.getTimeValues().toString());
+    });
+
+    //Kaydet    
+    $("#kaydet").click(function () {
+        timer.pause();
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("calismaKaydet","Home")',
+            data: { calisilanZaman: timer.getTimeValues().toString(), uyedetayId:@Model.userDetail.uyedetay_id, sinavAdi: calisilanSinavAd, dersAdi: calisilanDersAd },
+            success: function () {
+                location.reload();
+            }
         });
+    });
     </script>
 }
