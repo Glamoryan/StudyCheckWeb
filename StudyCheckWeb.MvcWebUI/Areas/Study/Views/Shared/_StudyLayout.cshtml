@@ -16,6 +16,11 @@
     <link href="~/UserPage/fontawesome/css/all.min.css" rel="stylesheet" />
     <link href="~/UserPage/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
 
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="~/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="~/plugins/toastr/toastr.min.css">
+
     <!-- CSS Files -->
     <link href="~/UserPage/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/UserPage/assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
@@ -27,6 +32,8 @@
     <link href="~/UserPage/assets/css/Custom.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- Alert Scriptleri -->
+    @RenderSection("AlertScripts", false)
     <div class="image-container set-full-height" style="background-image: url('../VisitorPage/images/header4.jpg')">
         @RenderBody()
     </div>

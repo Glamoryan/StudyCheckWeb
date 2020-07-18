@@ -1,5 +1,6 @@
 ﻿const baslatButon = document.getElementById("btnBaslat");
 const duraklatButon = document.getElementById("btnDuraklat");
+const geriButon = document.getElementById("geri");
 
 function checkSettings() {
     var sinavlar = document.getElementsByClassName("sinavClass");
@@ -22,7 +23,16 @@ function checkSettings() {
     });
 }
 
+function makeVisible(pasifBtn) {
+    pasifBtn.style.pointerEvents = "none";
+    pasifBtn.style.opacity = "0.6";    
+}
+
 function checkButtonStatus() {
+    if (!$(baslatButon).hasClass("aktif")) {
+        makeVisible(geriButon);
+    }
+
     if ($(baslatButon).hasClass("aktif")) {
         duraklatButon.style.pointerEvents = "none";
         duraklatButon.style.opacity = "0.2";
@@ -34,7 +44,7 @@ function checkButtonStatus() {
         baslatButon.style.opacity = "0.2";
         duraklatButon.style.pointerEvents = "auto";
         duraklatButon.style.opacity = "1";
-    }
+    }    
 }
 
 

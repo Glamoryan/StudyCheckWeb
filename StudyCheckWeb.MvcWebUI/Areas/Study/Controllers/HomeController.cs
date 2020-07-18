@@ -212,25 +212,35 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Study.Controllers
         }
 
         [HttpPost]
-        public void calismaKaydet(string calisilanZaman, int uyedetayId, string sinavAdi, string dersAdi)
+        public JsonResult calismaKaydet(string calisilanZaman, int uyedetayId, string sinavAdi, string dersAdi)
         {
             try
             {
-                int sinavId = _sinavService.GetAll().Where(s => s.sinav_ad.ToLower() == sinavAdi.ToLower()).FirstOrDefault().id;
-                int dersId = _dersService.GetAll().Where(d => d.ders_ad.ToLower() == dersAdi.ToLower() && d.sinav_id == sinavId).FirstOrDefault().id;
-                Calisma calismamiz = new Calisma
+                TimeSpan calismaZamani = TimeSpan.Parse(calisilanZaman);
+                if(calismaZamani.TotalMinutes < 1)
                 {
-                    calisilan_tarih = DateTime.Now,
-                    calisilan_zaman = TimeSpan.Parse(calisilanZaman),
-                    uye_id = uyedetayId,
-                    sinav_id = sinavId,
-                    ders_id = dersId
-                };
-                _calismaService.AddCalisma(calismamiz);
+                    return Json(new { success = 0, value = "Kaydetmek en az 1 dakika çalışmalısınız!" });
+                }
+                else
+                {
+                    int sinavId = _sinavService.GetAll().Where(s => s.sinav_ad.ToLower() == sinavAdi.ToLower()).FirstOrDefault().id;
+                    int dersId = _dersService.GetAll().Where(d => d.ders_ad.ToLower() == dersAdi.ToLower() && d.sinav_id == sinavId).FirstOrDefault().id;
+                    Calisma calismamiz = new Calisma
+                    {
+                        calisilan_tarih = DateTime.Now,
+                        calisilan_zaman = calismaZamani,
+                        uye_id = uyedetayId,
+                        sinav_id = sinavId,
+                        ders_id = dersId
+                    };
+                    _calismaService.AddCalisma(calismamiz);
+                    return Json(new { success = true, value = "Çalışma başarıyla kaydedildi" });
+                }                
             }
             catch (Exception ex)
             {
                 ViewBag.Exceptions = ex.Message;
+                return Json(new { success = false, value = ex.Message });
             }            
         }
 

@@ -5,6 +5,19 @@
     ClaimsPrincipal currentUser = this.User;
 }
 
+@section AlertScripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+    <!-- Utilities -->
+    <script src="~/scripts/adminPanel/Utilities.js"></script>
+}
+
 <!--   Creative Tim Branding   -->
 <a href="#">
     <div class="logo-container">
@@ -207,10 +220,10 @@
                         <div class="wizard-footer height-wizard">
                             <div class="pull-right">
                                 <input type='button' id="next" class='btn btn-next btn-fill btn-info btn-wd btn-sm' name='next' value='Devam' />
-                                <input type='button' id="kaydet" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Kaydet' />
+                                <input type='button' id="kaydet" class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Kaydet' />                                
                             </div>
                             <div class="pull-left">
-                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Geri' />
+                                <input type='button' id="geri" class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Geri' />
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -252,7 +265,7 @@
         e.target // newly activated tab
         e.relatedTarget // previous active tab
     })
-    
+
 </script>
 
 @section Scripts{
@@ -275,7 +288,7 @@
             div.textContent = '';
             $.ajax({
                 type: 'GET',
-                url: '@Url.Action("GetDers","Home")',
+                url: '@Url.Action("GetDers", "Home")',
                 data: { sinavId: this.id },
                 dataType: 'json',
                 success: function (result) {
@@ -303,7 +316,7 @@
             var start_kalan = document.getElementById('studyKalanGun');
             $.ajax({
                 type: 'GET',
-                url: '@Url.Action("GetSinavBilgileri","Home")',
+                url: '@Url.Action("GetSinavBilgileri", "Home")',
                 data: { sinavId: this.id },
                 dataType: 'json',
                 success: function (result) {
@@ -330,7 +343,7 @@
             $(this).addClass('active').siblings().removeClass('active');
             $.ajax({
                 type: 'GET',
-                url: '@Url.Action("GetDersBilgileri","Home")',
+                url: '@Url.Action("GetDersBilgileri", "Home")',
                 data: { dersId: this.id },
                 dataType: 'json',
                 success: function (result) {
@@ -364,15 +377,27 @@
         $("#timeShow .values").html(timer.getTimeValues().toString());
     });
 
-    //Kaydet    
-    $("#kaydet").click(function () {
-        timer.pause();
+    //Kaydet
+    $("#kaydet").click(function () {        
         $.ajax({
             type: 'POST',
-            url: '@Url.Action("calismaKaydet","Home")',
+            url: '@Url.Action("calismaKaydet", "Home")',
             data: { calisilanZaman: timer.getTimeValues().toString(), uyedetayId:@Model.userDetail.uyedetay_id, sinavAdi: calisilanSinavAd, dersAdi: calisilanDersAd },
-            success: function () {
-                location.reload();
+            dataType: 'json',
+            success: function (result) {
+                if (result.success == true) {
+                    timer.pause();                    
+                    AlertErrors('Çalışma Kaydet', result.value, "success");
+                    setTimeout(location.reload.bind(location), 2000);                    
+                }
+                else if (result.success == 0) {
+                    AlertErrors('Çalışma Kaydet', result.value, "message");
+                }
+                else {
+                    timer.pause();                    
+                    AlertErrors('Çalışma Kaydet', result.value, "exception");
+                    setTimeout(location.reload.bind(location), 2000);                    
+                }
             }
         });
     });
