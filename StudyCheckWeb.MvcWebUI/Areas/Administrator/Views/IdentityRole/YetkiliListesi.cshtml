@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Yetkili Listesi";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+    int index = 0;
 }
 
 <section class="content-header">
@@ -25,28 +26,61 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Tüm Yetkililer</h3>
+                    <h3 class="card-title">Yetki İzinleri</h3>
+                    <br />
+                    <label style="color:#43a31b">Admin:</label> Sadece bu yetkiye sahip kullanıcılar panele girebilir.<br />
+                    <label style="color:#1378c1">User:</label> Sadece bu yetkiye sahip kullanıcılar çalışma paneline girebilir.
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="kullaniciTable" class="table table-bordered table-striped">
                         <thead>
-                            <tr>                                
+                            <tr>
                                 <th>Kullanıcı Adı</th>
-                                <th>Kullanıcı Rolü (in Web)</th>                                
+                                <th>Kullanıcı Rolü (in Web)</th>
+                                <th style="text-align:center">Düzenle</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model.UsersAndRoles)
-                            {
-                                <tr>                                    
+                            {                                
+                                <tr>
                                     <td>@item.userName</td>
-                                    <td>@item.roleName</td> 
+                                    <td id="rolCol">
+                                        <b>
+                                            <select id="@index" disabled name="webRol" class="form-control select2 select2-success roles" data-dropdown-css-class="select2-success" style="width: 100%;">
+                                                @foreach (var rol in Model.IdentityRoles)
+                                                {
+                                                    if (item.roleName == rol.Name)
+                                                    {
+                                                        <option selected value="@rol.Id">@rol.Name</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@rol.Id">@rol.Name</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </b>
+                                    </td>
+                                    <td class="editButtons" style="text-align:center"><button type="reset" value="@index" class="btn btn-warning">Düzenle</button></td>
                                 </tr>
+                                index++;
                             }
                         </tbody>
                     </table>
-                </div>                
+                </div>
+                <div class="card-footer">
+                    <div id="buttonList" class="btn-group">
+                        <button id="kaydet" onclick="doClick();" type="button" class="btn btn-success disable">Kaydet</button>
+                        <button id="iptalContainer" type="button" class="btn btn-success dropdown-toggle dropdown-hover dropdown-icon disable" data-toggle="dropdown">
+                            <span class="sr-only">Toggle Dropdown</span>
+                            <div class="dropdown-menu" role="menu">
+                                <a class="dropdown-item" href="#" onclick="doClick(); return false;">İptal</a>
+                            </div>
+                        </button>
+                    </div>
+                </div>
                 <!-- /.card-body -->
             </div>
             <!-- /.card-body -->
@@ -82,5 +116,45 @@
             });
         });
     </script>
+
+    <!-- Select2 -->
+    <script src="~/plugins/select2/js/select2.full.min.js"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            });
+        })
+    </script>
+    <script>
+        var btn = document.getElementById("kaydet");
+        var btnSide = document.getElementById("iptalContainer");
+        $(document).ready(function () {                       
+            $('.roles').on('change', function () {
+                $(btn).removeClass("disable");
+                $(btnSide).removeClass("disable");
+            });
+        });
+        function doClick() {
+            $(btn).addClass("disable");
+            $(btnSide).addClass("disable");
+            $(".roles").attr("disabled", "disabled");
+            $(".editButtons button").show();
+        }
+    </script>
+
+    <script>
+        $('button:reset').click(function () {            
+            var select = document.getElementById($(this).val());
+            $(select).removeAttr("disabled");
+            $("#iptalContainer").removeClass("disable");
+            $(".editButtons button").hide();
+        })        
+    </script>
+
 }
 

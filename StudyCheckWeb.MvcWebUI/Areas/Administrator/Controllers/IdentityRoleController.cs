@@ -21,16 +21,18 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         UserManager<User> _userManager;        
         IdentityListModel _listModel;
         UserAndRoles _kayitliKullanici;
+        RoleManager<IdentityRole> _roleManager;
 
-        public IdentityRoleController(UserManager<User> userManager)
+        public IdentityRoleController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public IActionResult Index()
         {
             return View();
-        }
+        }        
 
         public async Task<IActionResult> YetkiliListesi()
         {
@@ -52,6 +54,7 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                     _listModel.UsersAndRoles.Add(_kayitliKullanici);
                 }                
             }
+            _listModel.IdentityRoles = _roleManager.Roles.ToList();
             return View(_listModel);
         }
     }
