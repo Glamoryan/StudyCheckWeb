@@ -20,14 +20,16 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
     {
         IUyedetayService _uyedetayService;
         ISinavService _sinavService;
+        IDersService _dersService;
         EntityListModel _entityListModel;
         UserManager<User> _userManager;
 
-        public SinavController(IUyedetayService uyedetayService, ISinavService sinavService, UserManager<User> userManager)
+        public SinavController(IUyedetayService uyedetayService, ISinavService sinavService, UserManager<User> userManager, IDersService dersService)
         {
             _uyedetayService = uyedetayService;
             _sinavService = sinavService;
             _userManager = userManager;
+            _dersService = dersService;
         }
 
         public IActionResult Index()
@@ -49,7 +51,15 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             {
                 if (sinavAd == null || sinavTarihi == null)
                     throw new RequiredFieldsException("Sınav bilgileri boş bırakılamaz");
+
                 var sinav = _sinavService.GetAll().Where(s => s.sinav_ad == sinavAd).ToList();
+                if(durum == 0)
+                {
+                    var sinavDers = _dersService.GetListBySinavId(sinavId);
+                    if (sinavDers.Count > 0)
+                        throw new Exception("Bu sınavı kullanan dersler var");
+                }
+
                 if (sinav.Count > 1)
                     throw new Exception("Bu sınav zaten kayıtlı");
                 else
