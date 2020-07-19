@@ -21,14 +21,16 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
     {
         IYetkiService _yetkiService;
         IUyedetayService _uyedetayService;
+        IRolService _rolService;
         EntityListModel _entityListModel;
         UserManager<User> _userManager;
 
-        public YetkiController(IYetkiService yetkiService, IUyedetayService uyedetayService, UserManager<User> userManager)
+        public YetkiController(IYetkiService yetkiService, IUyedetayService uyedetayService, UserManager<User> userManager, IRolService rolService)
         {
             _yetkiService = yetkiService;
             _uyedetayService = uyedetayService;
             _userManager = userManager;
+            _rolService = rolService;
         }
 
         public IActionResult Index()
@@ -52,6 +54,12 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
                     throw new RequiredFieldsException("Yetki adı boş geçilemez!");
 
                 var yetki = _yetkiService.GetAll().Where(y => y.yetki_adi == yetkiAd).ToList();
+                if (durum == 0)
+                {
+                    var yetkiRol = _rolService.GetListByYetkiId(yetkiId);
+                    if (yetkiRol.Count > 0)
+                        throw new Exception("Bu yetkiyi kullanan roller var");
+                }                
                 if (yetki.Count > 1)
                     throw new Exception("Bu yetki adı zaten kayıtlı");
                 else
