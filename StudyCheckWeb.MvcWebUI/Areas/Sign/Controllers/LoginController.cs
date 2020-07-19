@@ -60,13 +60,21 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                     var loginResult = await _signInManager.PasswordSignInAsync(kullaniciAdi, sifre, false, false);
                     if (loginResult.Succeeded)//bilgiler dogrumu
                     {
-                        if(await _userManager.IsInRoleAsync(loggedUser, "Admin"))//Admin paneli
+                        int userStatus = _uyedetayService.GetAll().Where(k => k.kullanici_adi == kullaniciAdi && k.kullanici_sifre == sifre).Single().sil_id;
+                        if(userStatus == 1)
                         {
-                            return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId = loggedUser.uyeDetayId });
-                        }
-                        else //Kullanıcı Sayfası
+                            if (await _userManager.IsInRoleAsync(loggedUser, "Admin"))//Admin paneli
+                            {
+                                return RedirectToAction("Index", "dashboard", new { area = "administrator", kullaniciId = loggedUser.uyeDetayId });
+                            }
+                            else //Kullanıcı Sayfası
+                            {
+                                return RedirectToAction("Index", "Home", new { area = "Study" });
+                            }
+                        }     
+                        else if (userStatus == 0)
                         {
-                            return RedirectToAction("Index", "Home", new { area = "Study" });
+                            throw new Exception("Hesabınız pasif durumda. Admin ile iletişime geçin!");
                         }
                     }                        
                     else
