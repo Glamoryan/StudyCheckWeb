@@ -63,7 +63,7 @@
                                             </select>
                                         </b>
                                     </td>
-                                    <td class="editButtons" style="text-align:center"><button type="reset" value="@index" class="btn btn-warning">Düzenle</button></td>
+                                    <td class="editButtons" style="text-align:center"><button type="reset" value="@index" class="btn btn-warning"><i style="color:#F5F5F5" class="fas fa-edit"></i></button></td>
                                 </tr>
                                 index++;
                             }
@@ -72,11 +72,11 @@
                 </div>
                 <div class="card-footer">
                     <div id="buttonList" class="btn-group">
-                        <button id="kaydet" onclick="doClick();" type="button" class="btn btn-success disable">Kaydet</button>
+                        <button id="kaydet" onclick="doClick(1);" type="button" class="btn btn-success disable">Kaydet</button>
                         <button id="iptalContainer" type="button" class="btn btn-success dropdown-toggle dropdown-hover dropdown-icon disable" data-toggle="dropdown">
                             <span class="sr-only">Toggle Dropdown</span>
                             <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" href="#" onclick="doClick(); return false;">İptal</a>
+                                <a class="dropdown-item" href="#" onclick="doClick(0);">İptal</a>
                             </div>
                         </button>
                     </div>
@@ -133,28 +133,31 @@
     <script>
         var btn = document.getElementById("kaydet");
         var btnSide = document.getElementById("iptalContainer");
+        var oldValue = null;
+        var select = null;        
         $(document).ready(function () {                       
             $('.roles').on('change', function () {
                 $(btn).removeClass("disable");
                 $(btnSide).removeClass("disable");
             });
         });
-        function doClick() {
+        function doClick(status) {
+            if (status == 0) {
+                $(select).val(oldValue).change();
+            }
             $(btn).addClass("disable");
             $(btnSide).addClass("disable");
             $(".roles").attr("disabled", "disabled");
             $(".editButtons button").show();
         }
-    </script>
-
-    <script>
-        $('button:reset').click(function () {            
-            var select = document.getElementById($(this).val());
+        $('button:reset').click(function () {
+            select = document.getElementById($(this).val());            
+            oldValue = $(select).children("option:selected").val();
             $(select).removeAttr("disabled");
             $("#iptalContainer").removeClass("disable");
             $(".editButtons button").hide();
-        })        
-    </script>
+        })      
+    </script>   
 
 }
 

@@ -39,9 +39,18 @@
                 <li class="nav-item">
                     <a asp-area="sign" asp-controller="login" asp-action="CikisYap" class="nav-link page-scroll">Çıkış YAP</a>
                 </li>
-                <li class="nav-item">
-                    <a asp-area="study" asp-controller="Home" asp-action="Index" class="nav-link page-scroll">Çalışma Yap</a>
-                </li>
+                if (currentUser.IsInRole("Admin"))
+                {
+                    <li class="nav-item">
+                        <a asp-area="administrator" asp-controller="dashboard" asp-action="Index" class="nav-link page-scroll">Admin Panel</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a asp-area="study" asp-controller="Home" asp-action="Index" class="nav-link page-scroll">Çalışma Yap</a>
+                    </li>
+                }
             }
             else
             {
