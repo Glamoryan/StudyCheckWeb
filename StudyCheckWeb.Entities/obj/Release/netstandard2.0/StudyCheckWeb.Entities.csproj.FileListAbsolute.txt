@@ -1,0 +1,12 @@
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\bin\Release\netstandard2.0\StudyCheckWeb.Entities.deps.json
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\bin\Release\netstandard2.0\StudyCheckWeb.Entities.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\bin\Release\netstandard2.0\StudyCheckWeb.Entities.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\bin\Release\netstandard2.0\StudyCheckWeb.Core.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\bin\Release\netstandard2.0\StudyCheckWeb.Core.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Release\netstandard2.0\StudyCheckWeb.Entities.csprojAssemblyReference.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Release\netstandard2.0\StudyCheckWeb.Entities.csproj.CoreCompileInputs.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Release\netstandard2.0\StudyCheckWeb.Entities.AssemblyInfoInputs.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Release\netstandard2.0\StudyCheckWeb.Entities.AssemblyInfo.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Release\netstandard2.0\StudyCheckWeb.Entities.csproj.CopyComplete
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Release\netstandard2.0\StudyCheckWeb.Entities.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Entities\obj\Release\netstandard2.0\StudyCheckWeb.Entities.pdb

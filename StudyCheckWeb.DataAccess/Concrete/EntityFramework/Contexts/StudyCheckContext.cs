@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace StudyCheckWeb.DataAccess.Concrete.EntityFramework.Contexts
 {
     public class StudyCheckContext:DbContext
@@ -38,7 +39,7 @@ namespace StudyCheckWeb.DataAccess.Concrete.EntityFramework.Contexts
             //modelBuilder.Entity<Rol>().Property(typeof(DateTime), "datetime2");
             //modelBuilder.Entity<Sinav>().Property(typeof(DateTime), "datetime2");
             //modelBuilder.Entity<Uyedetay>().Property(typeof(DateTime), "datetime2");
-            //modelBuilder.Entity<Yetki>().Property(typeof(DateTime), "datetime2");
+            //modelBuilder.Entity<Yetki>().Property(typeof(DateTime), "datetime2");                 
         }
     }
 }

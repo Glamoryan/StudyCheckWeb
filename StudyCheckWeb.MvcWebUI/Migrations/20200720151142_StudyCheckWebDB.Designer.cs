@@ -10,8 +10,8 @@ using StudyCheckWeb.MvcWebUI.Authentication;
 namespace StudyCheckWeb.MvcWebUI.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20200510135443_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200720151142_StudyCheckWebDB")]
+    partial class StudyCheckWebDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

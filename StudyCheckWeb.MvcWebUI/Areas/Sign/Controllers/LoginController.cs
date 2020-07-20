@@ -111,7 +111,18 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Sign.Controllers
                         {                            
                             var newLoginResult = await _signInManager.PasswordSignInAsync(createUser, createUser.kullaniciSifre, false, false);
                             if (newLoginResult.Succeeded)
+                            {
                                 ViewBag.Warning = "Hesabınız senkronize edildi fakat giriş yapabilmek için onaylanmasını bekleyin(Code:06)";
+                                if(createUser.kullaniciAdi.ToLower() == "admin")
+                                {
+                                    var setupUser = await _userManager.FindByNameAsync(createUser.kullaniciAdi);
+                                    var rolResult = await _userManager.AddToRoleAsync(setupUser, "Admin");
+                                    if(rolResult.Succeeded)
+                                    {
+                                        ViewBag.Warning = "Admin hesap aktifleştirme başarılı";
+                                    }
+                                }
+                            }                                
                             else
                             {
                                 ViewBag.Exceptions = newLoginResult;

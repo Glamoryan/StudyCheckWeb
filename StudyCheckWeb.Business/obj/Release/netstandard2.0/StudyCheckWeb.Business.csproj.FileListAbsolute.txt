@@ -1,0 +1,16 @@
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.Business.deps.json
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.Business.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.Business.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.Core.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.DataAccess.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.Entities.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.DataAccess.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.Entities.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\bin\Release\netstandard2.0\StudyCheckWeb.Core.pdb
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Release\netstandard2.0\StudyCheckWeb.Business.csprojAssemblyReference.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Release\netstandard2.0\StudyCheckWeb.Business.csproj.CoreCompileInputs.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Release\netstandard2.0\StudyCheckWeb.Business.AssemblyInfoInputs.cache
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Release\netstandard2.0\StudyCheckWeb.Business.AssemblyInfo.cs
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Release\netstandard2.0\StudyCheckWeb.Business.csproj.CopyComplete
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Release\netstandard2.0\StudyCheckWeb.Business.dll
+C:\Users\Xsabr\source\repos\StudyCheckWeb\StudyCheckWeb.Business\obj\Release\netstandard2.0\StudyCheckWeb.Business.pdb

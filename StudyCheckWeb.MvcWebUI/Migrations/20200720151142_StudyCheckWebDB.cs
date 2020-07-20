@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace StudyCheckWeb.MvcWebUI.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class StudyCheckWebDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

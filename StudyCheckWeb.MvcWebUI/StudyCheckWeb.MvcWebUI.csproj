@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200720154225_AddAdmin.cs" />
+    <Compile Remove="Migrations\20200720154225_AddAdmin.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Areas\Sign\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
