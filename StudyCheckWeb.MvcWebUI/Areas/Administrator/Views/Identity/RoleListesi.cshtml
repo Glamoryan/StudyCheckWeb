@@ -4,6 +4,19 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
+@section AlertScripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+    <!-- Utilities -->
+    <script src="~/scripts/adminPanel/Utilities.js"></script>
+}
+
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -34,27 +47,27 @@
                                 <th class="text-center">Id</th>
                                 <th>Role Name</th>
                                 <th>NormalizedName</th>
-                                <th>ConcurrencyStamp</th>                                
+                                <th>ConcurrencyStamp</th>
                                 <th class="text-center">İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var role in Model.IdentityRoles)
                             {
-                            <tr>
-                                <td>@role.Id</td>
-                                <td>@role.Name</td>
-                                <td>@role.NormalizedName</td>
-                                <td>@role.ConcurrencyStamp</td>
-                                @if (role.Name == "Admin" || role.Name == "User")
-                                {
-                                    <td class="text-center" style="background:#ffd800">Ana Roller Değiştirilemez</td>
-                                }
-                                else
-                                {
-                                    <td class="text-center" style="color:#ff5311;"><i class="fas fa-cog"></i></td>
-                                }
-                            </tr>
+                                <tr>
+                                    <td>@role.Id</td>
+                                    <td>@role.Name</td>
+                                    <td>@role.NormalizedName</td>
+                                    <td>@role.ConcurrencyStamp</td>
+                                    @if (role.Name == "Admin" || role.Name == "User")
+                                    {
+                                        <td class="text-center" style="background:#ffd800">Ana Roller Değiştirilemez</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-center" style="color:#ff5311;"><i id="deleteBtn" data-rol-name="@role.Name" class="fas fa-trash-alt"></i></td>
+                                    }
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -91,6 +104,41 @@
                 "responsive": true,
                 "autoWidth": false,
                 "paging": true,
+            });
+        });
+    </script>
+
+    <script>
+        $("#deleteBtn").on("click", function () {
+            var roleName = $(this).data("rol-name");
+            $.confirm({
+                title: 'Bu rolü silmek istediğinize emin misiniz?',
+                content: 'Rol kalıcı olarak silinecektir.',
+                type: 'red',
+                typeAnimated: true,
+                buttons: {
+                    sil: {
+                        text: 'Sil',
+                        btnClass: 'btn-red',
+                        action: function () {
+                            $.ajax({
+                                type: 'DELETE',
+                                url: '@Url.Action("RolSil","Identity")',
+                                data: { rolName: roleName },
+                                dataType: 'json',
+                                success: function (result) {
+                                    if (result.success == true) {
+                                        AlertErrors("Silme", result.value, "success");
+                                        setTimeout(location.reload.bind(location), 2000);
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    kapat: function () {
+                        text: 'iptal'
+                    }
+                }
             });
         });
     </script>

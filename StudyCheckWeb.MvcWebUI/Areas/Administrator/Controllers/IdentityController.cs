@@ -27,6 +27,26 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
             return View();
         }
 
+        [HttpDelete]
+        public async Task<JsonResult> RolSil(string rolName)
+        {
+            try
+            {
+                var rol = await _roleManager.FindByNameAsync(rolName);
+                if(rol != null)
+                {
+                    await _roleManager.DeleteAsync(rol);
+                }
+                else
+                    throw new Exception("Rol bulunamadı");
+                return Json(new { success = true, value = "Rol başarıyla silindi" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, value = ex.Message });
+            }
+        }
+
         public IActionResult RoleListesi()
         {
             _identityListModel = new IdentityListModel

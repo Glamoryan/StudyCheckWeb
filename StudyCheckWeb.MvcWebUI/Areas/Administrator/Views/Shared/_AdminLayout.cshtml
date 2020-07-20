@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="~/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+    <!-- JQuery-Confirm -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
     <!-- Benim Css style -->
     <link rel="stylesheet" href="~/dist/css/StudyCheck.css">
     <!-- overlayScrollbars -->
@@ -39,7 +41,7 @@
     <link rel="shortcut icon" href="~/dist/img/icons8_school.ico" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">        
+    <div class="wrapper">
 
         @Html.Partial("_Header")
 
@@ -65,6 +67,8 @@
     <script src="~/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- JQuery-Confirm -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -90,7 +94,7 @@
     <!-- overlayScrollbars -->
     <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- Kullanıcı işlemleri için scriptler -->
-    @RenderSection("Scripts", false)    
+    @RenderSection("Scripts", false)
     <!-- AdminLTE App -->
     <script src="~/dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
