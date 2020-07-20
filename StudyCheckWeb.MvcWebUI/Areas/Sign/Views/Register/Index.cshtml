@@ -73,12 +73,7 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                            <label for="agreeTerms">
-                                <a href="#">Koşulları</a> kabul ediyorum
-                            </label>
-                        </div>
+                        <a asp-area="Sign" asp-controller="login" asp-action="Index" class="text-center">Zaten bir hesabım var</a>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
@@ -86,9 +81,7 @@
                     </div>
                     <!-- /.col -->
                 </div>
-            </form>
-            <br />
-            <a asp-area="Sign" asp-controller="login" asp-action="Index" class="text-center">Zaten bir hesabım var</a>
+            </form>                     
             <hr />
             <button style="background:#1c2349;width:100%;border-color:#1c2349;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">Yardım</button>
         </div>

@@ -42,12 +42,9 @@
                 </div>
                 <div class="row">
                     <div class="col-8">
-                        <div class="icheck-primary">
-                            <input type="checkbox" id="remember">
-                            <label for="remember">
-                                Beni Hatırla
-                            </label>
-                        </div>
+                        <p class="mb-0">
+                            <a asp-area="Sign" asp-controller="register" asp-action="Index" class="text-center">Kayıt Ol</a>
+                        </p>
                     </div>
                     <!-- /.col -->
                     <div class="col-4">
@@ -55,13 +52,7 @@
                     </div>
                     <!-- /.col -->
                 </div>
-            </form>
-            <p class="mb-1">
-                <a href="#">Şifremi unuttum</a>
-            </p>
-            <p class="mb-0">
-                <a asp-area="Sign" asp-controller="register" asp-action="Index" class="text-center">Kayıt Ol</a>
-            </p>
+            </form>                        
             <hr />
             <button style="background:#1c2349;width:100%;border-color:#1c2349;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-xl">Yardım</button>
         </div>
