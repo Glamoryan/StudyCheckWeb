@@ -5,6 +5,19 @@
     int index = 0;
 }
 
+@section AlertScripts{
+    <!-- JQuery -->
+    <script src="~/scripts/jquery/jquery.min.js"></script>
+    <!-- Sweet Alert 2 -->
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <!-- Alerts -->
+    <script src="~/scripts/loginSignOut/validationAlerts.js"></script>
+    <!-- Utilities -->
+    <script src="~/scripts/adminPanel/Utilities.js"></script>
+}
+
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -43,9 +56,9 @@
                         </thead>
                         <tbody>
                             @foreach (var item in Model.UsersAndRoles)
-                            {                                
+                            {
                                 <tr>
-                                    <td>@item.userName</td>
+                                    <td data-user="@index">@item.userName</td>
                                     <td id="rolCol">
                                         <b>
                                             <select id="@index" disabled name="webRol" class="form-control select2 select2-success roles" data-dropdown-css-class="select2-success" style="width: 100%;">
@@ -134,16 +147,34 @@
         var btn = document.getElementById("kaydet");
         var btnSide = document.getElementById("iptalContainer");
         var oldValue = null;
-        var select = null;        
-        $(document).ready(function () {                       
-            $('.roles').on('change', function () {
+        var select = null;
+        var selectedValue = null;
+        var usernameValue = null;
+        $('.roles').on('change', function () {
                 $(btn).removeClass("disable");
                 $(btnSide).removeClass("disable");
+            selectedValue = $(this).val();            
             });
-        });
-        function doClick(status) {
+            function doClick(status) {
             if (status == 0) {
                 $(select).val(oldValue).change();
+            }
+            else if (status == 1) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("updateYetki","IdentityRole")',
+                    data: { IdentityRolId: selectedValue, userName: usernameValue },
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result.success == true) {
+                            AlertErrors("Güncelleme", result.value, "success");
+                            setTimeout(location.reload.bind(location), 2000);
+                        }
+                        else {
+                            AlertErrors("Güncelleme", result.value, "warning");
+                        }
+                    }
+                });
             }
             $(btn).addClass("disable");
             $(btnSide).addClass("disable");
@@ -151,13 +182,14 @@
             $(".editButtons button").show();
         }
         $('button:reset').click(function () {
-            select = document.getElementById($(this).val());            
+            select = document.getElementById($(this).val());
             oldValue = $(select).children("option:selected").val();
+            usernameValue = $("*[data-user=" + $(this).val() + "]")[0].textContent;
             $(select).removeAttr("disabled");
             $("#iptalContainer").removeClass("disable");
             $(".editButtons button").hide();
-        })      
-    </script>   
+        })
+    </script>
 
 }
 

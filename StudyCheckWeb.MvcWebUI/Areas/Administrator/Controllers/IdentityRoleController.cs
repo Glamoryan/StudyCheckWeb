@@ -32,7 +32,42 @@ namespace StudyCheckWeb.MvcWebUI.Areas.Administrator.Controllers
         public IActionResult Index()
         {
             return View();
-        }        
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> updateYetki(string IdentityRolId, string userName)
+        {
+            try
+            {
+                var kullanici = await _userManager.FindByNameAsync(userName);
+                if(kullanici != null)
+                {
+                    var rol = await _roleManager.FindByIdAsync(IdentityRolId);
+                    var kullaniciRolleri = await _userManager.GetRolesAsync(kullanici);
+                    foreach (var role in kullaniciRolleri)
+                    {
+                        await _userManager.RemoveFromRoleAsync(kullanici, role);
+                    }
+                    if(rol != null)
+                    {                        
+                        await _userManager.AddToRoleAsync(kullanici, rol.Name);
+                    }
+                    else
+                    {
+                        throw new Exception("Rol bulunamadı");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Kullanıcı bulunamadı");
+                }
+                return Json(new {success=true,value="Kullanıcı başarıyla güncellendi" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new {success=false,value=ex.Message });
+            }
+        }
 
         public async Task<IActionResult> YetkiliListesi()
         {
