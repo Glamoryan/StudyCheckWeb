@@ -54,8 +54,8 @@ namespace StudyCheckWeb.MvcWebUI
 
             services.AddDbContext<UserContext>(cfg =>
             {
-                cfg.UseSqlServer(Configuration.GetConnectionString("AppData"));
-            });
+                cfg.UseSqlServer(Configuration.GetConnectionString("AppData"));                
+            },ServiceLifetime.Transient);
 
             services.AddIdentity<User, IdentityRole>(opt=> {
                 opt.User.RequireUniqueEmail = true;                
