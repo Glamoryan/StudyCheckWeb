@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAoc0WvNfl+0iFtS8BhVfXgAAAAAACAAAAAAAQZgAAAAEAACAAAAD/TjvDkRm9lbJvoR3XNr9uMgmvyZm9jaHceuC9Est4KgAAAAAOgAAAAAIAACAAAACKtO9YFmah3BRU1nrC9/aDOMdlnCuF93XLHCoNGPSQnYAAAAA3NJA5pxrvju4WB+aHxJvasatfo7mb1+XPwTi3+sT+sTgh4LBjJ+uXby0ltEgC0BwlC49axKGOuKbChGKCDSTDFttIkSQLJEWiH04fKtn0+HFIAw0/yTqfVv5Q2PkUzr5AEZ7gNgjf4rTpTD4yM9v9Ig1FMVV6rcdETgq2GDfi3EAAAACi0LB090+sZv3gq2mcUK8JDZlSPpaDDtxaI/db+vT7Ca2xKNpfNISec9+syqnH5oNk3VHSsCkOvkThAjF/Nna0</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="AppData">
+      <Value>Server=tcp:studycheck.database.windows.net,1433%3bDatabase=DBIdentityUser%3bUser ID=dbidentityDemo%3bPassword=Identity01Demo23%3bTrusted_Connection=False%3bEncrypt=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
