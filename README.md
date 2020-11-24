@@ -11,7 +11,7 @@ StudyCheck bir çalışma ve analiz programıdır.
   - Admin panel ile kullanıcı ve içerik yönetimi
 
 ### Giriş
-https://studycheckweb.azurewebsites.net/
+
 
 Lisans
 ----
