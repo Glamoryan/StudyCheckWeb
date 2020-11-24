@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Configuration;
 using StudyCheckWeb.DataAccess.Concrete.EntityFramework.Mappings;
 using StudyCheckWeb.Entities.Concrete;
 using System;
@@ -11,10 +12,12 @@ namespace StudyCheckWeb.DataAccess.Concrete.EntityFramework.Contexts
 {
     public class StudyCheckContext:DbContext
     {
+        public IConfiguration myconfig = MyConfiguration.configuration;
+       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;initial catalog=StudyCheck;integrated security=true");
-            optionsBuilder.UseSqlServer(@"Server=tcp:studycheck.database.windows.net,1433;Database=StudyCheck;User ID=demo;Password=UsrLogacc01;Trusted_Connection=False;Encrypt=True;");
+            optionsBuilder.UseSqlServer(myconfig.GetConnectionString("DesktopDb"));
+            // Azure Connection String -> "Server=tcp:studycheck.database.windows.net,1433;Database=StudyCheck;User ID=demo;Password=UsrLogacc01;Trusted_Connection=False;Encrypt=True;"
         }
 
         public DbSet<Uye> Uyeler { get; set; }

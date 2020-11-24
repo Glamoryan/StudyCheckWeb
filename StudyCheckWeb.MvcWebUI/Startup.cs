@@ -15,6 +15,7 @@ using StudyCheckWeb.Business.Abstract;
 using StudyCheckWeb.Business.Concrete;
 using StudyCheckWeb.DataAccess.Abstract;
 using StudyCheckWeb.DataAccess.Concrete.EntityFramework;
+using StudyCheckWeb.DataAccess.Concrete.EntityFramework.Contexts;
 using StudyCheckWeb.MvcWebUI.Authentication;
 
 namespace StudyCheckWeb.MvcWebUI
@@ -25,6 +26,7 @@ namespace StudyCheckWeb.MvcWebUI
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            MyConfiguration.configuration = configuration;
         }
 
         public IConfiguration Configuration { get; set; }
@@ -47,14 +49,14 @@ namespace StudyCheckWeb.MvcWebUI
             services.AddSingleton<IYetkiService, YetkiManager>();
             services.AddSingleton<IYetkiDal, EfYetkiDal>();
             services.AddSingleton<ICalismaService, CalismaManager>();
-            services.AddSingleton<ICalismaDal, EfCalismaDal>();
+            services.AddSingleton<ICalismaDal, EfCalismaDal>();            
 
             services.AddSession();
             services.AddControllersWithViews();                
 
             services.AddDbContext<UserContext>(cfg =>
             {
-                cfg.UseSqlServer(Configuration.GetConnectionString("AppData"));                
+                cfg.UseSqlServer(Configuration.GetConnectionString("WebDb"));                
             },ServiceLifetime.Transient);
 
             services.AddIdentity<User, IdentityRole>(opt=> {
